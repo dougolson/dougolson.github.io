@@ -58,7 +58,7 @@ display: line;
     width: 100%;
     text-align: center;
     padding-top: 25px;
-    line-height: 3em;
+    line-height: 2.5em;
     z-index: 25;
     h1{
         color: $theme-color;
@@ -66,7 +66,10 @@ display: line;
         /*font-weight: bold;*/
     }
     h2{
-        font-size:15px;
+        font-size:18px;
+    }
+    h3{
+        font-size:14px;
     }
 }
 
