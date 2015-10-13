@@ -1,0 +1,1 @@
+A website documenting my various activities, based on Lia Bogoev's Folio theme

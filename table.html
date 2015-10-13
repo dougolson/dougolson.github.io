@@ -1,0 +1,14 @@
+---
+layout: page
+title: projects
+permalink: /projects/
+---
+
+<table>
+{% tablerow project in site.portfolio cols:3 %}
+  <a href="{{ project.url }}">{{ project.title }}</a>
+{% endtablerow %}
+</table>
+
+
+

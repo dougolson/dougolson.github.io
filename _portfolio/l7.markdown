@@ -1,0 +1,6 @@
+---
+layout: post
+title: L7 
+description: Bricks Are Heavy
+img: /img/l7.jpg
+---
