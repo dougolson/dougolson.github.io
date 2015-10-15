@@ -67,6 +67,20 @@
     }
 }
 
+ul li {
+    width:95%;
+    font-size:95%;
+    line-height:1.3em;
+    list-style-position: outside;
+}
+td {
+    padding:2px;
+}
+
+ul, ol {
+    margin-left:25px;
+    margin-bottom:20px;
+}
 /* ________________________________________________________ */
 .rtl {
     direction: rtl;
@@ -84,6 +98,9 @@
     margin: 0 0 0 0;
     overflow: hidden;
     box-shadow: 0 0 6px #ccc;
+    @include media-query($on-laptop) {
+    font-size: 80%;
+            }
 }
 
 #title {

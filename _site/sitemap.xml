@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.mrcolson.com/2015/10/13/title.html</loc>
+    <loc>http://www.mrcolson.com/2015/10/13/First-Post.html</loc>
     <lastmod>2015-10-13T18:07:16-05:00</lastmod>
   </url>
   <url>
+    <loc>http://www.mrcolson.com/2015/10/13/Going-to-See-the-Dwarves-with-Paw.html</loc>
+    <lastmod>2015-10-13T17:07:16-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://www.mrcolson.com/404.html</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/README.html</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/about/</loc>
@@ -23,10 +30,196 @@
     <loc>http://www.mrcolson.com/resume/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/barkingtribe/</loc>
+    <loc>http://www.mrcolson.com/discography/01paw/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/bastro/</loc>
+    <loc>http://www.mrcolson.com/discography/02waltmink1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/03remyzero/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/04valleylodge2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/05skunkanansie/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/06smashingpumpkins/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/07l7/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/08dwarves/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/09cult/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/09watchmen1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/10majestycrush1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/10petercase/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/10reverb2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/10tarbabies2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/11paristexas2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/12lordsofthetrident2015/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/12staind/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/12urge1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/12voodooglowskulls/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/13springheeledjack/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/13sprinkler/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/14tarbabies/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/15killdozer/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/15waltmink2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/16tad1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/17tad2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/17vanillatrainwreck1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/18paristexas1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/19fluorescien/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/20youngfreshfellows/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/21freshfabrik1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/21raf/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/22overwhelmingcolorfast/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/22watchmen2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/23fluid/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/23polara/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/24weepingtile/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/25tarbabies1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/26reverb/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/27kicks/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/27seymores/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/27valleylodge1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/28uptownsinclair/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/29puller1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/30reverb3/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/31ivorylibrary/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/31thirteenengines/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/31urgeoverkill/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/32tumbleweed1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/40mysistersmachine1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/40urge2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/41bastro/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/42puller2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/50edhall/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/51stick/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/52reverb5/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/53reptilepalaceorchestra1/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/55vanillatrainwreck2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/56watchmen3/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/57tumbleweed2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/58reverb4/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/59majestycrush2/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/60lordsofthetrident2013/</loc>
+  </url>
+  <url>
+    <loc>http://www.mrcolson.com/discography/barkingtribe/</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/discography/blackmarketflowers/</loc>
@@ -41,9 +234,6 @@
     <loc>http://www.mrcolson.com/discography/cosmicpsychos/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/cult/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/dashboardprophets/</loc>
   </url>
   <url>
@@ -53,25 +243,10 @@
     <loc>http://www.mrcolson.com/discography/dopamine/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/dwarves/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/echocast/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/edhall/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/embodyment/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/fluid/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/fluorescien/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/freshfabrik1/</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/discography/freshfabrik2/</loc>
@@ -83,195 +258,27 @@
     <loc>http://www.mrcolson.com/discography/gomers/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/ivorylibrary/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/jonahstone/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/kicks/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/killdozer/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/l7/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/lordsofthetrident2013/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/lordsofthetrident2015/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/majestycrush1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/majestycrush2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/mysistersmachine1/</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/discography/mysistersmachine2/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/overwhelmingcolorfast/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/paristexas1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/paristexas2/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/pattheblowfish/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/paw/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/petercase/</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/discography/philmore/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/polara/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/puller1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/puller2/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/puller3/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/raf/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/remyzero/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/reptilepalaceorchestra1/</loc>
   </url>
   <url>
     <loc>http://www.mrcolson.com/discography/reptilepalaceorchestra2/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/reverb/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/reverb2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/reverb3/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/reverb4/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/reverb5/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/seymores/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/skunkanansie/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/smashingpumpkins/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/sonsofelvis/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/spreadeagle/</loc>
   </url>
   <url>
-    <loc>http://www.mrcolson.com/discography/springheeledjack/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/sprinkler/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/staind/</loc>
-  </url>
-  <url>
     <loc>http://www.mrcolson.com/discography/stavesacre/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/stick/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tad1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tad2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tarbabies1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tarbabies2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/thirteenengines/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tumbleweed1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/tumbleweed2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/uptownsinclair/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/urge1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/urge2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/urgeoverkill/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/valleylodge1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/valleylodge2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/vanillatrainwreck1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/vanillatrainwreck2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/voodooglowskulls/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/waltmink1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/waltmink2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/watchmen1/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/watchmen2/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/watchmen3/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/weepingtile/</loc>
-  </url>
-  <url>
-    <loc>http://www.mrcolson.com/discography/youngfreshfellows/</loc>
   </url>
 </urlset>

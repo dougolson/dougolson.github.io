@@ -4,7 +4,7 @@ title: artists
 permalink: /artists/
 ---
 
-<table>
+<table class="table">
 {% tablerow project in site.portfolio cols:3 %}
   <a href="{{ project.url }}">{{ project.title }}</a>
 {% endtablerow %}

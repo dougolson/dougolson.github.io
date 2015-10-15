@@ -2,7 +2,6 @@
 layout: default
 title: resume
 permalink: /resume/
-
 ---
 
 
@@ -35,20 +34,20 @@ permalink: /resume/
                             <span class="job_title">Program Chair, Recording and Music Technology</span>
                             <span class="info">As program chair, I oversee the operation of the Recording and Music Technology program at
                                                 the Madison Media Institute. My responsibilities include:                                            <div><p></p>
-                                                <table style="width:100%"><ul>
+                                                <ul><table>
                                                 <tr>
                                                 <td><li>Instructor hiring, evaluation, development and scheduling</li></td>
                                                 <td><li>Compliance with accreditation standards</li></td></tr>
                                                 <tr>
                                                 <td><li>Curriculum development and maintenance</li></td>                                                <td><li>Student retention and academic oversight</li></td></tr>
                                                 <tr>
-                                                <td><li>Equipment purchases and upgrades</li>
+                                                <td><li>Equipment purchases and upgrades</li></td>
                                                 <td><li>Running the Program Advisory Committee</li></td></tr>
                                                 <tr>
-                                                <td><li>Running weekly department meetings</li>
+                                                <td><li>Running weekly department meetings</li></td>
                                                 <td><li>Special Events</li></td></tr>
-                                                </ul>
-                                                </table>
+                                                
+                                                </table></ul>
                                             </div>
                              </span>
                         <span class="clear"> </span>
@@ -108,10 +107,10 @@ permalink: /resume/
                                     </strong> Avid Technology</li>
                                 <li><strong>
                                     <a href="https://www.coursera.org/account/accomplishments/records/55bRj8WB6wqRqy6a">R Programming</a>
-                                    </strong> Johns Hopkins University on Coursera </li></span>
+                                    </strong> Johns Hopkins University on Coursera </li></ul></span><span class="info"><ul>
                                 <li><strong>
                                     <a href="https://www.coursera.org/account/accomplishments/records/qW9SHPxq23jgaGR2">Statistical Inference</a>
-                                    </strong> Johns Hopkins University on Coursera </li></span>
+                                    </strong> Johns Hopkins University on Coursera </li>
                                 <li><strong>
                                     <a href="https://www.law.umich.edu/special/exoneration/Pages/casedetail.aspx?caseid=3356">Wisconsin Innocence Project</a>
                                     </strong> Expert Witness in the exoneration of Richard Kittilstad</li>                                <li><strong><a href="http://www.lynda.com//Design-Color-tutorials/Color-Management-Fundamentals/135361-2.html">Color Management Fundamentals</a>
@@ -128,7 +127,7 @@ permalink: /resume/
                     <div class="item">
                         <span class="info">
                             <div>
-                                <table style="width:100%"><ul>
+                                <ul><table>
                                     <tr>
                                         <td><li>Expert in sound recording and production</li></td>
                                         <td><li>Expert in large and small format audio consoles</li></td></tr>
@@ -144,9 +143,9 @@ permalink: /resume/
                                     <tr>
                                         <td><li>Audio Electronics</li></td>
                                         <td><li>Working knowledge of Photoshop, html, css, regex</li></td></tr>
-                                </ul>
-                            </table>
-                            </div>                        </span>
+                                    
+                                </table></ul>
+                            </div></span>
                     </div>
                 </div>
         <div class="clear"> </div>
@@ -154,7 +153,7 @@ permalink: /resume/
             <h2 class="title">Interests</h2>
             <div class="set">
                         <div class="item">
-                            <span class="info">I enjoy playing the guitar and piano, and am currently striving to learn to play Bach on the mandolin.                                I have a long-standing interest in science, mathematics and technology, but am equally drawn to politics, literature, and the arts.</span>
+                            <span class="info">I enjoy playing the guitar and piano, and I'm currently striving to learn to play Bach on the mandolin.                                I have a long-standing interest in science, mathematics and technology, but am equally drawn to politics, literature, and the arts.</span>
                         </div>
                     </div>
             <div class="clear"> </div>

@@ -90,6 +90,10 @@ article a {
   article a:hover {
     text-decoration: none; }
 
+table a {
+  font-size: 13px;
+  padding: 5px; }
+
 /**
  * Blockquotes
  */
@@ -219,8 +223,10 @@ pre {
   z-index: 25; }
   .header-bar h1 {
     color: #e03e21;
-    font-size: 75px;
-    /*font-weight: bold;*/ }
+    font-size: 75px; }
+    @media screen and (max-width: 800px) {
+      .header-bar h1 {
+        font-size: 56px; } }
   .header-bar h2 {
     font-size: 18px; }
   .header-bar h3 {
@@ -287,11 +293,11 @@ pre {
   margin-bottom: 40px; }
 
 .post-title {
-  font-size: 42px;
+  font-size: 36px;
   letter-spacing: -1px; }
   @media screen and (max-width: 800px) {
     .post-title {
-      font-size: 36px; } }
+      font-size: 28px; } }
 
 .post-content h2 {
   font-size: 42px; }
@@ -312,7 +318,8 @@ pre {
 .post-meta {
   font-size: 14px;
   color: #828282;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  padding-top: 12px; }
 
 .post-link {
   display: block;
@@ -320,7 +327,7 @@ pre {
 
 /** Table formatting ********************************************/
 table, td {
-  padding: 0px 10px 0px 10px; }
+  /*margin: 10px 10px 10px 10px;*/ }
 
 /** 
  * Portfolio grid **********************************************************
@@ -618,6 +625,19 @@ table, td {
       max-width: -webkit-calc(750px);
       max-width: calc(750px); } }
 
+ul li {
+  width: 95%;
+  font-size: 95%;
+  line-height: 1.3em;
+  list-style-position: outside; }
+
+td {
+  padding: 2px; }
+
+ul, ol {
+  margin-left: 25px;
+  margin-bottom: 20px; }
+
 /* ________________________________________________________ */
 .rtl {
   direction: rtl; }
@@ -634,6 +654,9 @@ table, td {
   margin: 0 0 0 0;
   overflow: hidden;
   box-shadow: 0 0 6px #ccc; }
+  @media screen and (max-width: 800px) {
+    #main {
+      font-size: 80%; } }
 
 #title {
   line-height: 42px;
