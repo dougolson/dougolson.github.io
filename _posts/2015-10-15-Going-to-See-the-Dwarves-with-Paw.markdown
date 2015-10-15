@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Going to see the Dwarves with Paw
-date:   2015-10-13 22:07:16
-redirect: /posts/2015-10-13-Going-to-See-the-Dwarves-with-Paw
+date: 2015-10-14 22:17
 description: An evening of mayhem.
 ---
 

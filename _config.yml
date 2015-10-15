@@ -2,7 +2,9 @@
 title: mr.colson
 email: mrcolson@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  doug olson's website'
+  The website of Doug Olson, also known as mr. colson. This site documents my activities as a music producer, mixer, engineer and audio editor, 
+  both as a freelancer and at Smart Studios in Madison, Wisconsin, where I worked with Butch Vig, Steve Marker and Doug Ericson from 1987 through 2004. The site also pertains to my activities as an instructor and program chair for recording 
+  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, audio engineering, audio editing, audio mixing techniques and electronics.  
 baseurl: #/blog/
 url: http://www.mrcolson.com
 #twitter_username: twitter_username
