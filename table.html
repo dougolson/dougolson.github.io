@@ -5,7 +5,13 @@ permalink: /artists/
 ---
 
 <table class="table">
+{% if @media-query == ($on-laptop) %}
 {% tablerow item in site.data.artists cols:3 %}
   <a href="/discography/{{item.project}}/">{{ item.artist }}</a>
 {% endtablerow %}
+{% else if @media-query == ($on-palm) %}
+{% tablerow item in site.data.artists cols:2 %}
+  <a href="/discography/{{item.project}}/">{{ item.artist }}</a>
+{% endtablerow %}
+{% endif %}
 </table>
