@@ -3,6 +3,7 @@ layout: post
 title: Going to see the Dwarves with Paw
 date: 2015-10-14 22:17
 description: An evening of mayhem.
+comments: True
 ---
 
 Paw came to Smart studios to do some demos in 1992. I had just finished recording the Dwarves "Thank Heaven for Little Girls" the day before, and they were playing a show at the sadly defunct Club DeWash in Madison that night. So Mark Hennessy, Grant Fitch, Pete Fitch, Charles Bryan and I went to see them after we finished getting set up. 
