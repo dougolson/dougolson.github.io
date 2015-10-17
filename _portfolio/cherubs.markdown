@@ -3,6 +3,7 @@ layout: post
 title: The Cherubs  
 description: Icing 
 img: /img/cherubs.jpg
+comments: True
 ---
 [The Cherubs - Icing](https://www.youtube.com/watch?v=qsYAtH8XLZQ)
 

@@ -3,6 +3,7 @@ layout: post
 title: Sprinkler 
 description: More Boy, Less Friend
 img: /img/sprinkler.jpg
+comments: True	
 ---
 [Sprinkler - Wide Zero](https://www.youtube.com/watch?v=AsWrICaC37Y)
 

@@ -3,6 +3,7 @@ layout: post
 title: Valley Lodge 1
 description: Valley Lodge
 img: /img/valleylodge1.jpg
+comments: True
 ---
 
 I love this record. Drums were recorded in Brooklyn, guitars in Los Angeles, and the vocals in my living room in Madison, Wisconsin. We made a vocal booth with blankets we bought at St. Vinny's, drilling holes in my ceiling and using clothesline and broom handles to hang them. I'm generally not a fan of vocal booths, but this approach works, because the booth hangs loosely within a much larger space. That way you avoid the resonances and cloudy sound most booths have. 

@@ -3,6 +3,7 @@ layout: post
 title: The Kicks 
 description: Hello Hong Kong
 img: /img/kicks.jpg
+comments: True
 ---
 Excellent band from Little Rock, Arkansas.
 
