@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sknunk Anansie 
-description: Stoosh
+title: Skunk Anansie 
+description: Stoosh 
 img: /img/skunkanansie.jpg
 ---

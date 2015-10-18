@@ -177,11 +177,20 @@ font-size: 42px;
 }
 
 /** Table formatting ********************************************/
-table, td {
-/*margin: 10px 10px 10px 10px;*/
-}
 table{
-	width:100%;
+width:100%;
+}
+table td {
+width:33.33%;
+}
+table a{
+    font-size:14px;
+    padding:5px;
+    width:100%;
+    @include media-query($on-palm){
+    font-size:11.5px;
+    padding:0px;
+    }
 }
 
 
