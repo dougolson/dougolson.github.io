@@ -48,17 +48,21 @@ display: line;
     }
 }
 
+
 .header-bar{
+    background-image: url("/img/frontImage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     left: 0px;
     top: 0px;
     position: relative;
     font-size: 20px;
     display: block;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
     width: 100%;
     text-align: center;
-    padding-top: 25px;
-    line-height: 2.5em;
+    padding-top: 0px;
+    line-height: 2.4em;
     z-index: 25;
     h1{
         color: $theme-color;
@@ -71,7 +75,7 @@ display: line;
         font-size:18px;
     }
     h3{
-        font-size:14px;
+        font-size:15px;
     }
 }
 
