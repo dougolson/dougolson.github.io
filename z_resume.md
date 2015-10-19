@@ -70,7 +70,7 @@ permalink: /resume/
                             <span class="info">As a producer, mixer or engineer, I apply my technical, aesthetic and collaborative                                                skills to each project with the ultimate goal of delivering an end product that meets or                                                exceeds my client's expectations.<p></p>
                                                 <p>I have done work for the John Oliver Show, the HBO Reverb Show, the Smashing Pumpkins,
                                                 Remy Zero, Paw, Skunk Anansie, The Watchmen, Cheap Trick, L7 and numerous other artists.
-                                                A partial discography is available <a href = "http://www.allmusic.com/artist/mr-colson-mn0000602782">here</a>.</p></span>
+                                                A partial discography is available <a href = "http://www.allmusic.com/artist/mr-colson-mn0000602782"><strong>here</strong></a>.</p></span>
                                                 <span class="clear"> </span>
                             </div>                <div class="item">
                     <h3><span class="company l">Smart Studios</span>
