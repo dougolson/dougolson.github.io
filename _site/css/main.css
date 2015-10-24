@@ -449,6 +449,18 @@ table a {
   vertical-align: middle;
   font-size: 12px; }
 
+.share-page {
+  border-radius: 5px;
+  margin: auto;
+  font-family: "Helvetica Neue",arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  font-weight: 400;
+  color: #666; }
+  .share-page a {
+    font-weight: 700;
+    margin-left: 10px; }
+
 /**
  * Syntax highlighting styles
  */
