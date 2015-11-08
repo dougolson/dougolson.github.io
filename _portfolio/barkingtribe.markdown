@@ -1,6 +1,11 @@
 ---
 layout: post
 title: The Barking Tribe 
-description: Serpent Go Home - a record I worked on with Brian Paulsen in 1991
+description: Serpent Go Home
 img: /img/barkingtribe.jpg
 ---
+
+
+My Role: Engineer
+
+Producer Brian Paulson
