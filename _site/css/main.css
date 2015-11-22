@@ -158,6 +158,13 @@ pre {
       padding-right: 15px;
       padding-left: 15px; } }
 
+@media screen and (max-width: 800px) {
+  iframe {
+    max-width: -webkit-calc(800px - (50px));
+    max-width: calc(800px - (50px));
+    padding-right: 15px;
+    padding-left: 15px; } }
+
 /**
  * Clearfix
  */
