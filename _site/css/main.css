@@ -162,8 +162,14 @@ pre {
   iframe {
     max-width: -webkit-calc(800px - (50px));
     max-width: calc(800px - (50px));
-    padding-right: 15px;
-    padding-left: 15px; } }
+    /*padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;*/ } }
+@media screen and (max-width: 600px) {
+  iframe {
+    max-width: -webkit-calc(600px - (50px));
+    max-width: calc(600px - (50px));
+    /*padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;*/ } }
 
 /**
  * Clearfix
