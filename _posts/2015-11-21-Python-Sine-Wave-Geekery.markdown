@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python Sine Wave Geekery
-date: 2015-11-21 07:55 
+date: 2015-11-21 11:47 
 description: An illustration of the concept of sine wave as rotation 
 comments: True
 ---
