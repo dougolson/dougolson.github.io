@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Phase vs Delay
-date: 2015-11-22 11:47 
+date: 2015-11-23 00:24 
 description:  
 comments: True
 ---
@@ -13,20 +13,24 @@ The difference between phase shift and delay is often confusing to my students. 
  
 Here's an illustration of those statements using three pairs of sine waves with frequencies of 440 Hz, 1 kHz and 1.8 kHz. They are all delayed by the same amount, .568ms. Notice how the amount of phase shift increases as the frequency goes up: 90 degrees  at 440 Hz, 204 degrees at 1 kHz and 367 degrees at 1.8 kHz.
  
-![EqualDelaySm.jpg](/img/phase/EqualDelaySm.jpg)
+![EqualDelaySm.jpg](/img/phase/EqualDelaySm.jpg)<sub>figure 1</sub>
 
 
-Here are the same three pairs of sine waves, all with 90 degrees of phase shift. This corresponds to smaller amounts of delay for the higher frequencies: .25ms at 1 kHz and .14ms at 1.8 kHz.  
+Here are the same three pairs of sine waves, all with 90 degrees of phase shift. This corresponds to smaller amounts of delay for the higher frequencies: .25ms at 1 kHz and .14ms at 1.8 kHz: Phase shift is like frequency dependent delay
 
-![EqualDelaySm.jpg](/img/phase/EqualPhaseSm.jpg)
+![EqualPhaseSm.jpg](/img/phase/EqualPhaseSm.jpg)<sub>figure 2</sub>
 
-People often say that mics are "out of phase," and this isn't really incorrect, but it can be misleading, because it implies that phase *shift* is responsible. It is, in a way, but only at certain frequencies. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be "out of phase," but the culprit is delay. The sound arriving at the second mic will be delayed by:
+People often say that mics like those in the image below sound like they are are "out of phase:"
+
+![mic setup](/img/phase/amp.jpg)
+
+This isn't really incorrect, but it is misleading, because it implies that phase *shift* is responsible for what they are hearing. Phase shift would require one of the mics to be some number of degrees ahead or behind the other. This would require smaller and smaller amounts of delay for higher frequencies, as seen in figure 2. But that isn't what happens. If you put two mics on a guitar amp, one up close and the other a foot farther away, all the frequency components of the guitar sound will be delayed by the same amount. They will be "out of phase," in a sense, but the culprit is delay. The sound arriving at the second mic will be delayed by an amount equal to the distance between the mics divided by the speed of sound:
 
 ![.888ms](/img/phase/equation.gif)
 
 Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don't simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:
 
-![combGraph.jpg](/img/phase/combGraph.jpg)
+![combGraph.jpg](/img/phase/combGraph.jpg)<sub>figure 3</sub>
 
 <table>
 <tr><td>Here's what it sounds like:</td><td></td></tr>
@@ -41,4 +45,6 @@ Your browser does not support the audio tag.
 Your browser does not support the audio tag.
 </audio></td></tr></table>
 <br/>
-So... next time you hear that telltale comb filtered sound, I'd recommend you blame it on delay, not phase.
+
+The same kind of effect can be caused by DSP delays in a DAW, for example when doing parallel compression without delay compensation. 
+
