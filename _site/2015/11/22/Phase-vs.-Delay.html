@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="/css/main.css">
 
-    <link rel="canonical" href="http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html">
+    <link rel="canonical" href="http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
@@ -100,37 +100,52 @@
 
 <p><img src="/img/phase/EqualPhaseSm.jpg" alt="EqualDelaySm.jpg" /></p>
 
-<p>People often say that mics are “out of phase,” and this isn’t really incorrect, but it can be misleading, because it implies that phase shift is responsible. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be “out of phase,” but the culprit is delay. The sound arriving at the second mic will be delayed by:</p>
+<p>People often say that mics are “out of phase,” and this isn’t really incorrect, but it can be misleading, because it implies that phase <em>shift</em> is responsible. It is, in a way, but only at certain frequencies. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be “out of phase,” but the culprit is delay. The sound arriving at the second mic will be delayed by:</p>
 
-<p><img src="/img/phase/equation.gif" alt="equatoin.gif" /></p>
+<p><img src="/img/phase/equation.gif" alt=".888ms" /></p>
 
-<p>Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don’t simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be in cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:</p>
+<p>Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don’t simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:</p>
 
 <p><img src="/img/phase/combGraph.jpg" alt="combGraph.jpg" /></p>
+
+<table>
+<tr><td>Here's what it sounds like:</td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td>No Comb Filter</td><td>Comb Filter</td></tr>
+<tr><td><audio controls="">
+<source src="/audio/drumsNoComb.mp3" type="audio/mp3" />
+Your browser does not support the audio tag.
+</audio>
+</td><td><audio controls="">
+<source src="/audio/drumsComb.mp3" type="audio/mp3" />
+Your browser does not support the audio tag.
+</audio></td></tr></table>
+<p><br />
+So… next time you hear that telltale comb filtered sound, I’d recommend you blame it on delay, not phase.</p>
 
   </article>
 <div class="share-page">
     Share this on 
 	
-	<a href="https://twitter.com/intent/tweet?text=Phase vs Delay&url=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html&via=&related=" 	
+	<a href="https://twitter.com/intent/tweet?text=Phase vs Delay&url=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html&via=&related=" 	
 	rel="nofollow" 
 	target="popup" 
 	title="Share on Twitter"
-	onclick="window.open('https://twitter.com/intent/tweet?text=Phase vs Delay&url=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html&via=&related=  ','','width=600,height=400')">
+	onclick="window.open('https://twitter.com/intent/tweet?text=Phase vs Delay&url=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html&via=&related=  ','','width=600,height=400')">
 	<i class="fa fa-twitter-square fa-lg"></i></a>
     
-	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html" 
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html" 
 	rel="nofollow" 
 	title="Share on Facebook"
 	target="popup" 
-	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html  ','','width=600,height=400')">
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html  ','','width=600,height=400')">
 	<i class="fa fa-facebook-square fa-lg"></i></a>
 	
-    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html" 
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html" 
 	rel="nofollow"  
 	title="Share on Google+"
 	target="popup"
-	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/22/Pase-vs.-Delay.html  ','','width=600,height=400')">
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/22/Phase-vs.-Delay.html  ','','width=600,height=400')">
 	<i class="fa fa-google-plus-square fa-lg"></i></a>
 	
 </div>
