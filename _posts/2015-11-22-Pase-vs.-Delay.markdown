@@ -20,10 +20,10 @@ Here are the same three pairs of sine waves, all with 90 degrees of phase shift.
 
 ![EqualDelaySm.jpg](/img/phase/EqualPhaseSm.jpg)
 
-People often say that mics are "out of phase," and this isn't really incorrect, but it can be misleading, because it implies that phase shift is responsible. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be "out of phase," but the culprit is delay. The sound arriving at the second mic will be delayed by:
+People often say that mics are "out of phase," and this isn't really incorrect, but it can be misleading, because it implies that phase shift is responsible. It is, in a way, but only at certain frequencies. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be "out of phase," but the culprit is delay. The sound arriving at the second mic will be delayed by:
 
 ![equatoin.gif](/img/phase/equation.gif)
 
-Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don't simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be in cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:
+Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don't simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:
 
 ![combGraph.jpg](/img/phase/combGraph.jpg)
