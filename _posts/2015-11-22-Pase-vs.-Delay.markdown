@@ -1,0 +1,29 @@
+---
+layout: post
+title: Phase vs Delay
+date: 2015-11-22 11:47 
+description:  
+comments: True
+---
+
+The difference between phase shift and delay is often confusing to my students. I try to boil it down to two statements:
+
+* Delay treats all frequencies the same
+* Phase shift is like frequency dependent delay
+ 
+Here's an illustration of those statements using three pairs of sine waves with frequencies of 440 Hz, 1 kHz and 1.8 kHz. They are all delayed by the same amount, .568ms. Notice how the amount of phase shift increases as the frequency goes up: 90 degrees  at 440 Hz, 204 degrees at 1 kHz and 367 degrees at 1.8 kHz.
+ 
+![EqualDelaySm.jpg](/img/phase/EqualDelaySm.jpg)
+
+
+Here are the same three pairs of sine waves, all with 90 degrees of phase shift. This corresponds to smaller amounts of delay for the higher frequencies: .25ms at 1 kHz and .14ms at 1.8 kHz.  
+
+![EqualDelaySm.jpg](/img/phase/EqualPhaseSm.jpg)
+
+People often say that mics are "out of phase," and this isn't really incorrect, but it can be misleading, because it implies that phase shift is responsible. If you put two mics on a guitar amp, one up close and the other a foot further away, they will be "out of phase," but the culprit is delay. The sound arriving at the second mic will be delayed by:
+
+![equatoin.gif](/img/phase/equation.gif)
+
+Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don't simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be in cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:
+
+![combGraph.jpg](/img/phase/combGraph.jpg)

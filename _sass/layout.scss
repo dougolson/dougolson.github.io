@@ -172,7 +172,11 @@ img{
 display: block;
 max-width: 100%;
 margin-left: auto;
-margin-right: auto}
+margin-right: auto
+}
+p:first-child:first-letter { 
+    font-size: 200%;
+    }
 }
 .post-meta {
 font-size: $small-font-size;
