@@ -34,16 +34,14 @@ Because delay causes different amounts of phase shift at different frequencies, 
 
 
 No Comb Filter:
-
 <audio controls><source src="/audio/drumsNoComb.mp3" type="audio/mp3">
 Your browser does not support the audio tag.
 </audio><br/>  
 
 Comb Filter:
-
 <audio controls><source src="/audio/drumsComb.mp3" type="audio/mp3">
 Your browser does not support the audio tag.
 </audio>  
-
+<br/>
 The same kind of effect can be caused by DSP delays in a DAW, for example when doing parallel compression without delay compensation. 
 
