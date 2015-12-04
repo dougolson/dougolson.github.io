@@ -21,7 +21,7 @@ It is possible to record the effect of a plug-in into a track, but it requires a
 
 I included a pre-fader send because in this case what you see in the Pro Tools mix window corresponds with signal flow, which goes through the insert first, then the send, then on to the fader. Be aware, though, that sends are only in the signal path in the sense that they "tap" the signal at a certain point in order to send it somewhere else in your pro tools session. They do not alter the signal passing through the track they are on in any way. 
 
-Another confusing point is the role of the input path selector. On audio tracks, it really only matters if the track is recording. In that case, whatever is being fed into the input is what ends up in the file on disk. If you aren't recording, the input path selector is ignored, and Pro Tools simply plays back the clips (files) that are in the timeline on that particular track. In this case, the signal flow is somewhat more intuitive - it runs top to bottom, although it skips over the input and output path selectors to pass through the fader, and then goes to the output.
+Another confusing point is the role of the input path selector. On audio tracks, its setting really only matters if the track is recording. In that case, whatever is being fed into the input is what ends up in the file on disk. If you aren't recording, the input path selector is ignored, and Pro Tools simply plays back the clips (files) that are in the timeline on that particular track. In this case, the signal flow is somewhat more intuitive - it runs top to bottom, although it skips over the input and output path selectors to pass through the fader, and then goes to the output.
 
 ![playback.png](/img/DAWSignalFlow/playback.png)<sub>figure 3</sub>
 
