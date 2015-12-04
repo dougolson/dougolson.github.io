@@ -13,7 +13,7 @@ Here's a diagram to help identify the relevant parts:
 
 ![record.png](/img/DAWSignalFlow/labels.png)<sub>figure 1</sub>
 
-The most common misunderstanding I run into is the idea that the effect of a plug-in on a track that is recording ends up in the recorded file. Visually, this makes sense, but the signal path from the interface doesn't pass through the inserts. You hear the effect of the plug-in, but that is because it is in the playback path. Have a look:  
+The most common misunderstanding I run into is the idea that the effect of a plug-in on a track that is recording ends up in the recorded file. Visually, this makes sense, but the signal path from the interface doesn't pass through the inserts. You hear the effect of the plug-in, but that is because it is in the playback path. Have a look - the record path is red, playback is green:  
 
 ![record.png](/img/DAWSignalFlow/record.png)<sub>figure 2</sub>
 
