@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Python Sine Wave Geekery</title>
+    <title>Pro Tools Signal Flow</title>
     <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  
 ">
 
     <link rel="stylesheet" href="/css/main.css">
 
-    <link rel="canonical" href="http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html">
+    <link rel="canonical" href="http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
@@ -80,98 +80,49 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Python Sine Wave Geekery</h1>
-    <p class="post-meta">November 21, 2015 — 11:47</p>
+    <h1 class="post-title">Pro Tools Signal Flow</h1>
+    <p class="post-meta">December 4, 2015 — 01:24</p>
   </header>
 
   <article class="post-content">
-    <p>I was messing around with the Python’s turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time. </p>
+    <p>In Pro Tools, the visual layout of a track doesn’t correspond to the way signal flows, and this can be confusing. Looking at a track in the mix window, it’s reasonable to think that signal should flow from the top down, but this is not the case. Leaving aside the fact that signal does not actually flow at all in the screen image, which is merely a control interface, we can still use what we see onscreen to understand what is happening “under the hood.”</p>
 
-<p>It may help to imagine a horizontal line moving up and down along with the blue, green and black dots, and a vertical line moving to the right along with the black dot and the yellow arrowhead. </p>
+<p>The most common misunderstanding I run into is the idea that the effect of a plug-in on a track that is recording ends up in the recorded file. Visually, this makes sense, but the signal path from the interface doesn’t pass through the inserts. You hear the effect of the plug-in, but that is because it is in the playback path. Have a look:  </p>
 
-<iframe width="700" height="394" src="https://www.youtube.com/embed/APAAOGLpYzs" frameborder="0" allowfullscreen=""></iframe>
+<p><img src="/img/DAWSignalFlow/record.png" alt="record.png" /><sub>figure 1</sub></p>
 
-<p><br />
-Another, static way to view the same idea can be seen below. The circles are moving through time, with each one spaced about .284 ms apart. The screenshot shows about 2.73 ms of time in total. As the circle spins, the height of the dot (y component) is the same as the amplitude of the sine wave.</p>
+<p>It is possible to record the effect of a plug-in into a track, but it requires an aux track and more complicated routing. More on that in another post.</p>
 
-<p><img src="/img/phase/rotatingCircleSine.jpg" alt="rotating circle sine wave" /></p>
+<p>Another confusing point is the role of the input path selector. On audio tracks, it really only matters if the track is recording. In that case, whatever is being fed into the input is what ends up in the file on disk. If you aren’t recording, the input path selector is ignored, and Pro Tools simply plays back the clips (files) that are in the timeline on that particular track. In this case, the signal flow is somewhat more intuitive - it runs top to bottom, although it skips over the input and output path selectors to pass through the fader, and then goes to the output.</p>
 
-<p>Code:</p>
+<p><img src="/img/DAWSignalFlow/playback.png" alt="playback.png" /><sub>figure 2</sub></p>
 
-<pre><code>import turtle
-import math
-# turtleSet function makes the code a bit more compact
-def turtleSet(name, shape, speed, color, pen, pos_x, pos_y):
-    name.ht()
-    name.up()
-    name.shape(shape)
-    name.speed(speed)
-    name.color(color)
-    name.pensize(pen)
-    name.setposition(pos_x, pos_y)
-    name.down()
-    name.st()
-wn = turtle.Screen()
-background = turtle.Turtle()
-background.speed(0)
-background.up()
-background.goto(325, 325)
-background.down()
-background.right(90)
-background.fillcolor("red")
-background.begin_fill()
-for i in range(4): # Draw a 650 x 650 square
-    background.forward(650)
-    background.right(90)
-background.end_fill()
-height = 200 #amplitude
-period = 25 # Period, but without any specific unit.
-circle = turtle.Turtle()
-turtleSet(circle, 'circle', 10, "green", 2, height, 0)
-circle.left(90)
-sine = turtle.Turtle()
-turtleSet(sine, 'circle', 10, "black", 2, -325, 0)
-sine.st()
-sine.left(45)
-line = turtle.Turtle()
-turtleSet(line, 'circle', 10, "blue", 2, -286, 0)
-line.left(90)
-time = turtle.Turtle()
-turtleSet(time, 'arrow', 10, "yellow", 2, -325, 0)
-time.right(0)
-for i in range(650):
-    x = height*math.cos(i/period)
-    y = height*math.sin(i/period)
-    sine.goto(i-325, y)
-    circle.goto(x, y)
-    line.goto(-286, y)
-    time.goto(i-325, 0)
-wn.exitonclick()
-</code></pre>
+<p>A couple of caveats. The foregoing only applies to audio tracks, not to aux tracks or master faders. To keep the diagrams from becoming overly complicated, I have only shown the inserts as pre-fader. </p>
+
 
   </article>
 <div class="share-page">
     Share this on 
 	
-	<a href="https://twitter.com/intent/tweet?text=Python Sine Wave Geekery&url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html&via=&related=" 	
+	<a href="https://twitter.com/intent/tweet?text=Pro Tools Signal Flow&url=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html&via=&related=" 	
 	rel="nofollow" 
 	target="popup" 
 	title="Share on Twitter"
-	onclick="window.open('https://twitter.com/intent/tweet?text=Python Sine Wave Geekery&url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html&via=&related=  ','','width=600,height=400')">
+	onclick="window.open('https://twitter.com/intent/tweet?text=Pro Tools Signal Flow&url=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html&via=&related=  ','','width=600,height=400')">
 	<i class="fa fa-twitter-square fa-lg"></i></a>
     
-	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html" 
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html" 
 	rel="nofollow" 
 	title="Share on Facebook"
 	target="popup" 
-	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html  ','','width=600,height=400')">
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html  ','','width=600,height=400')">
 	<i class="fa fa-facebook-square fa-lg"></i></a>
 	
-    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html" 
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html" 
 	rel="nofollow"  
 	title="Share on Google+"
 	target="popup"
-	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html  ','','width=600,height=400')">
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/04/DAW-Signal-Flow.html  ','','width=600,height=400')">
 	<i class="fa fa-google-plus-square fa-lg"></i></a>
 	
 </div>
