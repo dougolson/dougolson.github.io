@@ -2,7 +2,7 @@
 layout: post
 title: Pro Tools Signal Flow
 date: 2015-12-04 01:24 
-description: An attempt to clarify Pro Tools signal flow 
+description: Making sense of Pro Tools signal flow 
 comments: True
 ---
 
