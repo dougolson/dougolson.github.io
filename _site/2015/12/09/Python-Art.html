@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Python Art</title>
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  
+">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://www.mrcolson.com/2015/12/09/Python-Art.html">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68953136-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- mr.colson instead of blog -->
+        <a class="page-link" href="/">home</a>
+
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/artists/">artists</a>
+          
+        
+          
+          <a class="page-link" href="/resume/">resume</a>
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Python Art</h1>
+    <p class="post-meta">December 9, 2015 — 14:33</p>
+  </header>
+
+  <article class="post-content">
+    <h4 id="a-series-of-images-made-with-python-turtle-graphics">A series of images made with Python Turtle Graphics</h4>
+<p><br />
+<img align="left" src="/img/pythonArt/rainbowGalaxy.png" height="100" width="100" />I’ve been playing around with Python’s turtle graphics - it’s a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
+<br /><br /><br />
+The code for the first image is pretty simple:</p>
+
+<pre><code>import turtle
+import random
+# Draws a burst of straight rays, uses a nested loop to make small
+# scribbles at the end of each ray
+turtle.tracer(0, 0)
+wn = turtle.Screen()
+wn.colormode(255)
+turtle.bgcolor("black")
+alex = turtle.Turtle()
+alex.speed(10)
+alex.goto(0,0)
+alex.pensize(0)
+alex.ht()
+for i in range(400):
+    alex.color(random.randrange(256),random.randrange(256),random.randrange(256))
+    alex.goto(round(random.gauss(0,100),0),round(random.gauss(0,100),0))
+    x = alex.xcor()
+    y = alex.ycor()
+    for j in range(25):
+                s = round(random.gauss(0,5), 0)
+                t = round(random.gauss(0,5), 0)
+                alex.color(random.randrange(256),random.randrange(256),random.randrange(256))
+                alex.pensize(0)
+                alex.goto(x + s, y + t)
+    alex.goto(s,t)
+turtle.update()
+wn.exitonclick()
+</code></pre>
+
+<p>It looks like this:
+<img src="/img/pythonArt/straightRayBurst.png" alt="straightRayBurst" /></p>
+
+<p>Increasing the randomness, you get this:</p>
+
+<p><img src="/img/pythonArt/wobblyRayBurst.png" alt="wobblyRayBurst" /></p>
+
+<p>I wanted to try something a little more challenging, so I made a couple of functions to get more control over the image. 
+The RGB color generator is still limited; later I make one with better control.</p>
+
+<pre><code>import random
+import turtle
+# Draws three concentric sets of crooked rays, emerging from darkness
+def colorGen(sat = 1, val = 1):
+    """Generates random RGB values. sat range 0-1, val range = 0-1"""
+    rand1 = round(random.randrange(256)*val)
+    rand2 = round(random.randrange(256)*val)
+    sat2 = round((1-sat)*255)
+    if rand1 &gt;= rand2:
+        rand1 = round(255*val)
+    else:
+        rand2 = round(255*val)
+    color = [[sat2, rand1, rand2], [rand1, sat2, rand2], [sat2, rand2, rand1],
+             [rand1, rand2, sat2], [rand2, sat2, rand1], [rand2, rand1, sat2]]
+    return tuple(color[random.randrange(6)])
+def timeTunnel(repeats = 1,zigzag = 10, stepVar = 1):
+    for i in range(repeats):
+        alex.goto(0,0)
+        alex.seth(random.uniform(0,360)) # set heading
+        h1 = alex.heading() # get heading
+        alex.color(colorGen(val=0))
+        for j in range(10):
+            alex.down()
+            alex.forward(abs(round(random.gauss(10, stepVar),0))) # abs limits motion to forward
+            alex.seth(h1 + random.gauss(0,zigzag))
+            x = alex.xcor()
+            y = alex.ycor()
+            alex.color(colorGen(val = j/10))
+            h2 = alex.heading()
+        for k in range(3):
+            alex.down()
+            alex.seth(h2 + random.gauss(0, zigzag))
+            h3 = alex.heading()
+            for k2 in range(10):
+                alex.color(colorGen(val = k2/10))
+                alex.seth(h3 + random.gauss(0,zigzag))
+                alex.forward(abs(round(random.gauss(10, stepVar), 0)))
+            alex.up()
+            m = alex.xcor()
+            n = alex.ycor()
+            h4 = alex.heading()
+            for l in range(2):
+                alex.color(colorGen())
+                alex.down()
+                alex.seth(abs(h4 + random.gauss(0,zigzag)))
+                h5 = alex.heading()
+                for l2 in range(10):
+                    alex.color(colorGen(val = l2/10))
+                    alex.seth(h5 + random.gauss(0,zigzag))
+                    alex.forward(abs(round(random.gauss(10,stepVar),0)))
+                alex.up()
+                alex.goto(m, n)
+            alex.goto(x, y)
+        alex.up()
+turtle.tracer(0, 0)
+wn = turtle.Screen()
+wn.colormode(255)
+turtle.bgcolor("black")
+alex = turtle.Turtle()
+alex.speed(10)
+alex.pensize(0)
+alex.ht()
+timeTunnel(300)
+turtle.update()
+wn.exitonclick()
+</code></pre>
+
+<p><img src="/img/pythonArt/concentricRays1.png" alt="concentricRays1" /></p>
+
+<p>By setting the variation parameters to 0, you get a straighter version:
+<img src="/img/pythonArt/concentricRays1_NoVar.png" alt="concentricRays1_NoVar" /></p>
+
+<p>Here I added a little spiral and set the length of each increment to a couple of pixels. Using all these nested loops is probably a very inefficient way to do this, but it works, and it looks pretty cool:
+<img src="/img/pythonArt/concentricRays2.png" alt="concentricRays2" /></p>
+
+<p>This bit of code adds a better color generator - this time with control over hue, saturation and value:</p>
+
+<pre><code>import random
+import turtle
+import math
+# Draws three sets of concentric rays with a sort of spiral galaxy effect.
+# Small step size and multiple nested loops runs quite slowly. Probably not the most efficient code.
+def hueGen(hue = 0,val = 1, sat=1):
+    """Generates a 360 degree range of hues
+    sat of 1 is full saturation, 0 is B &amp; W.
+    val of 1 is full color, 0 is black"""
+    if 0 &lt;= hue &lt; 60:
+        r = 1
+        g = (hue/59) + (1-sat)*(59-hue)/59
+        b = 1 - sat
+        hueOut = (r*val,g*val,b*val)
+    elif 60 &lt;= hue &lt; 120:
+        r = ((1-(hue-60)/59) + (1-sat)*(1-(119-hue)/59))
+        g = 1
+        b = 1 - sat
+        hueOut = (r*val,g*val,b*val)
+    elif 120 &lt;= hue &lt; 180:
+        r = 1 - sat
+        g = 1
+        b = ((hue-120)/59) + (1-sat)*(179-hue)/59
+        hueOut = (r*val,g*val,b*val)
+    elif 180 &lt;= hue &lt; 240:
+        r = 1 - sat
+        g = (1-(hue-180)/59) + (1-sat)*(1-(239-hue)/59)
+        b = 1
+        hueOut = (r*val,g*val,b*val)
+    elif 240 &lt;= hue &lt; 300:
+        r = ((hue-240)/59) + (1-sat)*(299-hue)/59
+        g = 1 - sat
+        b = 1
+        hueOut = (r*val,g*val,b*val)
+    elif 300 &lt;= hue &lt; 360:
+        r = 1
+        g = 1 - sat
+        b = (1-(hue-300)/59) + (1-sat)*(1-(359-hue)/59)
+        hueOut = (r*val,g*val,b*val)
+    elif hue &gt;= 360:
+        hueOut = hueGen(hue % 360, val, sat)
+    return hueOut
+def timeTunnel(repeats = 1,zigzag = 10, stepVar = 1, curve = 0):
+    "Draws fuzzy concentric circles. zigzag is sd of randomgauss, stepVar is sd of length, curve is a multiplier that gives a spiral effect"
+    foo = 0
+    for i in range(repeats):
+        alex.goto(0,0)
+        alex.seth(random.uniform(0,360)) # set heading
+        h1 = alex.heading() # get heading
+        alex.color(hueGen(hue = i))
+        for j in range(50):
+            alex.down()
+            alex.forward(abs(round(random.gauss(2, stepVar),0))) # abs limits motion to forward
+            alex.seth(h1 + curve*j + random.gauss(0,4*zigzag))
+            x = alex.xcor()
+            y = alex.ycor()
+            alex.color(hueGen(hue = i*j, val = j/50)) # 1 - 51
+            h2 = alex.heading()
+        for k in range(2):
+            alex.down()
+            alex.seth(h2)
+            for k2 in range(50):
+                alex.color(hueGen(hue = i+j+k*k2, val = k2/50))
+                alex.seth(h2 + curve*k2 + random.gauss(0,2*zigzag))
+                alex.forward(abs(round(random.gauss(2, stepVar), 0)))
+            alex.up()
+            m = alex.xcor()
+            n = alex.ycor()
+            h3 = alex.heading()
+            # h4 = alex.heading()
+            for l in range(4):
+                alex.color(hueGen(hue = 9*l))
+                alex.down()
+                alex.seth(h3)
+                # h5 = alex.heading()
+                for l2 in range(50):
+                    alex.color(hueGen(hue = l*l2*2.449, val = l2/50))
+                    alex.seth(h3 + curve*l2 + random.gauss(0,zigzag))
+                    alex.forward(abs(round(random.gauss(2,stepVar),0)))
+                alex.up()
+                alex.goto(m, n)
+            alex.goto(x, y)
+        alex.up()
+turtle.tracer(0, 0)
+wn = turtle.Screen()
+wn.colormode(1)
+turtle.bgcolor("black")
+alex = turtle.Turtle()
+alex.speed(10)
+alex.pensize(0)
+alex.ht()
+timeTunnel(500,1, 1, .5)
+turtle.update()
+wn.exitonclick() 
+</code></pre>
+
+<p><img src="/img/pythonArt/concentricRays3.png" alt="concentricRays3" /></p>
+
+<p>By making the hue a function of direction using alex.heading(), you get a nice rainbow effect:
+<img src="/img/pythonArt/rainbowGalaxy.png" alt="rainbowGalaxy" /></p>
+
+<p>Lastly, this code makes a nice looking set of colored sine waves that curve around in an interesting way:</p>
+
+<pre><code>def waves(repeats = 1):
+    """Draws nested colored sinusoids emerging from darkness"""
+    for i in range(repeats):
+        alex.up()
+        alex.color(hueGen(i, .5*i/repeats, .5))
+        alex.goto(-315,315 - i)
+        alex.seth(45) # set heading
+        x = alex.xcor()
+        y = alex.ycor()
+        f = i + 1
+        for j in range(630):
+            x = alex.xcor()
+            alex.goto(x + 1, y + 25*sin(8*j/f + i/25)) # plot sines
+            alex.down()
+            x = alex.xcor()
+turtle.tracer(0, 0)
+wn = turtle.Screen()
+wn.colormode(1)
+turtle.bgcolor("black")
+alex = turtle.Turtle()
+alex.speed(10)
+alex.pensize(2)
+alex.ht()
+waves(700)
+turtle.update()
+wn.exitonclick()
+</code></pre>
+
+<p><img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1" /></p>
+
+<p>Setting both the value and saturation to .5 gives this:
+<img src="/img/pythonArt/sineWaves2.png" alt="sineWaves2" /></p>
+
+<p>setting the saturation to 0 gives a grayscale image:
+<img src="/img/pythonArt/sineWaves3.png" alt="sineWaves3" /></p>
+
+
+  </article>
+<div class="share-page">
+    Share this on 
+	
+	<a href="https://twitter.com/intent/tweet?text=Python Art&url=http://www.mrcolson.com/2015/12/09/Python-Art.html&via=&related=" 	
+	rel="nofollow" 
+	target="popup" 
+	title="Share on Twitter"
+	onclick="window.open('https://twitter.com/intent/tweet?text=Python Art&url=http://www.mrcolson.com/2015/12/09/Python-Art.html&via=&related=  ','','width=600,height=400')">
+	<i class="fa fa-twitter-square fa-lg"></i></a>
+    
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/09/Python-Art.html" 
+	rel="nofollow" 
+	title="Share on Facebook"
+	target="popup" 
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/09/Python-Art.html  ','','width=600,height=400')">
+	<i class="fa fa-facebook-square fa-lg"></i></a>
+	
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/09/Python-Art.html" 
+	rel="nofollow"  
+	title="Share on Google+"
+	target="popup"
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/09/Python-Art.html  ','','width=600,height=400')">
+	<i class="fa fa-google-plus-square fa-lg"></i></a>
+	
+</div>
+</div>
+
+
+        </br></br>
+        
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mrcolson';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is based on the <a href "http://jekyllthemes.org/themes/folio/">*folio</a>  theme. It is hosted on <a href="https://github.com" target="_blank">Github</a>.  &#169;Doug Olson, 2015</p>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>

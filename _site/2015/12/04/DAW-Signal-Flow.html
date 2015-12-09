@@ -91,7 +91,7 @@
 
 <p><img src="/img/DAWSignalFlow/labels.png" alt="record.png" /><sub>figure 1</sub></p>
 
-<p>The most common misunderstanding I run into is the idea that the effect of a plug-in on a track that is recording ends up in the recorded file. Visually, this makes sense, but the signal path from the interface doesn’t pass through the inserts. You hear the effect of the plug-in, but that is because it is in the playback path. Have a look:  </p>
+<p>The most common misunderstanding I run into is the idea that the effect of a plug-in on a track that is recording ends up in the recorded file. Visually, this makes sense, but the signal path from the interface doesn’t pass through the inserts. You hear the effect of the plug-in, but that is because it is in the playback path. Have a look - the record path is red, playback is green:  </p>
 
 <p><img src="/img/DAWSignalFlow/record.png" alt="record.png" /><sub>figure 2</sub></p>
 
@@ -99,7 +99,7 @@
 
 <p>I included a pre-fader send because in this case what you see in the Pro Tools mix window corresponds with signal flow, which goes through the insert first, then the send, then on to the fader. Be aware, though, that sends are only in the signal path in the sense that they “tap” the signal at a certain point in order to send it somewhere else in your pro tools session. They do not alter the signal passing through the track they are on in any way. </p>
 
-<p>Another confusing point is the role of the input path selector. On audio tracks, it really only matters if the track is recording. In that case, whatever is being fed into the input is what ends up in the file on disk. If you aren’t recording, the input path selector is ignored, and Pro Tools simply plays back the clips (files) that are in the timeline on that particular track. In this case, the signal flow is somewhat more intuitive - it runs top to bottom, although it skips over the input and output path selectors to pass through the fader, and then goes to the output.</p>
+<p>Another confusing point is the role of the input path selector. On audio tracks, its setting really only matters if the track is recording. In that case, whatever is being fed into the input is what ends up in the file on disk. If you aren’t recording, the input path selector is ignored, and Pro Tools simply plays back the clips (files) that are in the timeline on that particular track. In this case, the signal flow is somewhat more intuitive - it runs top to bottom, although it skips over the input and output path selectors to pass through the fader, and then goes to the output.</p>
 
 <p><img src="/img/DAWSignalFlow/playback.png" alt="playback.png" /><sub>figure 3</sub></p>
 
