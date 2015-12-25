@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.mrcolson.com/2015/12/24/Making-Sinusoids-with-Python.html</loc>
+    <lastmod>2015-12-24T22:10:00-06:00</lastmod>
+  </url>
+  <url>
     <loc>http://www.mrcolson.com/2015/12/09/Python-Art.html</loc>
     <lastmod>2015-12-09T14:33:00-06:00</lastmod>
   </url>

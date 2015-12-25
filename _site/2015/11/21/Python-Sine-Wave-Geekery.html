@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Python Sine Wave Geekery</title>
-    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
 ">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
     <link rel="stylesheet" href="/css/main.css">
 
@@ -85,20 +86,19 @@
   </header>
 
   <article class="post-content">
-    <p>I was messing around with the Python’s turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time. </p>
+    <p>I was messing around with the Python&#39;s turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time. </p>
 
 <p>It may help to imagine a horizontal line moving up and down along with the blue, green and black dots, and a vertical line moving to the right along with the black dot and the yellow arrowhead. </p>
 
-<iframe width="700" height="394" src="https://www.youtube.com/embed/APAAOGLpYzs" frameborder="0" allowfullscreen=""></iframe>
+<iframe width="700" height="394" src="https://www.youtube.com/embed/APAAOGLpYzs" frameborder="0" allowfullscreen></iframe>
 
-<p><br />
+<p><br/>
 Another, static way to view the same idea can be seen below. The circles are moving through time, with each one spaced about .284 ms apart. The screenshot shows about 2.73 ms of time in total. As the circle spins, the height of the dot (y component) is the same as the amplitude of the sine wave.</p>
 
-<p><img src="/img/phase/rotatingCircleSine.jpg" alt="rotating circle sine wave" /></p>
+<p><img src="/img/phase/rotatingCircleSine.jpg" alt="rotating circle sine wave"></p>
 
 <p>Code:</p>
-
-<pre><code>import turtle
+<div class="highlight"><pre><code class="language-text" data-lang="text">import turtle
 import math
 # turtleSet function makes the code a bit more compact
 def turtleSet(name, shape, speed, color, pen, pos_x, pos_y):
@@ -118,7 +118,7 @@ background.up()
 background.goto(325, 325)
 background.down()
 background.right(90)
-background.fillcolor("red")
+background.fillcolor(&quot;red&quot;)
 background.begin_fill()
 for i in range(4): # Draw a 650 x 650 square
     background.forward(650)
@@ -127,17 +127,17 @@ background.end_fill()
 height = 200 #amplitude
 period = 25 # Period, but without any specific unit.
 circle = turtle.Turtle()
-turtleSet(circle, 'circle', 10, "green", 2, height, 0)
+turtleSet(circle, &#39;circle&#39;, 10, &quot;green&quot;, 2, height, 0)
 circle.left(90)
 sine = turtle.Turtle()
-turtleSet(sine, 'circle', 10, "black", 2, -325, 0)
+turtleSet(sine, &#39;circle&#39;, 10, &quot;black&quot;, 2, -325, 0)
 sine.st()
 sine.left(45)
 line = turtle.Turtle()
-turtleSet(line, 'circle', 10, "blue", 2, -286, 0)
+turtleSet(line, &#39;circle&#39;, 10, &quot;blue&quot;, 2, -286, 0)
 line.left(90)
 time = turtle.Turtle()
-turtleSet(time, 'arrow', 10, "yellow", 2, -325, 0)
+turtleSet(time, &#39;arrow&#39;, 10, &quot;yellow&quot;, 2, -325, 0)
 time.right(0)
 for i in range(650):
     x = height*math.cos(i/period)
@@ -147,8 +147,7 @@ for i in range(650):
     line.goto(-286, y)
     time.goto(i-325, 0)
 wn.exitonclick()
-</code></pre>
-
+</code></pre></div>
   </article>
 <div class="share-page">
     Share this on 

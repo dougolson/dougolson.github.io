@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Python Art</title>
-    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
 ">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
     <link rel="stylesheet" href="/css/main.css">
 
@@ -85,20 +86,20 @@
   </header>
 
   <article class="post-content">
-    <h4 id="a-series-of-images-made-with-python-turtle-graphics">A series of images made with Python Turtle Graphics</h4>
-<p><br />
-<img align="left" src="/img/pythonArt/rainbowGalaxy.png" height="100" width="100" />I’ve been playing around with Python’s turtle graphics - it’s a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
-<br /><br /><br />
-The code for the first image is pretty simple:</p>
+    <h4>A series of images made with Python Turtle Graphics</h4>
 
-<pre><code>import turtle
+<p><br/>
+<img align="left" src="/img/pythonArt/rainbowGalaxy.png" height="100" width="100">I&#39;ve been playing around with Python&#39;s turtle graphics - it&#39;s a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
+<br/><br/><br/>
+The code for the first image is pretty simple:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import turtle
 import random
 # Draws a burst of straight rays, uses a nested loop to make small
 # scribbles at the end of each ray
 turtle.tracer(0, 0)
 wn = turtle.Screen()
 wn.colormode(255)
-turtle.bgcolor("black")
+turtle.bgcolor(&quot;black&quot;)
 alex = turtle.Turtle()
 alex.speed(10)
 alex.goto(0,0)
@@ -118,23 +119,21 @@ for i in range(400):
     alex.goto(s,t)
 turtle.update()
 wn.exitonclick()
-</code></pre>
-
+</code></pre></div>
 <p>It looks like this:
-<img src="/img/pythonArt/straightRayBurst.png" alt="straightRayBurst" /></p>
+<img src="/img/pythonArt/straightRayBurst.png" alt="straightRayBurst"></p>
 
 <p>Increasing the randomness, you get this:</p>
 
-<p><img src="/img/pythonArt/wobblyRayBurst.png" alt="wobblyRayBurst" /></p>
+<p><img src="/img/pythonArt/wobblyRayBurst.png" alt="wobblyRayBurst"></p>
 
 <p>I wanted to try something a little more challenging, so I made a couple of functions to get more control over the image. 
 The RGB color generator is still limited; later I make one with better control.</p>
-
-<pre><code>import random
+<div class="highlight"><pre><code class="language-text" data-lang="text">import random
 import turtle
 # Draws three concentric sets of crooked rays, emerging from darkness
 def colorGen(sat = 1, val = 1):
-    """Generates random RGB values. sat range 0-1, val range = 0-1"""
+    &quot;&quot;&quot;Generates random RGB values. sat range 0-1, val range = 0-1&quot;&quot;&quot;
     rand1 = round(random.randrange(256)*val)
     rand2 = round(random.randrange(256)*val)
     sat2 = round((1-sat)*255)
@@ -187,7 +186,7 @@ def timeTunnel(repeats = 1,zigzag = 10, stepVar = 1):
 turtle.tracer(0, 0)
 wn = turtle.Screen()
 wn.colormode(255)
-turtle.bgcolor("black")
+turtle.bgcolor(&quot;black&quot;)
 alex = turtle.Turtle()
 alex.speed(10)
 alex.pensize(0)
@@ -195,27 +194,25 @@ alex.ht()
 timeTunnel(300)
 turtle.update()
 wn.exitonclick()
-</code></pre>
-
-<p><img src="/img/pythonArt/concentricRays1.png" alt="concentricRays1" /></p>
+</code></pre></div>
+<p><img src="/img/pythonArt/concentricRays1.png" alt="concentricRays1"></p>
 
 <p>By setting the variation parameters to 0, you get a straighter version:
-<img src="/img/pythonArt/concentricRays1_NoVar.png" alt="concentricRays1_NoVar" /></p>
+<img src="/img/pythonArt/concentricRays1_NoVar.png" alt="concentricRays1_NoVar"></p>
 
 <p>Here I added a little spiral and set the length of each increment to a couple of pixels. Using all these nested loops is probably a very inefficient way to do this, but it works, and it looks pretty cool:
-<img src="/img/pythonArt/concentricRays2.png" alt="concentricRays2" /></p>
+<img src="/img/pythonArt/concentricRays2.png" alt="concentricRays2"></p>
 
 <p>This bit of code adds a better color generator - this time with control over hue, saturation and value:</p>
-
-<pre><code>import random
+<div class="highlight"><pre><code class="language-text" data-lang="text">import random
 import turtle
 import math
 # Draws three sets of concentric rays with a sort of spiral galaxy effect.
 # Small step size and multiple nested loops runs quite slowly. Probably not the most efficient code.
 def hueGen(hue = 0,val = 1, sat=1):
-    """Generates a 360 degree range of hues
+    &quot;&quot;&quot;Generates a 360 degree range of hues
     sat of 1 is full saturation, 0 is B &amp; W.
-    val of 1 is full color, 0 is black"""
+    val of 1 is full color, 0 is black&quot;&quot;&quot;
     if 0 &lt;= hue &lt; 60:
         r = 1
         g = (hue/59) + (1-sat)*(59-hue)/59
@@ -250,7 +247,7 @@ def hueGen(hue = 0,val = 1, sat=1):
         hueOut = hueGen(hue % 360, val, sat)
     return hueOut
 def timeTunnel(repeats = 1,zigzag = 10, stepVar = 1, curve = 0):
-    "Draws fuzzy concentric circles. zigzag is sd of randomgauss, stepVar is sd of length, curve is a multiplier that gives a spiral effect"
+    &quot;Draws fuzzy concentric circles. zigzag is sd of randomgauss, stepVar is sd of length, curve is a multiplier that gives a spiral effect&quot;
     foo = 0
     for i in range(repeats):
         alex.goto(0,0)
@@ -293,7 +290,7 @@ def timeTunnel(repeats = 1,zigzag = 10, stepVar = 1, curve = 0):
 turtle.tracer(0, 0)
 wn = turtle.Screen()
 wn.colormode(1)
-turtle.bgcolor("black")
+turtle.bgcolor(&quot;black&quot;)
 alex = turtle.Turtle()
 alex.speed(10)
 alex.pensize(0)
@@ -301,17 +298,15 @@ alex.ht()
 timeTunnel(500,1, 1, .5)
 turtle.update()
 wn.exitonclick() 
-</code></pre>
-
-<p><img src="/img/pythonArt/concentricRays3.png" alt="concentricRays3" /></p>
+</code></pre></div>
+<p><img src="/img/pythonArt/concentricRays3.png" alt="concentricRays3"></p>
 
 <p>By making the hue a function of direction using alex.heading(), you get a nice rainbow effect:
-<img src="/img/pythonArt/rainbowGalaxy.png" alt="rainbowGalaxy" /></p>
+<img src="/img/pythonArt/rainbowGalaxy.png" alt="rainbowGalaxy"></p>
 
 <p>Lastly, this code makes a nice looking set of colored sine waves that curve around in an interesting way:</p>
-
-<pre><code>def waves(repeats = 1):
-    """Draws nested colored sinusoids emerging from darkness"""
+<div class="highlight"><pre><code class="language-text" data-lang="text">def waves(repeats = 1):
+    &quot;&quot;&quot;Draws nested colored sinusoids emerging from darkness&quot;&quot;&quot;
     for i in range(repeats):
         alex.up()
         alex.color(hueGen(i, .5*i/repeats, .5))
@@ -328,7 +323,7 @@ wn.exitonclick()
 turtle.tracer(0, 0)
 wn = turtle.Screen()
 wn.colormode(1)
-turtle.bgcolor("black")
+turtle.bgcolor(&quot;black&quot;)
 alex = turtle.Turtle()
 alex.speed(10)
 alex.pensize(2)
@@ -336,16 +331,14 @@ alex.ht()
 waves(700)
 turtle.update()
 wn.exitonclick()
-</code></pre>
-
-<p><img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1" /></p>
+</code></pre></div>
+<p><img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1"></p>
 
 <p>Setting both the value and saturation to .5 gives this:
-<img src="/img/pythonArt/sineWaves2.png" alt="sineWaves2" /></p>
+<img src="/img/pythonArt/sineWaves2.png" alt="sineWaves2"></p>
 
 <p>setting the saturation to 0 gives a grayscale image:
-<img src="/img/pythonArt/sineWaves3.png" alt="sineWaves3" /></p>
-
+<img src="/img/pythonArt/sineWaves3.png" alt="sineWaves3"></p>
 
   </article>
 <div class="share-page">
