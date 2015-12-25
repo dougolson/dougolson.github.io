@@ -26,18 +26,18 @@ plt.plot(t,x)
 plt.axis([0,1,-1,1])
 plt.xlabel('time in seconds')
 plt.ylabel('amplitude')
-plt.show()}
+plt.show()
 ```
 
 
 ![png](/img/sinusoids/output_1_0.png)
 
 
-The above is sampled in a sense, in that it is based on an array of length 100 with each element spaced by .01.
+The above is "sampled" in a sense, in that it is based on an array of length 100 with each element spaced by .01.
 
 To base it on samples explicitly you can use one of three expressions:
 
-\\(x = Acos(2{\pi}fn + {\phi})\\), where n is the sample index and f is the frequency)\\
+\\(x = Acos(2{\pi}fn + {\phi})\\), where n is the sample index and f is the frequency
 
 \\(x = Acos(2{\pi}fnT + {\phi})\\), where n is the sample index and T is the sample period, or 
     
@@ -157,7 +157,7 @@ plt.show()
 ![png](/img/sinusoids/output_11_0.png)
 
 
-You can also do it based on \\( = e^{j(2{\pi}fn/N +{\phi})}\\). This way time is not involved.
+You can also do it based on \\( = e^{j(2{\pi}fn/N +{\phi})}\\).
 
 
 ```python
