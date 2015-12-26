@@ -6,7 +6,7 @@ description: Getting started with DSP
 comments: True
 ---
 
-I've been spending a fair amount of time lately learning Python, but most of my efforts have been focused on the turtle graphics module. It's a lot of fun, and some of the images I've been able to come up with are quite interesting (to me, at least), but what I really want to do is learn how to do things with audio. So I've started studying DSP. I'm pretty confortable with continuous functions, but discrete functions can be a bit of a challenge at first - indexes, the meaning of frequency and time, etc. With a little practice - which is all this post is - it becomes clear pretty quickly. Along the way, I get some practice plotting with Matplotlib, Numpy and Scipy. First order of business, I want to understand sinusoid generation. The basic equation is:
+<img align="left" src="/img/sinusoids/output_9_0.png" height="100" width="100">I've been spending a fair amount of time lately learning Python, but most of my efforts have been focused on the turtle graphics module. It's a lot of fun, and some of the images I've been able to come up with are quite interesting (to me, at least), but what I really want to do is learn how to do things with audio. So I've started studying DSP. I'm pretty confortable with continuous functions, but discrete functions can be a bit of a challenge at first - indexes, the meaning of frequency and time, etc. With a little practice - which is all this post is - it becomes clear pretty quickly. Along the way, I get some practice plotting with Matplotlib, Numpy and Scipy. First order of business, I want to understand sinusoid generation. The basic equation is:
 
 \\[x(t) = Acos(2{\pi}ft + {\phi}) \\]
 
