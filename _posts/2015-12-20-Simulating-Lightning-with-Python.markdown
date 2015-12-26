@@ -42,11 +42,11 @@ import math
 def clamp(n, minn, maxn):
     return max(min(maxn, n), minn) # thank you stack overflow
 
-turtle.tracer(0, 0)
+turtle.tracer(0, 0) #runs much faster this way; no image until the whole thing is done
 wn = turtle.Screen()
-ts = turtle.getscreen()
+ts = turtle.getscreen() # needed for writing to .eps file
 wn.colormode(1)
-turtle.bgcolor(1,1,1)
+turtle.bgcolor(1,1,1) #white
 alex = turtle.Turtle()
 alex.speed(10)
 alex.pensize(10)
@@ -83,7 +83,7 @@ def lightning(pos, head,spread):
         for j in range(random.randint(20,40)):
             alex.pensize(pen)
             head1 = head[i] + random.gauss(spread,15)
-            if(180 > head1 > 0):
+            if(180 > head1 > 0): # keep lightning pointing downwards
                 alex.seth(-head1)
             else:
                 alex.seth(head1)
