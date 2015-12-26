@@ -9,8 +9,9 @@
     <title>Diving into the DFT</title>
     <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
 ">
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
     <link rel="stylesheet" href="/css/main.css">
 
     <link rel="canonical" href="http://www.mrcolson.com/2015/12/26/Diving-Into-the-DFT.html">
@@ -86,21 +87,21 @@
   </header>
 
   <article class="post-content">
-    <p><img align="left" src="/img/DFT/output_19_0.png" height="100" width="100">Time to look at the Discrete Fourier Transform or DFT. It&#39;s a bit daunting at first to figure out what&#39;s going on in there - I found it confusing at first, and looked to various online resources for help. I found <a href="https://jackschaedler.github.io/circles-sines-signals/dft_walkthrough.html">Jack Schaedler&#39;s tutorial </a> to be very helpful for giving an intuitive picture of the DFT. <a href="https://www.youtube.com/watch?v=h6QJLx22zrE">David Dorran&#39;s YouTube tutorial</a> is also very good. <a href="https://ccrma.stanford.edu/~jos/mdft/mdft.html">Julius O. Smith&#39;s book </a> lays out the math in great detail, and the <a href ="https://www.coursera.org/course/audio">Coursera Course</a> he does with Xavier Serra covers both the theory and programming aspects of the DFT. So...</p>
+    <p><img align="left" src="/img/DFT/output_19_0.png" height="100" width="100">Time to look at the Discrete Fourier Transform or DFT. It&#39;s a bit daunting to try and figure out what&#39;s going on in there - I found it confusing at first, and looked to various online resources for help. I found <a href="https://jackschaedler.github.io/circles-sines-signals/dft_walkthrough.html">Jack Schaedler&#39;s tutorial </a> to be very helpful for giving an intuitive picture of the DFT. <a href="https://www.youtube.com/watch?v=h6QJLx22zrE">David Dorran&#39;s YouTube tutorial</a> is also very good. <a href="https://ccrma.stanford.edu/~jos/mdft/mdft.html">Julius O. Smith&#39;s book </a> lays out the math in great detail, and the <a href ="https://www.coursera.org/course/audio">Coursera Course</a> he does with Xavier Serra covers both the theory and programming aspects of the DFT. So...</p>
 
 <p>The equation for the DFT is:</p>
 
-<p>\[X[k] = {\sum_{n=0}^{N-1}}x[n]e^{-j2{\pi}kn/N}     k = 0, 1, 2, ..., N-1]\</p>
+<p>\[X[k] = {\sum_{n=0}^{N-1}}x[n]e^{-j2{\pi}kn/N}     k = 0, 1, 2, ..., N-1\]</p>
 
-<p>I translate this into English by saying &quot;the kth bin of the DFT is the sum of the product of each signal sample x[n] and \(e^{-j2{\pi}kn/N})\ from n = 0 to n = N-1.&quot;</p>
+<p>I translate this into English by saying &quot;the kth bin of the DFT is the sum of the product of each signal sample x[n] and \(e^{-j2{\pi}kn/N}\) from n = 0 to n = N-1.&quot; I&#39;m not sure how useful it is to read, but I find it useful to force myself to put equations like this into words.</p>
 
-<p>It is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.</p>
+<p>The DFT equation is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.</p>
 
 <p>The number of DFT frequency bins is related to the number of samples in the signal: 0/N, 2/N,...,N-1/N. </p>
 
 <p>0/N is the DC component.</p>
 
-<p>\(e^{-j2{\pi}kn/N})\, the <em>transformation kernel</em>, generates a set of complex frequencies. Just looking at a few examples, starting with k=0, the DC or 0Hz component, gives a sense of what&#39;s going on. Note how the frequency goes up as k approaches N/2, and then goes back down as it nears N-1:</p>
+<p>\(e^{-j2{\pi}kn/N}\), the <em>transformation kernel</em>, generates a set of complex frequencies. Just looking at a few examples, starting with k=0, the DC or 0Hz component, gives a sense of what&#39;s going on. Note how the frequency goes up as k approaches N/2, and then goes back down as it nears N-1:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -117,11 +118,12 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k= 0 , n=1 through n=6 are [ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k= 0 , n=1 through n=6 are 
+[ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
 </code></pre></div>
 <p><img src="/img/DFT/output_1_1.png" alt="png"></p>
 
-<p>Note that the basis frequencies are lowest at k = 1 and k = N-1. They are highest on either side of k = (N-1)/2</p>
+<p>Note that the basis frequencies are lowest at k = 1 and k = N-1. They are highest at N/2, although I would guess that if for some reason an odd number of samples were chosen, the highest frequencies would be on either side of N/2.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
@@ -134,8 +136,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  1 , n=1 : n=6 =  [ 1.00000000+0.j          0.98078528-0.19509032j  0.92387953-0.38268343j
-  0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  1 , n=1 through n=6 = are 
+[ 1.00000000+0.j  0.98078528-0.19509032j  0.92387953-0.38268343j
+0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
 </code></pre></div>
 <p><img src="/img/DFT/output_3_1.png" alt="png"></p>
 
@@ -152,10 +155,30 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  31 , n=1 : n=6 =  [ 1.00000000+0.j          0.98078528+0.19509032j  0.92387953+0.38268343j
-  0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  31 , n=1 through n=6 are 
+[ 1.00000000+0.j  0.98078528+0.19509032j  0.92387953+0.38268343j
+ 0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
 </code></pre></div>
 <p><img src="/img/DFT/output_5_1.png" alt="png"></p>
+
+<p>For k=5</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;for k=&quot;</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="s">&quot;, n=1 through n=6 are&quot;</span><span class="p">,</span> <span class="n">basisFreq</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">basisFreq</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">basisFreq</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;k = 5&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k= 5 , n=1 through n=6 are 
+[ 1.00000000+0.j  0.55557023-0.83146961j -0.38268343-0.92387953j
+-0.98078528-0.19509032j -0.70710678+0.70710678j  0.19509032+0.98078528j]
+</code></pre></div>
+<p><img src="/img/DFT/kEquals5.png" alt="png"></p>
 
 <p>For k=15</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
@@ -170,8 +193,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  15 , n=1 : n=6 =  [ 1.00000000+0.j         -0.98078528-0.19509032j  0.92387953+0.38268343j
- -0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  15 , n=1 through n=6 are
+[ 1.00000000+0.j  -0.98078528-0.19509032j  0.92387953+0.38268343j
+-0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
 </code></pre></div>
 <p><img src="/img/DFT/output_7_1.png" alt="png"></p>
 
@@ -188,8 +212,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  16 , n=1 : n=6 =  [ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
- -1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  16 , n=1 through n=6 are
+[ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
+-1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
 </code></pre></div>
 <p><img src="/img/DFT/output_9_1.png" alt="png"></p>
 
@@ -206,8 +231,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  17 , n=1 : n=6 =  [ 1.00000000+0.j         -0.98078528+0.19509032j  0.92387953-0.38268343j
- -0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">for k =  17 , n=1 through n=6 are
+[ 1.00000000+0.j  -0.98078528+0.19509032j  0.92387953-0.38268343j
+-0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
 </code></pre></div>
 <p><img src="/img/DFT/output_11_1.png" alt="png"></p>
 
@@ -285,7 +311,7 @@ for k= 29  Xk = [-0.+0.j]
 for k= 30  Xk = [-0.+0.j]
 for k= 31  Xk = [-0.-0.j]
 </code></pre></div>
-<p>That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn&#39;t give such a precise result (the blue trace in the plot). It also doesn&#39;t make much sense that frquencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X<a href="green%20trace">k</a>.</p>
+<p>That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn&#39;t give such a precise result (the blue trace in the plot). It also doesn&#39;t make much sense that frequencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X<a href="green%20trace">k</a>.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">5.4</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
@@ -326,7 +352,7 @@ for k= 31  Xk = [-0.-0.j]
 </code></pre></div>
 <p><img src="/img/DFT/output_21_0.png" alt="png"></p>
 
-<p>Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indeces around centers the plot around 0 and shows the peaks as frequency components at +/- 5.</p>
+<p>Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indices around centers the plot around 0 and shows the peaks as frequency components at +/- 5. The idea of negative frequency is pretty weird. About the best explanation I have found is that it is like a spinning wheel in that you can think of it spinning clockwise at x rpm or counterclockwise at -x rpm, which is . There is also the explanation that \(e^{-j{\omega}} = cos({\omega}) - jsin({\omega})\), and that the imaginary component is orthogonal to the real component and cancels out in the dot product when the signal is complex, but not when it is real. In other words, handwave handwave, real signals result in a negative frequency component.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>

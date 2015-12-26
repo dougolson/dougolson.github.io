@@ -9,8 +9,9 @@
     <title>Making Sinusoids with Python</title>
     <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
 ">
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
     <link rel="stylesheet" href="/css/main.css">
 
     <link rel="canonical" href="http://www.mrcolson.com/2015/12/24/Making-Sinusoids-with-Python.html">
@@ -109,28 +110,11 @@
 
 <p>The above is &quot;sampled&quot; in a sense, in that it is based on an array of length 100 with each element spaced by .01.</p>
 
-<p>To base it on samples explicitly you can use one of three expressions:</p>
-
-<p>\(x = Acos(2{\pi}fn + {\phi})\), where n is the sample index and f is the frequency</p>
+<p>To base it on samples explicitly you can use one of two expressions:</p>
 
 <p>\(x = Acos(2{\pi}fnT + {\phi})\), where n is the sample index and T is the sample period, or </p>
 
 <p>\(x = Acos(2{\pi}fn/N + {\phi})\), where n is the sample index and N is the number of samples.</p>
-
-<p>if you just code the first expression as is, you just get A back, because if n is an integer, \(2{\pi}fn\) is always an even multiple of \(){\pi}\), and \(cos2{\pi}fn = 1\)</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">8</span>
-<span class="n">samples</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;sample index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-<p><img src="/img/sinusoids/output_3_0.png" alt="png"></p>
 
 <p>\(x = Acos(2{\pi}fnT + {\phi})\) gives:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">65</span>
@@ -149,8 +133,9 @@
 </code></pre></div>
 <p><img src="/img/sinusoids/output_5_0.png" alt="png"></p>
 
-<p>\(x = Acos(2{\pi}fn/N + {\phi})\) is independent of time - frequency depends on sample rate.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c"># samples</span>
+<p>\(x = Acos(2{\pi}fn/N + {\phi})\) is &quot;independent&quot; of time, in that frequency depends on the sample rate, or really on the time basis of the sample rate. So if your sample rate is 100 samples per day and f = 5, your frequency would 5 cycles per day. </p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">8</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c"># samples</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>

@@ -35,37 +35,13 @@ plt.show()
 
 The above is "sampled" in a sense, in that it is based on an array of length 100 with each element spaced by .01.
 
-To base it on samples explicitly you can use one of three expressions:
-
-\\(x = Acos(2{\pi}fn + {\phi})\\), where n is the sample index and f is the frequency
+To base it on samples explicitly you can use one of two expressions:
 
 \\(x = Acos(2{\pi}fnT + {\phi})\\), where n is the sample index and T is the sample period, or 
-    
+
 \\(x = Acos(2{\pi}fn/N + {\phi})\\), where n is the sample index and N is the number of samples.
 
-if you just code the first expression as is, you just get A back, because if n is an integer, \\(2{\pi}fn\\) is always an even multiple of \\(){\pi}\\), and \\(cos2{\pi}fn = 1\\)
-
-
-```python
-A = .8
-samples = 100
-f = 5.0
-phi = 0
-n = np.arange(samples)
-x = A*np.cos(2*np.pi*f*n + phi)
-plt.plot(n,x)
-plt.axis([0,100,-1,1])
-plt.xlabel('sample index')
-plt.ylabel('amplitude')
-plt.show()
-```
-
-
-![png](/img/sinusoids/output_3_0.png)
-
-
 \\(x = Acos(2{\pi}fnT + {\phi})\\) gives:
-
 
 ```python
 A = .65
@@ -87,10 +63,11 @@ plt.show()
 ![png](/img/sinusoids/output_5_0.png)
 
 
-\\(x = Acos(2{\pi}fn/N + {\phi})\\) is independent of time - frequency depends on sample rate.
+\\(x = Acos(2{\pi}fn/N + {\phi})\\) is "independent" of time, in that frequency depends on the sample rate, or really on the time basis of the sample rate. So if your sample rate is 100 samples per day and f = 5, your frequency would 5 cycles per day. 
 
 
 ```python
+A = .8
 N = 100 # samples
 f = 5
 phi = 0

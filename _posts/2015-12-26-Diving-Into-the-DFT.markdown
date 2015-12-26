@@ -12,9 +12,9 @@ The equation for the DFT is:
 
 \\[X[k] = {\sum_{n=0}^{N-1}}x[n]e^{-j2{\pi}kn/N}     k = 0, 1, 2, ..., N-1\\]
 
-I translate this into English by saying "the kth bin of the DFT is the sum of the product of each signal sample x[n] and \\(e^{-j2{\pi}kn/N}\\) from n = 0 to n = N-1."
+I translate this into English by saying "the kth bin of the DFT is the sum of the product of each signal sample x[n] and \\(e^{-j2{\pi}kn/N}\\) from n = 0 to n = N-1." I'm not sure how useful it is to read, but I find it useful to force myself to put equations like this into words.
 
-It is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.
+The DFT equation is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.
 
 The number of DFT frequency bins is related to the number of samples in the signal: 0/N, 2/N,...,N-1/N. 
 
@@ -42,7 +42,8 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k= 0 , n=1 through n=6 are [ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
+    for k= 0 , n=1 through n=6 are 
+    [ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
 
 
 ![png](/img/DFT/output_1_1.png)
@@ -66,8 +67,9 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  1 , n=1 through n=6 = are [ 1.00000000+0.j          0.98078528-0.19509032j  0.92387953-0.38268343j
-      0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
+    for k =  1 , n=1 through n=6 = are 
+    [ 1.00000000+0.j  0.98078528-0.19509032j  0.92387953-0.38268343j
+    0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
 
 
 
@@ -92,13 +94,36 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  31 , n=1 through n=6 are [ 1.00000000+0.j          0.98078528+0.19509032j  0.92387953+0.38268343j
-      0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
+    for k =  31 , n=1 through n=6 are 
+    [ 1.00000000+0.j  0.98078528+0.19509032j  0.92387953+0.38268343j
+     0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
 
 
 
 ![png](/img/DFT/output_5_1.png)
 
+For k=5
+
+```python
+N = 32
+n = np.arange(N)
+k = 5
+basisFreq = np.exp(-1j*2*np.pi*k*n/N)
+print "for k=",k,", n=1 through n=6 are", basisFreq[:6]
+plt.plot(n,np.real(basisFreq))
+plt.plot(n,np.imag(basisFreq))
+plt.title("k = 5")
+plt.axis([0,N,-1,1])
+plt.xlabel('sample index')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+	for k= 5 , n=1 through n=6 are 
+	[ 1.00000000+0.j  0.55557023-0.83146961j -0.38268343-0.92387953j
+	-0.98078528-0.19509032j -0.70710678+0.70710678j  0.19509032+0.98078528j]
+
+![png](/img/DFT/kEquals5.png)
 
 For k=15
 
@@ -118,8 +143,9 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  15 , n=1 through n=6 are [ 1.00000000+0.j         -0.98078528-0.19509032j  0.92387953+0.38268343j
-     -0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
+    for k =  15 , n=1 through n=6 are
+    [ 1.00000000+0.j  -0.98078528-0.19509032j  0.92387953+0.38268343j
+    -0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
 
 
 
@@ -144,8 +170,9 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  16 , n=1 through n=6 are[ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
-     -1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
+    for k =  16 , n=1 through n=6 are
+    [ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
+    -1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
 
 
 
@@ -170,8 +197,9 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  17 , n=1 through n=6 are [ 1.00000000+0.j         -0.98078528+0.19509032j  0.92387953-0.38268343j
-     -0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
+    for k =  17 , n=1 through n=6 are
+    [ 1.00000000+0.j  -0.98078528+0.19509032j  0.92387953-0.38268343j
+    -0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
 
 
 
@@ -208,7 +236,7 @@ X = np.array([]) # create an empty array
 for k in n: # loop over k from 0 to N-1 (here n is a numpy array from 0 - 31)
     Xk = (np.exp(-1j*2*np.pi*k*n/N)) # the trasonformation kernel is calculated for each basis frequency k
     X = np.append(X,sum(x*Xk)) # for each k, the dot product is calculated, summed, and appended to array X
-    
+
 plt.plot(X)
 plt.title("DFT")
 plt.axis([0,N,-1,N])
@@ -271,7 +299,7 @@ for k in n:
     for k= 31  Xk = [-0.-0.j]
 
 
-That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn't give such a precise result (the blue trace in the plot). It also doesn't make much sense that frquencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X[k]  (green trace).
+That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn't give such a precise result (the blue trace in the plot). It also doesn't make much sense that frequencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X[k]  (green trace).
 
 
 ```python
@@ -311,7 +339,7 @@ X = np.array([])
 for k in n:
     Xk = np.exp(-1j*2*np.pi*k*n/N)
     X = np.append(X,abs(sum(x*Xk)))
-    
+
 plt.plot(X)
 plt.title("DFT")
 plt.axis([0,N,0,N])
@@ -324,7 +352,7 @@ plt.show()
 ![png](/img/DFT/output_21_0.png)
 
 
-Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indeces around centers the plot around 0 and shows the peaks as frequency components at +/- 5.
+Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indices around centers the plot around 0 and shows the peaks as frequency components at +/- 5. The idea of negative frequency is pretty weird. About the best explanation I have found is that it is like a spinning wheel in that you can think of it spinning clockwise at x rpm or counterclockwise at -x rpm, which is . There is also the explanation that \\(e^{-j{\omega}} = cos({\omega}) - jsin({\omega})\\), and that the imaginary component is orthogonal to the real component and cancels out in the dot product when the signal is complex, but not when it is real. In other words, handwave handwave, real signals result in a negative frequency component.
 
 
 ```python
