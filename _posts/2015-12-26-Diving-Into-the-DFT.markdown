@@ -66,7 +66,7 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  1 , n=1 : n=6 =  [ 1.00000000+0.j          0.98078528-0.19509032j  0.92387953-0.38268343j
+    for k =  1 , n=1 through n=6 = are [ 1.00000000+0.j          0.98078528-0.19509032j  0.92387953-0.38268343j
       0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
 
 
@@ -92,7 +92,7 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  31 , n=1 : n=6 =  [ 1.00000000+0.j          0.98078528+0.19509032j  0.92387953+0.38268343j
+    for k =  31 , n=1 through n=6 are [ 1.00000000+0.j          0.98078528+0.19509032j  0.92387953+0.38268343j
       0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
 
 
@@ -118,7 +118,7 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  15 , n=1 : n=6 =  [ 1.00000000+0.j         -0.98078528-0.19509032j  0.92387953+0.38268343j
+    for k =  15 , n=1 through n=6 are [ 1.00000000+0.j         -0.98078528-0.19509032j  0.92387953+0.38268343j
      -0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
 
 
@@ -144,7 +144,7 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  16 , n=1 : n=6 =  [ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
+    for k =  16 , n=1 through n=6 are[ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
      -1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
 
 
@@ -170,7 +170,7 @@ plt.ylabel('amplitude')
 plt.show()
 ```
 
-    for k =  17 , n=1 : n=6 =  [ 1.00000000+0.j         -0.98078528+0.19509032j  0.92387953-0.38268343j
+    for k =  17 , n=1 through n=6 are [ 1.00000000+0.j         -0.98078528+0.19509032j  0.92387953-0.38268343j
      -0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
 
 
@@ -271,7 +271,7 @@ for k in n:
     for k= 31  Xk = [-0.-0.j]
 
 
-That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn't give such a precise result (the blue trace in the plot). It also doesn't make much sense that frquencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X[k] (green trace).
+That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn't give such a precise result (the blue trace in the plot). It also doesn't make much sense that frquencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X[k]  (green trace).
 
 
 ```python
