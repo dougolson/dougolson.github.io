@@ -10,9 +10,9 @@ comments: True
 
 The equation for the DFT is:
 
-\\[X[k] = {\sum_{n=0}^{N-1}}x[n]e^{-j2{\pi}kn/N}     k = 0, 1, 2, ..., N-1]\\
+\\[X[k] = {\sum_{n=0}^{N-1}}x[n]e^{-j2{\pi}kn/N}     k = 0, 1, 2, ..., N-1\\]
 
-I translate this into English by saying "the kth bin of the DFT is the sum of the product of each signal sample x[n] and \\(e^{-j2{\pi}kn/N})\\ from n = 0 to n = N-1."
+I translate this into English by saying "the kth bin of the DFT is the sum of the product of each signal sample x[n] and \\(e^{-j2{\pi}kn/N}\\) from n = 0 to n = N-1."
 
 It is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.
 
@@ -20,7 +20,7 @@ The number of DFT frequency bins is related to the number of samples in the sign
 
 0/N is the DC component.
 
-\\(e^{-j2{\pi}kn/N})\\, the *transformation kernel*, generates a set of complex frequencies. Just looking at a few examples, starting with k=0, the DC or 0Hz component, gives a sense of what's going on. Note how the frequency goes up as k approaches N/2, and then goes back down as it nears N-1:
+\\(e^{-j2{\pi}kn/N}\\), the *transformation kernel*, generates a set of complex frequencies. Just looking at a few examples, starting with k=0, the DC or 0Hz component, gives a sense of what's going on. Note how the frequency goes up as k approaches N/2, and then goes back down as it nears N-1:
 
 
 ```python
