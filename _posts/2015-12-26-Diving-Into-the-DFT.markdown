@@ -45,11 +45,10 @@ plt.show()
     for k= 0 , n=1 through n=6 are [ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
 
 
-
 ![png](/img/DFT/output_1_1.png)
 
 
-Note that the basis frequencies are lowest at k = 1 and k = N-1. They are highest on either side of k = (N-1)/2
+Note that the basis frequencies are lowest at k = 1 and k = N-1. They are highest at N/2, although I would guess that if for some reason an odd number of samples were chosen, the highest frequencies would be on either side of N/2.
 
 
 ```python
