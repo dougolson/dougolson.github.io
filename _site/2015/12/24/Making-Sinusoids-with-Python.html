@@ -103,15 +103,15 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;time in seconds&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;amplitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img src="/img/sinusoids/output_1_0.png" alt="png"></p>
 
-<p>The above is sampled in a sense, in that it is based on an array of length 100 with each element spaced by .01.</p>
+<p>The above is &quot;sampled&quot; in a sense, in that it is based on an array of length 100 with each element spaced by .01.</p>
 
 <p>To base it on samples explicitly you can use one of three expressions:</p>
 
-<p>\(x = Acos(2{\pi}fn + {\phi})\), where n is the sample index and f is the frequency)\</p>
+<p>\(x = Acos(2{\pi}fn + {\phi})\), where n is the sample index and f is the frequency</p>
 
 <p>\(x = Acos(2{\pi}fnT + {\phi})\), where n is the sample index and T is the sample period, or </p>
 
@@ -201,7 +201,7 @@
 </code></pre></div>
 <p><img src="/img/sinusoids/output_11_0.png" alt="png"></p>
 
-<p>You can also do it based on \( = e^{j(2{\pi}fn/N +{\phi})}\). This way time is not involved.</p>
+<p>You can also do it based on \( = e^{j(2{\pi}fn/N +{\phi})}\).</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">f</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">64</span> 
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
@@ -218,7 +218,7 @@
 </code></pre></div>
 <p><img src="/img/sinusoids/output_13_0.png" alt="png"></p>
 
-<p>You can use Scipy to write the data to a .wav file - here is 1 second at 440 Hz</p>
+<p>Finally, you can use Scipy to write the data to a .wav file - here is 1 second at 440 Hz</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">44100</span> <span class="c"># samples</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">440</span>
 <span class="n">fs</span> <span class="o">=</span> <span class="mi">44100</span>
@@ -230,21 +230,6 @@
 <span class="n">write</span><span class="p">(</span><span class="s">&#39;sine440_1sec.wav&#39;</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 <p><audio controls><source src="/audio/sine1sec440.wav" type="audio/wav" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/> </p>
-
-<p>And here is .75 seconds at 500Hz:
-<code>python
-t = .75 # seconds
-f = 500
-fs = 44100
-N = t*fs
-phi = np.pi/2 # get rid of click from starting at pk value.
-n = np.arange(N)
-x = A*np.cos(2*np.pi*f*n/N + phi)
-write(&#39;sine500_750ms90deg.wav&#39;, 44100, x)
-</code><br>
-<audio controls><source src="/audio/sine500_750ms90deg.wav" type="audio/wav" preload ="metadata">
 Your browser does not support the audio tag.
 </audio><br/> </p>
 
