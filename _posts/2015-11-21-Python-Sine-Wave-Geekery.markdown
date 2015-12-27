@@ -6,7 +6,7 @@ description: An illustration of the concept of sine wave as rotation
 comments: True
 ---
 
-I was messing around with the Python's turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time. 
+<img class = "post-thumb" src="/img/sineWaveGeekery/sineThumb.png">I was messing around with the Python's turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time. 
 
 It may help to imagine a horizontal line moving up and down along with the blue, green and black dots, and a vertical line moving to the right along with the black dot and the yellow arrowhead. 
 

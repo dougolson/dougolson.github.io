@@ -7,7 +7,7 @@ comments: True
 ---
 ####A series of images made with Python Turtle Graphics
 <br/>
-<img align="left" src="/img/pythonArt/rainbowGalaxy.png" height="100" width="100">I've been playing around with Python's turtle graphics - it's a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
+<img class = "post-thumb" src="/img/pythonArt/rainbowGalaxy.png" height="120" width="120">I've been playing around with Python's turtle graphics - it's a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
 <br/><br/><br/>
 The code for the first image is pretty simple:
 

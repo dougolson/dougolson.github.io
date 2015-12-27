@@ -6,7 +6,7 @@ description: Making sense of the Discrete Fourier Transform
 comments: True
 ---
 
-<img align="left" src="/img/DFT/output_19_0.png" height="100" width="100">Time to look at the Discrete Fourier Transform or DFT. It's a bit daunting to try and figure out what's going on in there - I found it confusing at first, and looked to various online resources for help. I found <a href="https://jackschaedler.github.io/circles-sines-signals/dft_walkthrough.html">Jack Schaedler's tutorial </a> to be very helpful for giving an intuitive picture of the DFT. <a href="https://www.youtube.com/watch?v=h6QJLx22zrE">David Dorran's YouTube tutorial</a> is also very good. <a href="https://ccrma.stanford.edu/~jos/mdft/mdft.html">Julius O. Smith's book </a> lays out the math in great detail, and the <a href ="https://www.coursera.org/course/audio">Coursera Course</a> he does with Xavier Serra covers both the theory and programming aspects of the DFT. So...
+<img class = "post-thumb" src="/img/DFT/output_19_0.png" height="120" width="120">Time to look at the Discrete Fourier Transform or DFT. It's a bit daunting to try and figure out what's going on in there - I found it confusing at first, and looked to various online resources for help. I found <a href="https://jackschaedler.github.io/circles-sines-signals/dft_walkthrough.html">Jack Schaedler's tutorial </a> to be very helpful for giving an intuitive picture of the DFT. <a href="https://www.youtube.com/watch?v=h6QJLx22zrE">David Dorran's YouTube tutorial</a> is also very good. <a href="https://ccrma.stanford.edu/~jos/mdft/mdft.html">Julius O. Smith's book </a> lays out the math in great detail, and the <a href ="https://www.coursera.org/course/audio">Coursera Course</a> he does with Xavier Serra covers both the theory and programming aspects of the DFT. So...
 
 The equation for the DFT is:
 
@@ -14,7 +14,7 @@ The equation for the DFT is:
 
 I translate this into English by saying "the kth bin of the DFT is the sum of the product of each signal sample x[n] and \\(e^{-j2{\pi}kn/N}\\) from n = 0 to n = N-1." I'm not sure how useful it is to read, but I find it useful to force myself to put equations like this into words.
 
-The DFT equation is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is in another. More in that in a bit.
+The DFT equation is also the dot product of two vectors, which can be thought of as the projection of one vector onto another, or a measure of how much of one vector is present in another. More in that in a bit.
 
 The number of DFT frequency bins is related to the number of samples in the signal: 0/N, 2/N,...,N-1/N. 
 
