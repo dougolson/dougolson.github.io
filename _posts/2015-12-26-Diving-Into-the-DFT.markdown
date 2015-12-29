@@ -352,7 +352,7 @@ plt.show()
 ![png](/img/DFT/output_21_0.png)
 
 
-Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indices around centers the plot around 0 and shows the peaks as frequency components at +/- 5. The idea of negative frequency is pretty weird. About the best explanation I have found is that it is like a spinning wheel in that you can think of it spinning clockwise at x rpm or counterclockwise at -x rpm, which is . There is also the explanation that \\(e^{-j{\omega}} = cos({\omega}) - jsin({\omega})\\), and that the imaginary component is orthogonal to the real component and cancels out in the dot product when the signal is complex, but not when it is real. In other words, handwave handwave, real signals result in a negative frequency component.
+Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indices around centers the plot around 0 and shows the peaks as frequency components at +/- 5. The idea of negative frequency is pretty weird. About the best explanation I have found is that it is like a spinning wheel in that you can think of it spinning clockwise at x rpm or counterclockwise at -x rpm, which is . There is also the explanation that \\(e^{-j{\omega}} = cos({\omega}) - jsin({\omega})\\), and that the imaginary component is orthogonal to the real component and cancels out in the dot product when the signal is complex, but not when it is real.
 
 
 ```python
@@ -361,9 +361,9 @@ f = 5
 N = 32
 n = np.arange(N)
 n2 = np.arange(-N/2,N/2)
-x = A*np.cos(2*np.pi*f*nv/N)
+x = A*np.cos(2*np.pi*f*n2/N)
 X = np.array([])
-for k in nv:
+for k in n2:
     Xk = np.exp(-1j*2*np.pi*k*n2/N)
     X = np.append(X,abs(sum(x*Xk)))
     
@@ -388,9 +388,9 @@ f = 5.5
 N = 32
 n = np.arange(N)
 n2 = np.arange(-N/2,N/2)
-x = A*np.cos(2*np.pi*f*nv/N)
+x = A*np.cos(2*np.pi*f*n2/N)
 X = np.array([])
-for k in nv:
+for k in n2:
     Xk = np.exp(-1j*2*np.pi*k*n2/N)
     X = np.append(X,abs(sum(x*Xk)))
     
@@ -404,6 +404,234 @@ plt.show()
 
 
 ![png](/img/DFT/output_25_0.png)
+
+Being an infinite series of odd harmonics in decreasing proportion (1, 1/3, 1/5, 1/7 etc.), a square wave is a little more interesting than a sine, as the DFT shows. The function below generates one for a given frequency and number of harmonics. 
+
+
+```python
+# Generate a square wave additively
+def squareGen(fo = 5,length = 1000):
+    fmax = length/2
+    nmax = np.floor((fmax - 1)/(2.0*fo))
+    fIndex = np.arange(nmax)
+    n = np.arange(length)
+    freqs = fo*(2*fIndex + 1) 
+    sq = np.zeros(length)
+    for f in freqs:
+        harm = (fo/f)*(4/np.pi)*np.sin(2*np.pi*f*n/length)
+        sq = sq + harm
+    return sq  
+
+sq1 = squareGen()
+plt.plot(sq1)
+plt.axis([0,len(sq1),-1.1,1.1])
+plt.xlabel('sample index')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+
+![png](/img/DFT/output_30_1.png)
+
+
+
+```python
+N = len(sq1)
+X = np.array([])
+n2 = np.arange(-N/2,N/2)
+for k in n2:
+    Xk = np.exp(-1j*2*np.pi*k*n2/N)
+    X = np.append(X,abs(sum(sq1*Xk)))
+
+plt.plot(n2,X)
+plt.axis([0,100,-10,N])
+plt.xticks(np.arange(0,100,5))
+plt.title("5 Hz Square Wave v1 DFT")
+plt.grid(True)
+plt.xlabel('frequency')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+![png](/img/DFT/output_31_0.png)
+
+
+A cleaner square wave can be generated with a number sequence [1,1,1,...-1,-1,-1]. The DFT for the first ten harmonics is identical. 
+
+
+```python
+sq2 = np.repeat(1.0,100)
+sq2 = np.append(sq2,np.repeat(-1.0,100))
+sq2 = np.tile(sq2,5)
+plt.plot(sq2)
+plt.axis([0,1000,-1.1,1.1])
+plt.xlabel('sample index')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+![png](/img/DFT/output_33_0.png)
+
+
+
+```python
+N = len(sq2)
+n2 = np.arange(-N/2,N/2)
+X = np.array([])
+for k in n2:
+    Xk = np.exp(-1j*2*np.pi*k*n2/N)
+    X = np.append(X,abs(sum(sq2*Xk)))
+
+
+plt.plot(n2,X)
+plt.axis([0,100,-10,N])
+plt.xticks(np.arange(0,100,5))
+plt.title("5 Hz Square Wave v2 DFT")
+plt.grid(True)
+plt.xlabel('frequency')
+plt.ylabel('amplitude')
+plt.show()
+
+```
+
+
+
+
+![png](/img/DFT/output_34_1.png)
+
+
+A sawtooth wave has both even and odd harmonics in descending proportion of (1, 1/2, 1/3, 1/4, etc.)
+
+
+```python
+def sawGen(f=5,A=1,Sr=1000,length=1):
+    T = 1.0/f
+    A = float(A)
+    N = float(Sr*T)
+    n = np.arange(N)
+    x = A*n/N - A/2
+    x = 2*np.tile(x,f*length)
+    return x
+
+saw = sawGen()
+plt.plot(saw)
+plt.grid(True)
+plt.show()
+
+```
+
+
+![png](/img/DFT/output_36_0.png)
+
+
+
+```python
+N = len(saw)
+X = np.array([])
+n2 = np.arange(-N/2,N/2)
+X = np.array([])
+for k in n2:
+    Xk = np.exp(-1j*2*np.pi*k*n2/N)
+    X = np.append(X,abs(sum(saw*Xk)))
+
+
+plt.plot(n2,X)
+plt.axis([0,100,-10,N])
+plt.xticks(np.arange(0,100,5))
+plt.title("5 Hz Sawtooth Wave DFT")
+plt.grid(True)
+plt.xlabel('frequency')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+![png](/img/DFT/output_37_0.png)
+
+
+A triangle wave:
+
+
+```python
+def triGen(f=5,A=1,Sr=1000,length=1):
+    T = 1.0/f
+    #    A = f(A)
+    N = (Sr*T)
+    n = np.arange(int(N/2))
+    x = 2*A*n/N 
+    x = np.append(x,[x[-i-1] for i in range(len(x))]) - float(A)/2
+    x = 2*np.tile(x,f*length)
+    return x
+
+tri = triGen()
+plt.plot(tri)
+plt.show()
+```
+
+
+![png](/img/DFT/output_39_0.png)
+
+
+
+```python
+N = len(tri)
+X = np.array([])
+n2 = np.arange(-N/2,N/2)
+X = np.array([])
+for k in n2:
+    Xk = np.exp(-1j*2*np.pi*k*n2/N)
+    X = np.append(X,abs(sum(tri*Xk)))
+
+
+plt.plot(n2,X)
+plt.axis([0,100,-10,N])
+plt.xticks(np.arange(0,100,5))
+plt.title("5 Hz Triangle Wave DFT")
+plt.grid(True)
+plt.xlabel('frequency')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+![png](/img/DFT/output_40_0.png)
+
+
+Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used.
+
+
+```python
+from scipy.io.wavfile import read
+audio = read("waterGlass.wav")
+data = audio[1]
+data = data[20000:25000]
+```
+
+
+```python
+N = len(data)
+X = np.array([])
+n2 = np.arange(-N/2,N/2)
+X = np.array([])
+for k in n2:
+    Xk = np.exp(-1j*2*np.pi*k*n2/N)
+    X = np.append(X,abs(sum(data*Xk)))
+
+plt.plot(n2,np.log10(X))
+plt.axis([0,N/2,0,8])
+#plt.xticks(np.arange(400,500,20))
+plt.title("waterGlass.wav DFT")
+plt.grid(True)
+plt.xlabel('frequency')
+plt.ylabel('amplitude')
+plt.show()
+```
+
+
+![png](/img/DFT/output_44_0.png)
 
 
 There is plenty more to look at here - more in a subsequent post.
