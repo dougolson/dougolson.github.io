@@ -715,6 +715,17 @@ ul, ol {
   padding-bottom: 20px;
   margin: 0px 0 20px 0; }
 
+#pdfLink {
+  font-size: 11px;
+  text-align: center;
+  color: #0868B5; }
+
+#pdfLink a {
+  font-size: 11px;
+  text-align: center;
+  color: #0868B5;
+  font-weight: bold; }
+
 #credit {
   margin-bottom: 20px;
   font-size: 11px;
