@@ -536,7 +536,7 @@ for k= 31  Xk = [-0.-0.j]
 </code></pre></div>
 <p><img src="/img/DFT/output_40_0.png" alt="png"></p>
 
-<p>Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used.</p>
+<p>Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used. I used a 5000 sample slice to speed things up.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;waterGlass.wav&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>

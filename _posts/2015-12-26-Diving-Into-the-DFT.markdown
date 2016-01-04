@@ -600,7 +600,7 @@ plt.show()
 ![png](/img/DFT/output_40_0.png)
 
 
-Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used.
+Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used. I used a 5000 sample slice to speed things up.
 
 
 ```python
