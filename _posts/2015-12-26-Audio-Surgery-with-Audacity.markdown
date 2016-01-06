@@ -66,7 +66,7 @@ After selecting and attenuating each Oboe harmonic - a somewhat tedious process 
 
 ![final](/img/AudacitySpectralEQ/10.png)
 
-And sounds like this. The Oboe is almost completely inaudible:
+And sounds like this. The Oboe is almost completely inaudible, other than a bit of the initial transient and the noise component:
 
 <audio controls><source src="/audio/WaterGlassOboePostEQ.mp3" type="audio/mp3" preload="auto">
 Your browser does not support the audio tag.
