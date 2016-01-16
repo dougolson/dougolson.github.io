@@ -10,7 +10,7 @@ My friend Reid called me up the other day and asked if I wanted to help him clea
 
 ![webster1](/img/webster/webster1.jpg)
 
-It's an old Webster Electric 515 Vari-mu compressor with a 515 mic pre module. Wisconsin made, to boot - Webster was located in Racine. This was probably a P.A. grade piece of gear, but the transformers look pretty nice:
+It's an old Webster Electric 515 Vari-mu compressor with a 516 mic pre module. Wisconsin made, to boot - Webster was located in Racine. This was probably a P.A. grade piece of gear, but the transformers look pretty nice:
  
 ![webster2](/img/webster/webster2.jpg)
 
