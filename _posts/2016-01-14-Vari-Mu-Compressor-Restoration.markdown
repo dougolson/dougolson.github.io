@@ -11,7 +11,7 @@ My friend Reid called me up the other day and asked if I wanted to help him clea
 
 ![webster1](/img/webster/webster1.jpg)
 
-It's an old Webster Electric 515 Vari-mu compressor with a 516 mic pre module. Wisconsin made, to boot - Webster was located in Racine. This was probably a P.A. grade piece of gear, but the transformers look pretty nice:
+It's an old Webster Electric 515 Vari-mu compressor with a 516 mic pre module. Wisconsin made, to boot - Webster was located in Racine. The documentation just states that it is for use "in a sound system," but it has a telephone input channel, which suggests broadcast or paging. The transformers look pretty nice:
  
 ![webster2](/img/webster/webster2.jpg)
 
@@ -19,7 +19,7 @@ Of course looks can be deceiving, but I wouldn't be surprised if this thing soun
 
 ![schematic](/img/webster/schematic.jpg)
 
-The input is transformer coupled to a triode-connected EF-86 pentode. Theres a little mixer circuit that blends the mic and *telephone (!)* inputs, which then feeds a 12AU7, with one half connected as a gain stage, and the other as a cathode follower that drives the coupling transformer between the mic pre and the compressor. The telephone transformer is pretty dinky - you can see it tucked away in the image below - but who knows, maybe it will saturate in a cool sounding way. 
+The input is transformer coupled to a triode-connected EF-86 pentode. Theres a little mixer circuit that blends the mic and telephone inputs, which then feeds a 12AU7, with one half connected as a gain stage, and the other as a cathode follower that drives the coupling transformer between the mic pre and the compressor. The telephone transformer is pretty dinky - you can see it tucked away in the image below - but who knows, maybe it will saturate in a cool sounding way. 
 
 ![micPre](/img/webster/webster6.jpg)
 
@@ -33,6 +33,6 @@ There are quite a few very old electrolytic capacitors in this beast, and it's l
 
 ![tool](/img/webster/webster5.jpg)
 
-There are a number of mods that could be performed on this unit, and I'm a bit torn on that front. On the one hand, it's a vintage tube pre/compressor - why not just let it be what it is? I see no need to fill it with polypropylene capacitors and ultra low-noise resistors. On the other hand, it would be nice to have the compressor bypass switch on the front panel, and it would be pretty easy to add a couple more time constants to the CV circuit. An output control would be cool as well - it would be nice to be able to drive it hard and back off the output.
+There are a number of mods that could be performed on this unit, and I'm a bit torn on that front. On the one hand, it's a vintage tube pre/compressor - why not just let it be what it is? I see no need to fill it with polypropylene capacitors and ultra low-noise resistors. On the other hand, it would be nice to have the compressor bypass switch on the front panel, and it would be pretty easy to add a couple more time constants to the CV circuit. An output control would be cool as well - it would be nice to be able to drive it hard and back off the output. The specs for the pre give a frequency response for the compressor that is pretty respectable: +/- .6 dB, 30 - 20,000 Hz. The pre is less impressive: -.8 to 0 dB, 100 - 10,000 Hz. Pretty rolled. I would guess that's almost certainly a function of the input transformer, which is probably cheap. It might be worth it to put a good one in. Another possibility would be to convert the EF86 to pentode operation, which lowers the miller capacitance, and *might* improve the high frequency response. Lot's of possibilities... 
 
 I'm going to get the Webster up and running before I delve into any mods. Who knows - it may sound cool as it is, in which case it's probably better to leave well enough alone. 
