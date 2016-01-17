@@ -3,6 +3,7 @@ layout: post
 title: Audio Surgery with Audacity
 date: 2015-12-26 22:20 
 description: Audacity's powerful spectral EQ feature
+thumbnail: /img/AudacitySpectralEQ/3.png
 comments: True
 ---
 

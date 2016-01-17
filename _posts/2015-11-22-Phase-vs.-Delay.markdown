@@ -2,7 +2,8 @@
 layout: post
 title: Phase vs. Delay
 date: 2015-11-23 00:24 
-description: A look at phase shift, time delay and comb filtering  
+description: A look at phase shift, time delay and comb filtering 
+thumbnail: /img/phase/amp.jpg 
 comments: True
 ---
 

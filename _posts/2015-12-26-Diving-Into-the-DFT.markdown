@@ -2,7 +2,8 @@
 layout: post
 title: Diving into the DFT
 date: 2015-12-26 02:27 
-description: Making sense of the Discrete Fourier Transform 
+description: Making sense of the Discrete Fourier Transform
+thumbnail: /img/DFT/output_19_0.png
 comments: True
 ---
 

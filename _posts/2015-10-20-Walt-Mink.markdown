@@ -2,7 +2,8 @@
 layout: post
 title: Walt Mink
 date: 2015-10-20 00:47 
-description: Upcoming show + a few notes about recording Miss Happiness 
+description: Upcoming show + a few notes about recording Miss Happiness
+thumbnail: /img/waltminkLarge.jpg
 comments: True
 ---
 

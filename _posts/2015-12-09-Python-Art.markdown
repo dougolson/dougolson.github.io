@@ -2,7 +2,8 @@
 layout: post
 title: Python Art
 date: 2015-12-09 14:33 
-description: Using code to generate images and learn programming 
+description: Using code to generate images and learn programming
+thumbnail: /img/pythonArt/rainbowGalaxy.png 
 comments: True
 ---
 ####A series of images made with Python Turtle Graphics

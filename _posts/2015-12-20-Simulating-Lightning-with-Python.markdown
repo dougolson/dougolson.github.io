@@ -3,6 +3,7 @@ layout: post
 title: Simulating Lightning with Python
 date: 2015-12-20 21:35 
 description: More Turtle Graphics 
+thumbnail: /img/lightning/lightning2.png
 comments: True
 ---
 

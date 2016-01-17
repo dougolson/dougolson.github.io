@@ -3,6 +3,7 @@ layout: post
 title: Making Sinusoids with Python
 date: 2015-12-24 22:10 
 description: Getting started with DSP 
+thumbnail: /img/sinusoids/output_9_0.png
 comments: True
 ---
 

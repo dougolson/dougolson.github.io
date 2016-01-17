@@ -3,6 +3,7 @@ layout: post
 title: Vari-Mu Compressor Restoration
 date: 2016-1-14 11:20 
 description: My friend Reid gave me a tube compressor...
+thumbnail: /img/webster/websterThumb.jpg
 comments: True
 ---
 

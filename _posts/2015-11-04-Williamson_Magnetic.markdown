@@ -3,6 +3,7 @@ layout: post
 title: Williamson Magnetic
 date: 2015-11-04 07:55 
 description: Analog-only recording studio opening in Madison 
+thumbnail: /img/williamsonMagnetic.jpg
 comments: True
 ---
 

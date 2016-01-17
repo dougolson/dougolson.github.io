@@ -2,7 +2,8 @@
 layout: post
 title: Walt Mink 2
 date: 2015-11-02 22:48 
-description: Walt Mink live at the Varsity Theater. Minneapolis, MN, 10-30-2015 
+description: Walt Mink live at the Varsity Theater. Minneapolis, MN, 10-30-2015
+thumbnail: /img/minkShow/mink_sm1.jpg
 comments: True
 ---
 
