@@ -12,7 +12,7 @@ url: http://www.mrcolson.com
 github_username:  dougolson
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 
 highlighter: pygments
 
