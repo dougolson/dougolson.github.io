@@ -263,7 +263,7 @@ Your browser does not support the audio tag.
 
 
 | Interval      | Ratio    | Multiplier | Example |
-|---------------|----------|------------|---------|
+|:-------------:|:--------:|:----------:|:-------:|
 | Unison        | 1:1      | 1          | 440 Hz  |
 | Major second  | 9:8      | 1.125      | 495 Hz  |
 | Minor Third   | 32:27    | 1.185      | 521 Hz  |
