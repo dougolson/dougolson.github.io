@@ -255,8 +255,13 @@ Air Vintage Filter</CAPTION></br>
 </LI>
 <LI>Duplicate tracks - Option Shift D (or right-click) 
 </LI>
-<LI>Fancy: set frequencies to chord notes...
-		<DIV ALIGN="CENTER">
+<LI>Fancy: set frequencies to chord notes...</LI>
+	
+<DIV ALIGN="CENTER"><audio controls><source src="/audio/jkClass/filteredNoise1.mp3" type="audio/mp3" preload="auto">
+Your browser does not support the audio tag.
+</audio><br/><br/> </DIV>	
+
+<DIV ALIGN="CENTER">
 <TABLE CELLPADDING=3 BORDER="1">
 <TR><TD ALIGN="CENTER">Interval</TD>
 <TD ALIGN="CENTER">Ratio</TD>
