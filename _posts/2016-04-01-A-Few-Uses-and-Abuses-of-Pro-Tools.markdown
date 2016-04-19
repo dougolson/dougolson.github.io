@@ -261,77 +261,25 @@ Air Vintage Filter</CAPTION></br>
 Your browser does not support the audio tag.
 </audio><br/><br/> </DIV>	
 
-<DIV ALIGN="CENTER">
-<TABLE CELLPADDING=3 BORDER="1">
-<TR><TD ALIGN="CENTER">Interval</TD>
-<TD ALIGN="CENTER">Ratio</TD>
-<TD ALIGN="CENTER">Multiplier</TD>
-<TD ALIGN="CENTER">Example</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Unison</TD>
-<TD ALIGN="CENTER">1:1</TD>
-<TD ALIGN="CENTER">1</TD>
-<TD ALIGN="CENTER">440 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Major second</TD>
-<TD ALIGN="CENTER">9:8</TD>
-<TD ALIGN="CENTER">1.125</TD>
-<TD ALIGN="CENTER">495 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Minor Third</TD>
-<TD ALIGN="CENTER">32:27</TD>
-<TD ALIGN="CENTER">1.185</TD>
-<TD ALIGN="CENTER">521 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Major Third</TD>
-<TD ALIGN="CENTER">81:64</TD>
-<TD ALIGN="CENTER">1.2656</TD>
-<TD ALIGN="CENTER">557 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Fourth</TD>
-<TD ALIGN="CENTER">4:3</TD>
-<TD ALIGN="CENTER">1.333</TD>
-<TD ALIGN="CENTER">587 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Tritone</TD>
-<TD ALIGN="CENTER">1024:729</TD>
-<TD ALIGN="CENTER">1.405</TD>
-<TD ALIGN="CENTER">618 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Fifth</TD>
-<TD ALIGN="CENTER">3:2</TD>
-<TD ALIGN="CENTER">1.5</TD>
-<TD ALIGN="CENTER">660 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Minor Sixth</TD>
-<TD ALIGN="CENTER">128:81</TD>
-<TD ALIGN="CENTER">1.58</TD>
-<TD ALIGN="CENTER">695 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Major Sixth</TD>
-<TD ALIGN="CENTER">27:16</TD>
-<TD ALIGN="CENTER">1.6875</TD>
-<TD ALIGN="CENTER">743 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Minor Seventh</TD>
-<TD ALIGN="CENTER">16:9</TD>
-<TD ALIGN="CENTER">1.778</TD>
-<TD ALIGN="CENTER">782 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Major Seventh</TD>
-<TD ALIGN="CENTER">243:128</TD>
-<TD ALIGN="CENTER">1.898</TD>
-<TD ALIGN="CENTER">835 Hz</TD>
-</TR>
-<TR><TD ALIGN="CENTER">Octave</TD>
-<TD ALIGN="CENTER">2:1</TD>
-<TD ALIGN="CENTER">2</TD>
-<TD ALIGN="CENTER">880 Hz</TD>
-</TR>
-</TABLE></br>
-</DIV>
-</LI>
-</UL>
+
+| Interval      | Ratio    | Multiplier | Example |
+|---------------|----------|------------|---------|
+| Unison        | 1:1      | 1          | 440 Hz  |
+| Major second  | 9:8      | 1.125      | 495 Hz  |
+| Minor Third   | 32:27    | 1.185      | 521 Hz  |
+| Major Third   | 81:64    | 1.2656     | 557 Hz  |
+| Fourth        | 4:3      | 1.333      | 587 Hz  |
+| Tritone       | 1024:729 | 1.405      | 618 Hz  |
+| Fifth         | 3:2      | 1.5        | 660 Hz  |
+| Minor Sixth   | 128:81   | 1.58       | 695 Hz  |
+| Major Sixth   | 27:16    | 1.6875     | 743 Hz  |
+| Minor Seventh | 16:9     | 1.778      | 782 Hz  |
+| Major Seventh | 243:128  | 1.898      | 835 Hz  |
+| Octave        | 2:1      | 2          | 880 Hz  |
+
+
+</br></br>
+
 <H1><A NAME="SECTION_3">
 Automation</A>
 </H1>
