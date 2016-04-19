@@ -261,7 +261,7 @@ Air Vintage Filter</CAPTION></br>
 Your browser does not support the audio tag.
 </audio><br/><br/> </DIV>	
 
-
+|---------------+----------+------------+---------|
 | Interval      | Ratio    | Multiplier | Example |
 |:-------------:|:--------:|:----------:|:-------:|
 | Unison        | 1:1      | 1          | 440 Hz  |
@@ -276,7 +276,7 @@ Your browser does not support the audio tag.
 | Minor Seventh | 16:9     | 1.778      | 782 Hz  |
 | Major Seventh | 243:128  | 1.898      | 835 Hz  |
 | Octave        | 2:1      | 2          | 880 Hz  |
-
+|---------------+----------+------------+---------|
 
 </br></br>
 
