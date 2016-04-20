@@ -87,944 +87,643 @@
   </header>
 
   <article class="post-content">
-    <DIV CLASS="ABSTRACT">
-These are notes for two guest lectures I gave to Professor Joseph Koykkar's sound design classes at UW Madison on March 14, 2016. Various ways of generating sound from simple building blocks like sine waves and pink noise are explored: beating sine waves, filtered noise, extreme pitch shifting and time stretching, and the application of delay, reverb and modulation. Along the way, a variety of useful Pro Tools routing and automation techniques are applied, and a number of standard plugins are put to use. Various helpful key commands are demonstrated as well. I have included a number of audio examples.
+    <p>These are notes for two guest lectures I gave to Professor Joseph Koykkar’s sound design classes at UW Madison on March 14, 2016. Various ways of generating sound from simple building blocks like sine waves and pink noise are explored: beating sine waves, filtered noise, extreme pitch shifting and time stretching, and the application of delay, reverb and modulation. Along the way, a variety of useful Pro Tools routing and automation techniques are applied, and a number of standard plugins are put to use. Various helpful key commands are demonstrated as well. I have included a number of audio examples.</p>
 
-The material is broken into six sections:
+<p>The material is broken into six sections:</p>
 
+<p><a href="#SECTION_1">Beating Sine Waves, </a>
+<a href="#SECTION_2">Filtered Noise, </a>
+<a href="#SECTION_3">Automation, </a>
+<a href="#SECTION_4">Elastic Audio Mangulation of a Sine Wave, </a>
+<a href="#SECTION_5">Elastic Audio Mangulation of a Square Wave, </a>
+<a href="#SECTION_6">Elastic Audio Mangulation of a Drum Loop.</a></p>
 
-<A HREF="#SECTION_1">Beating Sine Waves, </A>
-<A HREF="#SECTION_2">Filtered Noise, </A>
-<A HREF="#SECTION_3">Automation, </A>
-<A HREF="#SECTION_4">Elastic Audio Mangulation of a Sine Wave, </A>
-<A HREF="#SECTION_5">Elastic Audio Mangulation of a Square Wave, </A>
-<A HREF="#SECTION_6">Elastic Audio Mangulation of a Drum Loop.</A>
+<p><a name="SECTION_1"></a></p>
 
+<h1><a name="SECTION_1">
+Beating Sine Waves</a>
+</h1>
+<p>No sine waves were harmed in the preparation of this presentation.</p>
 
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/sineWavesBeat.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-</DIV>
+<ul>
+<li>Make two sine wave clips with different frequencies</li>
+<ul>
+<li>When heard together, the two tones will "beat" at the difference frequency</li>
+<li>i.e. 264 - 261 = 3 Hz beat frequency</li>
+</ul>
+<li>Make an empty selection</li>
+<li><strong>Start End Length</strong> fields can be useful for making exact selections</li>
+</ul>
 
-<P>
-<H1>
+<table>
+<caption align="BOTTOM">Four second selection</caption>
+<tr>
+<td>
+<br />
+<img width="197" height="106" align="BOTTOM" border="0" src="/img/proToolsImages/startEndLength2.png" alt="Image startEndLength2" /> 
+</td>
+</tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Audiosuite Signal Generator - select signal type, set frequency and level, <strong>Render</strong></li>
+</ul>
 
-<A NAME="SECTION_1">Beating Sine Waves</A>
+<table>
+<caption align="BOTTOM">Audiosuite Signal Generator</caption>
+<tr><td>
+<br /><img width="467" height="241" align="BOTTOM" border="0" src="/img/proToolsImages/sigGen.png" alt="Image sigGen" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-</H1>
-No sine waves were harmed in the preparation of this presentation.  
-    
-<UL>
-<LI>Make two sine wave clips with different frequencies
-        
-<UL>
-<LI>when heard together, the two tones will "beat" at the difference frequency
-</LI>
-<LI>i.e. 264 - 261 = 3 Hz beat frequency
-        
-</LI>
-</UL>
-</LI>
-<LI>Make an empty selection
-</LI>
-<LI><strong>Start End Length</strong> fields can be useful for making exact selections
-        
-<DIV ALIGN="CENTER"><A NAME="30"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Four second selection</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="197" HEIGHT="106" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/startEndLength2.png"
- ALT="Image startEndLength2"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<ul>
+<li>Use "New Track" for quick and easy routing</li>
+<ul>
+<li>Select all tracks you want to route</li>
+<li>Hold down <strong>Option + Shift</strong></li>
+<li>Click on the output of one of the tracks to be routed</li>
+</ul></ul>
 
-</LI>
-<LI>Audiosuite Signal Generator - select signal type, set frequency and level, <strong>Render</strong>
-        
-<DIV ALIGN="CENTER"><A NAME="37"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Audiosuite Signal Generator</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="241" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/sigGen.png"
- ALT="Image sigGen"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Route to New Track - Output Path Selector</caption>
+<tr><td>
+<br /><img width="203" height="152" align="BOTTOM" border="0" src="/img/proToolsImages/newTrack.png" alt="Image newTrack" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Select "New Track"</li>
+<li>Choose Track Type and Name</li>
+</ul>
 
-</LI>
-<LI>Use "New Track" for quick and easy routing 
-        
-<UL>
-<LI>Select all tracks you want to route
-</LI>
-<LI>Hold down <strong>Option + Shift</strong>
-</LI>
-<LI>Click on the output of one of the tracks to be routed
-            
-<DIV ALIGN="CENTER"><A NAME="45"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Route to New Track - Output Path Selector</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="203" HEIGHT="152" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/newTrack.png"
- ALT="Image newTrack"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Route to New Track - Select Track</caption>
+<tr><td>
+<br /><img width="784" height="131" align="BOTTOM" border="0" src="/img/proToolsImages/newTrack2.png" alt="Image newTrack2" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li><strong>Audio Track</strong> allows you to "print" to a new audio file</li>
+<li><strong>Aux Track</strong> is good for further processing</li>
+</ul>
+<p>End result:</p>
 
-</LI>
-<LI>Select "New Track"
-</LI>
-<LI>Choose Track Type and Name
-            
-<DIV ALIGN="CENTER"><A NAME="51"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Route to New Track - Select Track</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="784" HEIGHT="131" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/newTrack2.png"
- ALT="Image newTrack2"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Source tracks routed and recorded</caption>
+<tr><td>
+<br /><img width="435" height="337" align="BOTTOM" border="0" src="/img/proToolsImages/swBeat.png" alt="Image swBeat" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-</LI>
-<LI><strong>Audio Track</strong> allows you to "print" to a new audio file
-</LI>
-<LI><strong>Aux Track</strong> is good for further processing
-</LI>
-<LI>End result:
-            
-<DIV ALIGN="CENTER"><A NAME="59"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Source tracks routed and recorded</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="435" HEIGHT="337" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/swBeat.png"
- ALT="Image swBeat"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-<p><audio controls><source src="/audio/jkClass/sineWavesBeat.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/> </p>
+<ul>
+<li>A few useful commands</li>
+<ul>
+<li><strong>Option + F</strong> zoom a selection to screen width</li>
+<li><strong>Command + [ or ]</strong> Horizontal zoom</li>
+<li><strong>Option + Command + [ or ]</strong> Vertical zoom</li>
+<li><strong>Option Click</strong> - set control to default</li>
+<li><strong>Tab to Transient</strong> - very useful, can be combined with option and shift keys</li>
+</ul></ul>
 
-<p></DIV>
-</LI>
-</UL>
-</LI>
-<LI>A few useful commands:</p>
+<table>
+<caption align="BOTTOM">Tab to Transient Enabled</caption>
+<tr><td>
+<br /><img width="110" height="68" align="BOTTOM" border="0" src="/img/proToolsImages/tt.png" alt="Image tt" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li><strong>Commands Focus Mode:</strong>Provides single-key "hotkey" commands</li>
+</ul>
 
-<UL>
-<LI><strong>Option + F</strong> zoom a selection to screen width
-</LI>
-<LI><strong>Command + [ or ]</strong> Horizontal zoom
-</LI>
-<LI><strong>Option + Command + [ or ]</strong> Vertical zoom
-</LI>
-<LI><strong>Option Click</strong> - set control to default
-</LI>
-<LI><strong>Tab to Transient</strong> - very useful, can be combined with option and shift keys
-            
-<DIV ALIGN="CENTER"><A NAME="72"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Tab to Transient</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="110" HEIGHT="68" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/tt.png"
- ALT="Image tt"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-            
-</LI>
-<LI><strong>Commands Focus Mode:</strong> single key "hotkey" commands 
-            
-<DIV ALIGN="CENTER"><A NAME="79"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Commands Focus Mode</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="120" HEIGHT="112" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/cfMode.png"
- ALT="Image cfMode"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Commands Focus Mode</caption>
+	<tr>
+		<td>
+			<img width="120" height="112" align="BOTTOM" border="0" src="/img/proToolsImages/cfMode.png" alt="Image cfMode" />
+		</td>
+	</tr>
+</table>
+<p><br /></p>
 
-<UL>
-<LI><strong>A</strong> key trims from clip start to cursor
-</LI>
-<LI><strong>S</strong> key trims from cursor to clip end
-</LI>
-<LI><strong>P and ;</strong> move selection up and down. Very useful.
-</LI>
-<LI><strong>Shift + S, M, R</strong> - solo, mute, record enable all tracks where cursor resides
-</LI>
-<LI><strong>Option Drag</strong> drags a copy of a clip, plug-in or send
-            
-</LI>
-</UL>
+<ul>
+<li><strong>A</strong> key trims from clip start to cursor</li>
+<li><strong>S</strong> key trims from cursor to clip end</li>
+<li><strong>P and ;</strong> move selection up and down. Very useful.</li>
+<li><strong>Shift + S, M, R</strong> - solo, mute, record enable all tracks where cursor resides</li>
+<li><strong>Option Drag</strong> drags a copy of a clip, plug-in or send</li>
+</ul>
 
-<p></LI>
-</UL>
-</LI>
-</UL>
-<H1><A NAME="SECTION_2">
-Filtered Noise</A>
-</H1>
-Interesting pitched sounds can be created by applying very sharp filters to noise signals</p>
+<h1>
+<a name="SECTION_2">Filtered Noise</a>
+</h1>
+<p>Interesting pitched sounds can be created by applying very sharp filters to noise signals:</p>
 
-<UL>
-<LI>Audiosuite Signal Generator : Select desired length, Pink or White noise at -6dB, Render
-</LI>
-<LI>Air Vintage filter 
-        
-<DIV ALIGN="CENTER"><A NAME="96"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Air Vintage Filter</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="422" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/vintageFilter.png"
- ALT="Image vintageFilter"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/filteredNoise1.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-<UL>
-<LI>Set cutoff to desired frequency
-</LI>
-<LI>Set resonance to around 90 
-</LI>
-<LI>Mode: BP (Bandpass Filter)
-</LI>
-<LI>Option drag plug-in to put two or more in series
-        
-</LI>
-</UL>
+<ul>
+<li>Audiosuite Signal Generator : Select desired length, Pink or White noise at -6dB, Render</li>
+<li>Air Vintage filter</li>
+</ul>
 
-<p></LI>
-<LI>Duplicate tracks - Option Shift D (or right-click) 
-</LI>
-<LI>Fancy: set frequencies to chord notes...</LI></p>
+<table>
+<caption align="BOTTOM">Air Vintage Filter</caption>
+<tr><td>
+<br /><img width="467" height="422" align="BOTTOM" border="0" src="/img/proToolsImages/vintageFilter.png" alt="Image vintageFilter" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-<DIV ALIGN="CENTER"><audio controls><source src="/audio/jkClass/filteredNoise1.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/><br/> </DIV>   
+<ul>
+<li>Set cutoff to desired frequency</li>
+<li>Set resonance to around 90 </li>
+<li>Mode: BP (Bandpass Filter)</li>
+<li>Option drag plug-in to put two or more in series</li>
+<li>Duplicate tracks - Option Shift D (or right-click) </li>
+<li>Fancy: set frequencies to chord notes:</li>
+</ul>
 
+<table cellpadding="3" border="1">
+<tr><td align="CENTER">Interval</td>
+<td align="CENTER">Ratio</td>
+<td align="CENTER">Multiplier</td>
+<td align="CENTER">Example</td>
+</tr>
+<tr><td align="CENTER">Unison</td>
+<td align="CENTER">1:1</td>
+<td align="CENTER">1</td>
+<td align="CENTER">440 Hz</td>
+</tr>
+<tr><td align="CENTER">Major second</td>
+<td align="CENTER">9:8</td>
+<td align="CENTER">1.125</td>
+<td align="CENTER">495 Hz</td>
+</tr>
+<tr><td align="CENTER">Minor Third</td>
+<td align="CENTER">32:27</td>
+<td align="CENTER">1.185</td>
+<td align="CENTER">521 Hz</td>
+</tr>
+<tr><td align="CENTER">Major Third</td>
+<td align="CENTER">81:64</td>
+<td align="CENTER">1.2656</td>
+<td align="CENTER">557 Hz</td>
+</tr>
+<tr><td align="CENTER">Fourth</td>
+<td align="CENTER">4:3</td>
+<td align="CENTER">1.333</td>
+<td align="CENTER">587 Hz</td>
+</tr>
+<tr><td align="CENTER">Tritone</td>
+<td align="CENTER">1024:729</td>
+<td align="CENTER">1.405</td>
+<td align="CENTER">618 Hz</td>
+</tr>
+<tr><td align="CENTER">Fifth</td>
+<td align="CENTER">3:2</td>
+<td align="CENTER">1.5</td>
+<td align="CENTER">660 Hz</td>
+</tr>
+<tr><td align="CENTER">Minor Sixth</td>
+<td align="CENTER">128:81</td>
+<td align="CENTER">1.58</td>
+<td align="CENTER">695 Hz</td>
+</tr>
+<tr><td align="CENTER">Major Sixth</td>
+<td align="CENTER">27:16</td>
+<td align="CENTER">1.6875</td>
+<td align="CENTER">743 Hz</td>
+</tr>
+<tr><td align="CENTER">Minor Seventh</td>
+<td align="CENTER">16:9</td>
+<td align="CENTER">1.778</td>
+<td align="CENTER">782 Hz</td>
+</tr>
+<tr><td align="CENTER">Major Seventh</td>
+<td align="CENTER">243:128</td>
+<td align="CENTER">1.898</td>
+<td align="CENTER">835 Hz</td>
+</tr>
+<tr><td align="CENTER">Octave</td>
+<td align="CENTER">2:1</td>
+<td align="CENTER">2</td>
+<td align="CENTER">880 Hz</td>
+</tr>
+</table>
+<p><br /></p>
 
-| Interval      | Ratio    | Multiplier | Example |
-|---------------|----------|------------|---------|
-| Unison        | 1:1      | 1          | 440 Hz  |
-| Major second  | 9:8      | 1.125      | 495 Hz  |
-| Minor Third   | 32:27    | 1.185      | 521 Hz  |
-| Major Third   | 81:64    | 1.2656     | 557 Hz  |
-| Fourth        | 4:3      | 1.333      | 587 Hz  |
-| Tritone       | 1024:729 | 1.405      | 618 Hz  |
-| Fifth         | 3:2      | 1.5        | 660 Hz  |
-| Minor Sixth   | 128:81   | 1.58       | 695 Hz  |
-| Major Sixth   | 27:16    | 1.6875     | 743 Hz  |
-| Minor Seventh | 16:9     | 1.778      | 782 Hz  |
-| Major Seventh | 243:128  | 1.898      | 835 Hz  |
-| Octave        | 2:1      | 2          | 880 Hz  |
+<h1>
+<a name="SECTION_3">Automation</a>
+</h1>
 
+<p>Automation can be used for almost anything imaginable in Pro Tools. Here we will change the pitch of one of the filtered noise tracks for a musical effect.</p>
 
-</br></br>
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/filteredPinkNoise.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-<H1><A NAME="SECTION_3">
-Automation</A>
-</H1>
-Automation can be used for almost anything imaginable in Pro Tools. Here we will change the pitch of one of the filtered noise tracks for a musical effect.
-    
-<UL>
-<LI>"Power Claw" (<strong>Control + Option + Command</strong>) - click on a parameter (Cutoff in this example) to quickly automate it 
-        
-<DIV ALIGN="CENTER"><A NAME="112"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-"Power Claw" click on Cutoff knob</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="313" HEIGHT="148" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/powerClaw.png"
- ALT="Image powerClaw"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<ul>
+<li>"Power Claw" (<strong>Control + Option + Command</strong>) - click on a parameter (Cutoff in this example) to quickly automate it</li>
+</ul>
 
-<p></LI>
-<LI>Set ruler to Bars Beats </p>
+<table>
+<caption align="BOTTOM">Power Claw</caption>
+<tr><td>
+<br /><img width="313" height="148" align="BOTTOM" border="0" src="/img/proToolsImages/powerClaw.png" alt="Image powerClaw" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Set ruler to Bars Beats</li>
+</ul>
 
-<DIV ALIGN="CENTER"><A NAME="118"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-BarsBeats Ruler</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="163" HEIGHT="78" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/ruler.png"
- ALT="Image ruler"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">BarsBeats Ruler</caption>
+<tr><td>
+<br /><img width="163" height="78" align="BOTTOM" border="0" src="/img/proToolsImages/ruler.png" alt="Image ruler" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Set track to "Ticks" (more on this in a moment</li>
+</ul>
 
-<p></LI>
-<LI>Set track to &quot;Ticks&quot; (more on this in a moment)</p>
+<table>
+<caption align="BOTTOM">Tick-based</caption>
+<tr><td>
+<br /><img width="297" height="195" align="BOTTOM" border="0" src="/img/proToolsImages/ticks.png" alt="Image ticks" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Set grid to 1 Bar</li>
+</ul>
 
-<DIV ALIGN="CENTER"><A NAME="124"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Tick-based</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="297" HEIGHT="195" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/ticks.png"
- ALT="Image ticks"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Grid set to 1 Bar</caption>
+<tr><td>
+<br /><img width="173" height="63" align="BOTTOM" border="0" src="/img/proToolsImages/grid.png" alt="Image grid" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Select Grid Mode (press F2)</li>
+<li>Make a 1 bar selection, use Smart Tool, mouse up, drag cutoff frequency to 695, 782, 743</li>
+<li>Hold down the <strong>Command</strong> key while mousing for finer contro</li>
+</ul>
 
-<p></LI>
-<LI>set grid to 1 Bar:</p>
+<table>
+<caption align="BOTTOM">Paste Special</caption>
+<tr><td>
+<br /><img width="626" height="317" align="BOTTOM" border="0" src="/img/proToolsImages/pasteSpecial.png" alt="Image pasteSpecial" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li><strong>Multiple Automation Lanes</strong></li>
+<ul>
+<li>Click on small triangle at lower left corner of track, automation "lane" will appear</li>
+<li>Click on + or - buttons to add more lanes or remove unwante</li>
+</ul></ul>
 
-<DIV ALIGN="CENTER"><A NAME="130"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Grid set to 1 Bar</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="173" HEIGHT="63" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/grid.png"
- ALT="Image grid"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Automation Lanes</caption>
+<tr><td>
+<br /><img width="449" height="117" align="BOTTOM" border="0" src="/img/proToolsImages/autoLanes.png" alt="Image autoLanes" />	
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Select desired parameter in the pulldow</li>
+<li>Use Edit : Paste Special : To Current Automation Type to paste to other tracks</li>
+</ul>
 
-<p></LI>
-<LI>Select Grid Mode (press F2)
-</LI>
-<LI>Make a 1 bar selection, use Smart Tool, mouse up, drag cutoff frequency to 695, 782, 743
-</LI>
-<LI>Hold down the <strong>Command</strong> key while mousing for finer control</p>
+<table>
+<caption align="BOTTOM">Plug-In Automation</caption>
+<tr><td>
+<br /><img width="474" height="226" align="BOTTOM" border="0" src="/img/proToolsImages/auto1.png" alt="Image auto1" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Make a tempo change - since track has been set to "Tick Based," automation will follow tempo</li>
+<li>Note - The "Conductor" (Window Menu : Transport - the blue box) has to be <strong>on</strong> for tempo events to work</li>
+</ul>
 
-<DIV ALIGN="CENTER"><A NAME="137"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Paste Special</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="626" HEIGHT="317" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/pasteSpecial.png"
- ALT="Image pasteSpecial"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Conductor</caption>
+<tr><td>
+<br /><img width="162" height="102" align="BOTTOM" border="0" src="/img/proToolsImages/conductor.png" alt="Image conductor" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Click on the "+" sign just to the left of the <strong>Tempo</strong> rule</li>
+</ul>
 
-<p></LI>
-<LI><strong>Multiple Automation Lanes</strong></p>
+<table>
+<caption align="BOTTOM">Tempo Event at Bar 9</caption>
+<tr><td>
+<br /><img width="683" height="296" align="BOTTOM" border="0" src="/img/proToolsImages/tempoChange.png" alt="Image tempoChange" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-<UL>
-<LI>click on small triangle at lower left corner of track, automation "lane" will appear
-</LI>
-<LI>click on + or - buttons to add more lanes or remove unwanted
-                
-<DIV ALIGN="CENTER"><A NAME="145"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Automation Lanes</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="449" HEIGHT="117" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/autoLanes.png"
- ALT="Image autoLanes">
-                        
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<p><strong>Air Talkbox Effect:</strong> Interesting Vocoder type sounds:</p>
 
-</LI>
-<LI>Select desired parameter in the pulldown
-            
-</LI>
-</UL>
+<table>
+<caption align="BOTTOM">Air Talkbox Effect</caption>
+<tr><td>
+<img width="467" height="332" align="BOTTOM" border="0" src="/img/proToolsImages/talkbox.png" alt="Image talkbox" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-<p></LI>
-<LI>Use Edit : Paste Special : To Current Automation Type to paste to other tracks </p>
-
-<DIV ALIGN="CENTER"><A NAME="152"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Plug-In Automation</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="474" HEIGHT="226" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/auto1.png"
- ALT="Image auto1"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-
-<DIV ALIGN="CENTER"><audio controls><source src="/audio/jkClass/filteredPinkNoise.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/><br/> </DIV>
-</LI>
-<LI>Make a tempo change - since track has been set to "Tick Based," automation will follow tempo
-</LI>
-<LI>Note - The "Conductor" (Window Menu : Transport - the blue box) has to be <strong>on</strong> for tempo events to work 
-            
-<DIV ALIGN="CENTER"><A NAME="159"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Conductor</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="162" HEIGHT="102" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/conductor.png"
- ALT="Image conductor"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-
-<p></LI>
-<LI>Click on the &quot;+&quot; sign just to the left of the <strong>Tempo</strong> ruler</p>
-
-<DIV ALIGN="CENTER"><A NAME="166"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Tempo Event at Bar 9</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="683" HEIGHT="296" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/tempoChange.png"
- ALT="Image tempoChange"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-
-<p></LI>
-</UL>
-    <strong>Air Talkbox Effect:</strong> Interesting Vocoder type sounds</p>
-
-<DIV ALIGN="CENTER"><A NAME="174"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Air Talkbox Effect</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="332" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/talkbox.png"
- ALT="Image talkbox"> 
-            
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-
-<H1><A NAME="SECTION_4">
-Elastic Audio Mangulation of a Sine Wave</A>
-</H1>
-
+<h1>
+<a name="SECTION_4">Elastic Audio Mangulation of a Sine Wave</a>
+</h1>
 <p>By repeatedly shifting a sine wave down in pitch until it is out of the audible range, and then shifting it back up, interesting sounds can result. Making the track tick-based and playing with tempo events allows for varispeed effects.</p>
 
-<UL>
-<LI>Create a 1 kHz sine wave at -6 dB
-</LI>
-<LI>Enable Elastic Audio - Polyphonic (the tiny "upside-down Y" button)
-            
-<DIV ALIGN="CENTER"><A NAME="183"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Elastic Audio Polyphonic Mode</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="235" HEIGHT="161" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/elastic.png"
- ALT="Image elastic"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/sineWaveExtremePitch.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-</LI>
-<LI>Clip Menu : Elastic Properties Floating Window
-            
-<DIV ALIGN="CENTER"><A NAME="189"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Elastic Audio Properties Floating Window</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="318" HEIGHT="183" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/elasticPitch.png"
- ALT="Image elasticPitch"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<ul>
+<li>Create a 1 kHz sine wave at -6 dB</li>
+<li>Enable Elastic Audio - Polyphonic (the tiny "upside-down Y" button</li>
+</ul>
 
-</LI>
-<LI>Select clip and set Pitch Shift to -24 (Pitch is now down two octaves to 250 Hz)
-</LI>
-<LI>Consolidate with <strong>Option + Shift + 3</strong> 
-</LI>
-<LI>Repeat - Pitch is now 62 Hz
-</LI>
-<LI>Repeat - Pitch is now 16 Hz - Pro Tools will get confused...
-</LI>
-<LI>Pitch up + 24 two more times, we're back to 250 Hz, in theory...
-</LI>
-<LI>Repeat the entire process again...
-</LI>
-<LI>Set track to tick-based
-</LI>
-<LI>Select clip
-</LI>
-<LI>Change Elastic Audio to "Varispeed"
-</LI>
-<LI>Event Menu : Tempo Operations : Linear - set ending tempo to 240, or 60...
-            
-<DIV ALIGN="CENTER"><A NAME="196"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Event Menu : Tempo Operations : Linear</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="518" HEIGHT="163" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/linearTempoChange.png"
- ALT="Image linearTempoChange"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Elastic Audio Polyphonic Mode</caption>
+<tr><td>
+<br /><img width="235" height="161" align="BOTTOM" border="0" src="/img/proToolsImages/elastic.png" alt="Image elastic" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Clip Menu : Elastic Properties Floating Windo</li>
+</ul>
 
-</LI>
-<LI>Try slowing the tempo way down (as in 5 BPM) and then changing the Elastic Audio plug-in to "Rhythmic." Interesting...
-            
-<DIV ALIGN="CENTER"><A NAME="202"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Tempo Operations Window</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="324" HEIGHT="283" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/linearTempoChange2.png"
- ALT="Image linearTempoChange2"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-<p><audio controls><source src="/audio/jkClass/sineWaveExtremePitch.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/> </p>
-</DIV>
-</LI>
-</UL>
+<table>
+<caption align="BOTTOM">Elastic Audio Properties Floating Window</caption>
+<tr><td>
+<br /><img width="318" height="183" align="BOTTOM" border="0" src="/img/proToolsImages/elasticPitch.png" alt="Image elasticPitch" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Select clip and set Pitch Shift to -24 (Pitch is now down two octaves to 250 Hz)</li>
+<li>Consolidate with <strong>Option + Shift + 3</strong> </li>
+<li>Repeat - Pitch is now 62 Hz</li>
+<li>Repeat - Pitch is now 16 Hz - Pro Tools will get confused...</li>
+<li>Pitch up + 24 two more times, we're back to 250 Hz, in theory...</li>
+<li>Repeat the entire process again...</li>
+<li>Set track to tick-based</li>
+<li>Select clip</li>
+<li>Change Elastic Audio to "Varispeed"</li>
+<li>Event Menu : Tempo Operations : Linear - set ending tempo to 240, or 60..</li>
+</ul>
 
-<H1><A NAME="SECTION_5">
-Elastic Audio Mangulation of a Square Wave</A>
-</H1>
+<table>
+<caption align="BOTTOM">Event Menu : Tempo Operations : Linear</caption>
+<tr><td>
+<br /><img width="518" height="163" align="BOTTOM" border="0" src="/img/proToolsImages/linearTempoChange.png" alt="Image linearTempoChange" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Try slowing the tempo way down (as in 5 BPM) and then changing the Elastic Audio plug-in to "Rhythmic." Interesting..</li>
+</ul>
 
-<p>Square waves have loads of odd harmonic overtones. Pitch shifting them up by many octaves pushes the overtones out of the range of the digital system. Pitch shifting them back into range results in a sound with altered harmonics. The Mod Delay plug in can then be applied to create vibrato effects and beyond. Similar unusual sounds can be generated by pitch shifting and processing pink or white noise.</p>
+<table>
+<caption align="BOTTOM">Tempo Operations Window</caption>
+<tr><td>
+<br /><img width="324" height="283" align="BOTTOM" border="0" src="/img/proToolsImages/linearTempoChange2.png" alt="Image linearTempoChange2" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-<UL>
-<LI>Create a 1 kHz square wave at -6dB
-</LI>
-<LI>Enable Elastic Audio - Polyphonic
-</LI>
-<LI>Clip Menu : Elastic Properties Floating Window
-</LI>
-<LI>Select clip and set Pitch to +24 (Pitch is now 4 kHz)
-</LI>
-<LI>Consolidate with <strong>Option + Shift + 3</strong> 
-</LI>
-<LI>Repeat - Pitch is now 16 kHz
-</LI>
-<LI>Consolidate 
-</LI>
-<LI>Now reverse the process, shifting the pitch down until you get a sound you like
-</LI>
-<LI>Insert A Mod Delay 
-    
-<DIV ALIGN="CENTER"><A NAME="212"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Mod Delay Used as a Vibrato</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="403" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/vibrato.png"
- ALT="Image vibrato"> 
-            
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<h1>
+<a name="SECTION_5">Elastic Audio Mangulation of a Square Wave</a>
+</h1>
 
-</LI>
-<LI>Interesting Alterations
-    
-<UL>
-<LI>Increase <strong>feedback</strong> to +/- 50(or more)
-</LI>
-<LI>Increase <strong>Delay Time</strong> in small increments (you can type in as little as .1 milliseconds), listen to the difference
-</LI>
-<LI>Play with the low pass filter
-    
-</LI>
-</UL>
+<p>Square waves have - in theory at least - infinitely many odd harmonic overtones. Pitch shifting them up by many octaves pushes the overtones out of the range of the digital system. Pitch shifting them back into range results in a sound with altered harmonics. The Mod Delay plug in can then be applied to create vibrato effects and beyond.</p>
 
-<p></LI>
-<LI>Extra Fancy</p>
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/extremeMod.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-<UL>
-<LI>Try these settings:
-        
-<DIV ALIGN="CENTER"><A NAME="223"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Mod Delay Used as an Extreme Vibrato</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="403" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/vibrato2.png"
- ALT="Image vibrato2"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<ul>
+<li>Create a 1 kHz square wave at -6dB</li>
+<li>Enable Elastic Audio - Polyphonic</li>
+<li>Clip Menu : Elastic Properties Floating Window</li>
+<li>Select clip and set Pitch to +24 (Pitch is now 4 kHz)</li>
+<li>Consolidate with <strong>Option + Shift + 3</strong> </li>
+<li>Repeat - Pitch is now 16 kHz</li>
+<li>Consolidate </li>
+<li>Now reverse the process, shifting the pitch down until you get a sound you like</li>
+<li>Insert A Mod Delay</li>
+</ul>
 
-</LI>
-<LI>Use the "Power Claw" trick to automate the <strong>Depth</strong> control
-</LI>
-<LI><strong>Control Command</strong> click on the Depth control to switch to its automation playlist
-</LI>
-<LI>Select the Pencil  Triangle Tool
-        
-<DIV ALIGN="CENTER"><A NAME="231"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Pencil Triangle Tool</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="176" HEIGHT="158" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/triTool.png"
- ALT="Image triTool"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Mod Delay Used as a Vibrato</caption>
+<tr><td>
+<br /><img width="467" height="403" align="BOTTOM" border="0" src="/img/proToolsImages/vibrato.png" alt="Image vibrato" /> 
+</td></tr>
+</table>
+<p><br /></p>
 
-</LI>
-<LI>Set the grid to <strong>1 Bar</strong>
-</LI>
-<LI>Draw automation with the triangle tool
-        
-<DIV ALIGN="CENTER"><A NAME="238"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Automation with the Pencil Triangle Tool</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="778" HEIGHT="97" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/triAuto.png"
- ALT="Image triAuto"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-<p><audio controls><source src="/audio/jkClass/extremeMod.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/> </p>
-</DIV>
+<ul>
+<li>Interesting Alteration #1</li>
+<ul>
+<li>Increase <strong>feedback</strong> to +/- 50 (or more)</li>
+<li>Increase <strong>Delay Time</strong> in small increments (you can type in as little as .1 milliseconds), listen to the difference</li>
+<li>Play with the low pass filter</li>
+</ul></ul>
+<ul>
+<li>Interesting Alteration #2</li>
+<ul>
+<li>Try these settings</li>
+</ul></ul>
+<table>
+<caption align="BOTTOM">Mod Delay Used as an Extreme Vibrato</caption>
+<tr><td>
+<br /><img width="467" height="403" align="BOTTOM" border="0" src="/img/proToolsImages/vibrato2.png" alt="Image vibrato2" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul><li>Use the "Power Claw" trick to automate the <strong>Depth</strong> control</li>
+<li><strong>Control Command</strong> click on the Depth control to switch to its automation playlist</li>
+<li>Select the Pencil  Triangle Too</li>
+</ul>
 
-</LI>
-<LI>Try changing the rate (it often interacts with the frequency of the source tone in interesting ways) 
-</LI>
-<LI>Put some echo or delay on it, or a flanger, or all three...
-    
-</LI>
-</UL>
+<table>
+<caption align="BOTTOM">Pencil Triangle Tool</caption>
+<tr><td>
+<br /><img width="176" height="158" align="BOTTOM" border="0" src="/img/proToolsImages/triTool.png" alt="Image triTool" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Set the grid to <strong>1 Bar</strong></li>
+<li>Draw automation with the triangle too</li>
+</ul>
 
-<p></LI>
-</UL>
-<H1><A NAME="SECTION_6">
-Elastic Audio Mangulation of a Drum Loop</A>
-</H1></p>
+<table>
+<caption align="BOTTOM">Automation with the Pencil Triangle Tool</caption>
+<tr><td>
+<br /><img width="778" height="97" align="BOTTOM" border="0" src="/img/proToolsImages/triAuto.png" alt="Image triAuto" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Try changing the rate (it often interacts with the frequency of the source tone in interesting ways) </li>
+<li>Put some echo or delay on it..</li>
+</ul>
 
-<UL>
-<LI>Oasis Chorus 2 Loop - 140 BPM, 4 Bar Loop
-</LI>
-<LI>Identify Beat - set Pro Tools tempo to 140
-            
-<DIV ALIGN="CENTER"><A NAME="248"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Identify Beat</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="326" HEIGHT="350" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/idbeat.png"
- ALT="Image idbeat"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<h1>
+<a name="SECTION_6">Elastic Audio Mangulation of a Drum Loop</a>
+</h1>
 
-</LI>
-<LI>"Conductor" has to be <strong>on</strong>
-</LI>
-<LI>Set Elastic Audio plug-in to <strong>Monophonic</strong>
-</LI>
-<LI>Use <strong>TCE Trim tool,</strong> stretch loop to 40 Bars
-            
-<DIV ALIGN="CENTER"><A NAME="257"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-10x Stretch</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="505" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/10xStretch.png"
- ALT="Image 10xStretch"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-<p><audio controls><source src="/audio/jkClass/drumLoopExtremeStretch.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio><br/> </p>
-</DIV>
+<div align="center"><br /><audio controls=""><source src="/audio/jkClass/drumLoopExtremeStretch.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
 
-</LI>
-<LI>Apply excessive compression
-            
-<DIV ALIGN="CENTER"><A NAME="263"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Excessive Compression</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="542" HEIGHT="425" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/compress.png"
- ALT="Image compress"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<ul>
+<li>Oasis Chorus 2 Loop - 140 BPM, 4 Bar Loop</li>
+<li>Identify Beat - set Pro Tools tempo to 14</li>
+</ul>
 
-</LI>
-<LI>Apply Sans Amp distortion
-            
-<DIV ALIGN="CENTER"><A NAME="269"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Sans Amp Distortion</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="581" HEIGHT="210" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/sansAmp.png"
- ALT="Image sansAmp"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Identify Beat</caption>
+<tr><td>
+<br /><img width="326" height="350" align="BOTTOM" border="0" src="/img/proToolsImages/idbeat.png" alt="Image idbeat" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>"Conductor" has to be <strong>on</strong></li>
+<li>Set Elastic Audio plug-in to <strong>Monophonic</strong></li>
+<li>Use <strong>TCE Trim tool,</strong> stretch loop to 40 Bar</li>
+</ul>
 
-</LI>
-<LI>Apply Phase Shifter
-            
-<DIV ALIGN="CENTER"><A NAME="275"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Phase Shifter</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="387" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/phaser.png"
- ALT="Image phaser"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">10x Stretch</caption>
+<tr><td>
+<br /><img width="505" height="269" align="BOTTOM" border="0" src="/img/proToolsImages/10xStretch.png" alt="Image 10xStretch" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Apply excessive compressio</li>
+</ul>
 
-</LI>
-<LI>Sounds a bit "buzzy" - let's tame it with some eq
-            
-<DIV ALIGN="CENTER"><A NAME="281"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Low Pass Filter, -18 dB/Octave at 2.45 kHz</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="470" HEIGHT="289" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/lpf.png"
- ALT="Image lpf"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Excessive Compression</caption>
+<tr><td>
+<br /><img width="542" height="425" align="BOTTOM" border="0" src="/img/proToolsImages/compress.png" alt="Image compress" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Apply Sans Amp distortio</li>
+</ul>
 
-</LI>
-<LI>Let's smooth it out even more with another compressor, this time with less agressive settings
-            
-<DIV ALIGN="CENTER"><A NAME="287"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="542" HEIGHT="425" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/comp2.png"
- ALT="Image comp2"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
-  
-</LI>
-<LI>Add some delay to make it sound more ethereal
-</LI>
-<LI>Click on a send selector, use "New Track" again, create an Aux track called "Ambience"
-</LI>
-<LI>A new send window will appear <strong>Option click</strong> the fader to set it to zero, or adjust it by ear
-            
-<DIV ALIGN="CENTER"><A NAME="294"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Create an Ambience Send and Return</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="896" HEIGHT="245" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/ambSend.png"
- ALT="Image ambSend"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
- 
-</LI>
-<LI>Put a Mod Delay on the return track
-</LI>
-<LI>I like to make the left and right a little different - note the settings
-            
-<DIV ALIGN="CENTER"><A NAME="300"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="805" HEIGHT="403" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/modDelay.png"
- ALT="Image modDelay"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
- 
-</LI>
-<LI>And just for good measure, a little Plate reverb to smooth things out a bit more: 
-            
-<DIV ALIGN="CENTER"><A NAME="306"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="467" HEIGHT="403" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/verb.png"
- ALT="Image verb"> 
-                    
-</DIV></TD></TR>
-</TABLE></br>
-</DIV>
+<table>
+<caption align="BOTTOM">Sans Amp Distortion</caption>
+<tr><td>
+<br /><img width="581" height="210" align="BOTTOM" border="0" src="/img/proToolsImages/sansAmp.png" alt="Image sansAmp" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Apply Phase Shifte</li>
+</ul>
 
-</LI>
-<LI>The plug-ins plus the send and return look like this:
-        
-<DIV ALIGN="CENTER"><A NAME="312"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM">
-Plug-in Chain, Send and Return</CAPTION></br>
-<TR><TD>
-<DIV ALIGN="CENTER">
-</br><IMG
-  WIDTH="212" HEIGHT="288" ALIGN="BOTTOM" BORDER="0"
- SRC=" /img/proToolsImages/plugChain.png"
- ALT="Image plugChain"> 
-                
-</DIV></TD></TR>
-</TABLE></br>
-</br>
-<p>Drum loop before:</p><audio controls><source src="/audio/jkClass/drumLoopClean.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio>
-</br></br><p>Drum loop after:</p><audio controls><source src="/audio/jkClass/drumLoopMangled.mp3" type="audio/mp3" preload="auto">
-Your browser does not support the audio tag.
-</audio>
-</DIV>
-</LI>
-</UL>
+<table>
+<caption align="BOTTOM">Phase Shifter</caption>
+<tr><td>
+<br /><img width="467" height="387" align="BOTTOM" border="0" src="/img/proToolsImages/phaser.png" alt="Image phaser" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Sounds a bit "buzzy" - let's tame it with some eq</li>
+</ul>
+
+<table>
+<caption align="BOTTOM">Low Pass Filter, -18 dB/Octave at 2.45 kHz</caption>
+<tr><td>
+<br /><img width="470" height="289" align="BOTTOM" border="0" src="/img/proToolsImages/lpf.png" alt="Image lpf" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Let's smooth it out even more with another compressor, this time with less agressive settings</li>
+</ul>
+
+<table>
+<caption align="BOTTOM"></caption>
+<tr><td>
+<br /><img width="542" height="425" align="BOTTOM" border="0" src="/img/proToolsImages/comp2.png" alt="Image comp2" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>Add some delay to make it sound more ethereal</li>
+<li>Click on a send selector, use "New Track" again, create an Aux track called "Ambience"</li>
+<li>A new send window will appear <strong>Option click</strong> the fader to set it to zero, or adjust it by ear</li>
+</ul>
+
+<table>
+<caption align="BOTTOM">Create an Ambience Send and Return</caption>
+<tr><td>
+<img width="896" height="245" align="BOTTOM" border="0" src="/img/proToolsImages/ambSend.png" alt="Image ambSend" /> 
+</td></tr>
+</table>
+<ul>
+<li>Put a Mod Delay on the return track</li>
+<li>I like to make the left and right a little different - note the settings</li>
+</ul>
+
+<table>
+<caption align="BOTTOM"></caption>
+<tr><td>
+<img width="805" height="403" align="BOTTOM" border="0" src="/img/proToolsImages/modDelay.png" alt="Image modDelay" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>And just for good measure, a little Plate reverb to smooth things out a bit more:</li>
+</ul>
+
+<table>
+<caption align="BOTTOM"></caption>
+<tr><td>
+<br /><img width="467" height="403" align="BOTTOM" border="0" src="/img/proToolsImages/verb.png" alt="Image verb" /> 
+</td></tr>
+</table>
+<p><br /></p>
+<ul>
+<li>The plug-ins plus the send and return look like this</li>
+</ul>
+
+<table>
+<caption align="BOTTOM">Plug-in Chain, Send and Return</caption>
+<tr><td>
+<br /><img width="212" height="288" align="BOTTOM" border="0" src="/img/proToolsImages/plugChain.png" alt="Image plugChain" /> 
+</td></tr>
+</table>
+<p><br /></p>
+
+<div align="center">The original drum loop:<br /><audio controls=""><source src="/audio/jkClass/drumLoopClean.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
+<div align="center">The processed drum loop:<br /><audio controls=""><source src="/audio/jkClass/drumLoopMangled.mp3" type="audio/mp3" preload="auto" />Your browser does not support the audio tag.</audio></div>
+<p><br /></p>
+
 
   </article>
 <div class="share-page">

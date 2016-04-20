@@ -87,113 +87,119 @@
   </header>
 
   <article class="post-content">
-    <p><br/>
-<img class = "post-thumb"  src="/img/lightning/lightning2.png" height="120" width="120">I wanted to try something different from the spiral figures I had been making earlier, and I thought it would be interesting to try simulating lightening. I initially wrote a branching function and extended it enough times to cover the canvas, but that felt like cheating, since it was limited to a particular image size. I decided instead to write a function that creates a single branch and then calls itself recursively. Since the zig-zagging of the lightning is produced with a pseudorandom element number generator, each image is different, and some of my initial efforts resulted in lightning that turned around and went back towards the sky. To fix that, I added a little if statement to keep things pointed downwards at all times. At first, I came up with stopping conditions that were based on any trace leaving the canvas, but I wasn&#39;t happy with the resulting images - they would stop with many branches still &quot;up in the air&quot;. I like the idea of all the lightning making contact with the ground, so with a little help from Pythagoras and a recursion counter, I found something to reliably produce an image where the lightning stretches from sky to ground and the program doesn&#39;t go into an infinite loop. </p>
+    <p><br />
+<img class="post-thumb" src="/img/lightning/lightning2.png" height="120" width="120" />I wanted to try something different from the spiral figures I had been making earlier, and I thought it would be interesting to try simulating lightening. I initially wrote a branching function and extended it enough times to cover the canvas, but that felt like cheating, since it was limited to a particular image size. I decided instead to write a function that creates a single branch and then calls itself recursively. Since the zig-zagging of the lightning is produced with a pseudorandom element number generator, each image is different, and some of my initial efforts resulted in lightning that turned around and went back towards the sky. To fix that, I added a little if statement to keep things pointed downwards at all times. At first, I came up with stopping conditions that were based on any trace leaving the canvas, but I wasn’t happy with the resulting images - they would stop with many branches still “up in the air”. I like the idea of all the lightning making contact with the ground, so with a little help from Pythagoras and a recursion counter, I found something to reliably produce an image where the lightning stretches from sky to ground and the program doesn’t go into an infinite loop.</p>
 
 <p>Here is the result:
-<img src="/img/lightning/lightning1.png" alt="lightningImage1">
+<img src="/img/lightning/lightning1.png" alt="lightningImage1" />
 I thought it would be nice to have the initial bolt start with a thick pen and become smaller as it approached the ground. I tried various approaches, and came up with the following:</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minn</span><span class="p">,</span> <span class="n">maxn</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">maxn</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">minn</span><span class="p">)</span> <span class="c"># thank you stack overflow</span>
 
-<span class="o">...</span>
+<p>```python 
+def clamp(n, minn, maxn):
+    return max(min(maxn, n), minn) # thank you stack overflow</p>
 
-<span class="n">pen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span><span class="mi">2</span><span class="p">)),</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
-</code></pre></div>
-<p><img src="/img/lightning/lightning2.png" alt="lightningImage1">
+<p>…</p>
+
+<p>pen = 10 - clamp(2*math.floor(math.log(len(pos),2)),0,9)
+```
+<img src="/img/lightning/lightning2.png" alt="lightningImage1" />
 I eventually realized that with a few extra lines of code, you can write vector-based .eps files, which seemed greatly preferable to taking screenshots of the Turtle Graphics window. For some reason, though, the canvas color is lost and replaced with white. So my white lightning on a black background resulted in a blank white image. No matter, Black lightning one a white background looks pretty cool as well:
-<br/><br/>
-<img src="/img/lightning/lightning3.png" alt="lightningImage1">
-<br/><br/>
-<img src="/img/lightning/lightning4.png" alt="lightningImage1">
-<br/></p>
+<br /><br />
+<img src="/img/lightning/lightning3.png" alt="lightningImage1" />
+<br /><br />
+<img src="/img/lightning/lightning4.png" alt="lightningImage1" />
+<br /></p>
 
 <p>Code:</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">turtle</span>
-<span class="kn">import</span> <span class="nn">math</span>
 
-<span class="c"># A Lightning generator</span>
+<p>```python</p>
 
-<span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minn</span><span class="p">,</span> <span class="n">maxn</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">maxn</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">minn</span><span class="p">)</span> <span class="c"># thank you stack overflow</span>
+<p>import random
+import turtle
+import math</p>
 
-<span class="n">turtle</span><span class="o">.</span><span class="n">tracer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c">#runs much faster this way; no image until the whole thing is done</span>
-<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">getscreen</span><span class="p">()</span> <span class="c"># needed for writing to .eps file</span>
-<span class="n">wn</span><span class="o">.</span><span class="n">colormode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c">#white</span>
-<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">340</span><span class="p">)</span> <span class="c"># initial seed position</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">285</span><span class="p">))</span> <span class="c"># set heading</span>
-<span class="n">h1</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span> <span class="c"># get heading</span>
-<span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># White</span>
+<h1 id="a-lightning-generator">A Lightning generator</h1>
 
-<span class="c"># Initial bolt</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
-    <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span> <span class="c"># abs limits motion to forward</span>
-    <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h1</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
-<span class="n">h2</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]]</span> <span class="c"># list - new initial position</span>
-<span class="n">head</span> <span class="o">=</span> <span class="p">[</span><span class="n">h2</span><span class="p">]</span> <span class="c"># list - new initial position</span>
+<p>def clamp(n, minn, maxn):
+    return max(min(maxn, n), minn) # thank you stack overflow</p>
 
-<span class="n">recursions</span> <span class="o">=</span> <span class="mi">0</span>
+<p>turtle.tracer(0, 0) #runs much faster this way; no image until the whole thing is done
+wn = turtle.Screen()
+ts = turtle.getscreen() # needed for writing to .eps file
+wn.colormode(1)
+turtle.bgcolor(1,1,1) #white
+alex = turtle.Turtle()
+alex.speed(10)
+alex.pensize(10)
+alex.ht()
+alex.up()
+alex.goto(-200, 340) # initial seed position
+alex.seth(random.uniform(255, 285)) # set heading
+h1 = alex.heading() # get heading
+alex.color(0,0,0)  # White</p>
 
-<span class="k">def</span> <span class="nf">lightning</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span><span class="n">spread</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;pos is a list [[x,y]] by default inherited from the end position of the initial bolt</span>
-<span class="sd">    head is a value from 0-360 degrees. Spread controls how wide the branches are&quot;&quot;&quot;</span>
-    <span class="k">global</span> <span class="n">recursions</span>
-    <span class="n">recursions</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)):</span>
-        <span class="n">pen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span><span class="mi">2</span><span class="p">)),</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">)):</span>
-            <span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">pen</span><span class="p">)</span>
-            <span class="n">head1</span> <span class="o">=</span> <span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="n">spread</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
-            <span class="k">if</span><span class="p">(</span><span class="mi">180</span> <span class="o">&gt;</span> <span class="n">head1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span> <span class="c"># keep lightning pointing downwards</span>
-                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="o">-</span><span class="n">head1</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">head1</span><span class="p">)</span>
-            <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span> <span class="c"># abs limits motion to forward</span>
-            <span class="n">x1</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
-            <span class="n">y1</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
-            <span class="n">h3</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
-        <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">])</span>
-        <span class="n">head</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h3</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">)):</span>
-            <span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">pen</span><span class="p">)</span>
-            <span class="n">head2</span> <span class="o">=</span> <span class="p">(</span><span class="n">head</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="n">spread</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
-            <span class="k">if</span><span class="p">(</span><span class="mi">180</span> <span class="o">&gt;</span> <span class="n">head2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="o">-</span><span class="n">head2</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">head2</span><span class="p">)</span>
-            <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span> 
-            <span class="n">x2</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
-            <span class="n">y2</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
-            <span class="n">h4</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
-        <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">])</span>
-        <span class="n">head</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h4</span><span class="p">)</span>
-    <span class="n">dist</span> <span class="o">=</span> <span class="p">[[</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)]</span> <span class="k">for</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">]</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">recursions</span> <span class="o">&lt;</span> <span class="mi">11</span> <span class="ow">and</span> <span class="nb">min</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">dist</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">460</span><span class="p">):</span>
-        <span class="n">lightning</span><span class="p">(</span><span class="n">pos</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):],</span> <span class="n">head</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):],</span><span class="n">spread</span><span class="p">)</span>
+<h1 id="initial-bolt">Initial bolt</h1>
+<p>for i in range(50):
+    alex.down()
+    alex.forward(abs(round(random.gauss(2, 5), 0))) # abs limits motion to forward
+    alex.seth(h1 + random.gauss(7, 30))
+    x = alex.xcor()
+    y = alex.ycor()
+h2 = alex.heading()
+pos = [[x,y]] # list - new initial position
+head = [h2] # list - new initial position</p>
 
-<span class="n">lightning</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">head</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">getcanvas</span><span class="p">()</span><span class="o">.</span><span class="n">postscript</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;lightning10.eps&#39;</span><span class="p">)</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
-</code></pre></div>
+<p>recursions = 0</p>
+
+<p>def lightning(pos, head,spread):
+    “"”pos is a list [[x,y]] by default inherited from the end position of the initial bolt
+    head is a value from 0-360 degrees. Spread controls how wide the branches are”””
+    global recursions
+    recursions += 1
+    for i in range(len(pos)):
+        pen = 10 - clamp(2*math.floor(math.log(len(pos),2)),0,9)
+        alex.up()
+        alex.goto(pos[i])
+        alex.down()
+        for j in range(random.randint(20,40)):
+            alex.pensize(pen)
+            head1 = head[i] + random.gauss(spread,15)
+            if(180 &gt; head1 &gt; 0): # keep lightning pointing downwards
+                alex.seth(-head1)
+            else:
+                alex.seth(head1)
+            alex.forward(abs(round(random.gauss(1,4),0))) # abs limits motion to forward
+            x1 = alex.xcor()
+            y1 = alex.ycor()
+            h3 = alex.heading()
+        alex.up()
+        alex.goto(pos[i])
+        alex.down()
+        pos.append([x1,y1])
+        head.append(h3)
+        for k in range(random.randint(20,40)):
+            alex.pensize(pen)
+            head2 = (head[i] + random.gauss(spread,15))
+            if(180 &gt; head2 &gt; 0):
+                alex.seth(-head2)
+            else:
+                alex.seth(head2)
+            alex.forward(abs(round(random.gauss(2,4),0))) 
+            x2 = alex.xcor()
+            y2 = alex.ycor()
+            h4 = alex.heading()
+        pos.append([x2,y2])
+        head.append(h4)
+    dist = [[math.sqrt(x<strong>2 + y</strong>2)] for [x,y] in pos]
+    if(recursions &lt; 11 and min([x for sublist in dist for x in sublist]) &lt; 460):
+        lightning(pos[(i+1):], head[(i+1):],spread)</p>
+
+<p>lightning(pos,head,5)
+ts.getcanvas().postscript(file=’lightning10.eps’)
+turtle.update()
+wn.exitonclick()
+```</p>
+
   </article>
 <div class="share-page">
     Share this on 

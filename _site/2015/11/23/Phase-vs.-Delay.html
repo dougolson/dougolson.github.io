@@ -90,41 +90,43 @@
     <p>The difference between phase shift and delay is often confusing to my students. I try to boil it down to two statements:</p>
 
 <ul>
-<li>Delay treats all frequencies the same</li>
-<li>Phase shift is like frequency dependent delay</li>
+  <li>Delay treats all frequencies the same</li>
+  <li>Phase shift is like frequency dependent delay</li>
 </ul>
 
-<p>Here&#39;s an illustration of those statements using three pairs of sine waves with frequencies of 440 Hz, 1 kHz and 1.8 kHz. They are all delayed by the same amount, .568ms. Notice how the amount of phase shift increases as the frequency goes up: 90 degrees  at 440 Hz, 204 degrees at 1 kHz and 367 degrees at 1.8 kHz.</p>
+<p>Here’s an illustration of those statements using three pairs of sine waves with frequencies of 440 Hz, 1 kHz and 1.8 kHz. They are all delayed by the same amount, .568ms. Notice how the amount of phase shift increases as the frequency goes up: 90 degrees  at 440 Hz, 204 degrees at 1 kHz and 367 degrees at 1.8 kHz.</p>
 
-<p><img src="/img/phase/EqualDelaySm.jpg" alt="EqualDelaySm.jpg"><sub>figure 1</sub></p>
+<p><img src="/img/phase/EqualDelaySm.jpg" alt="EqualDelaySm.jpg" /><sub>figure 1</sub></p>
 
 <p>Here are the same three pairs of sine waves, all with 90 degrees of phase shift. This corresponds to smaller amounts of delay for the higher frequencies: .25ms at 1 kHz and .14ms at 1.8 kHz: Phase shift is like frequency dependent delay</p>
 
-<p><img src="/img/phase/EqualPhaseSm.jpg" alt="EqualPhaseSm.jpg"><sub>figure 2</sub></p>
+<p><img src="/img/phase/EqualPhaseSm.jpg" alt="EqualPhaseSm.jpg" /><sub>figure 2</sub></p>
 
-<p>People often say that mics like those in the image below sound like they are are &quot;out of phase:&quot;</p>
+<p>People often say that mics like those in the image below sound like they are are “out of phase:”</p>
 
-<p><img src="/img/phase/amp.jpg" alt="mic setup"></p>
+<p><img src="/img/phase/amp.jpg" alt="mic setup" /></p>
 
-<p>This isn&#39;t really incorrect - they certainly arent <em>in</em> phase - but it is misleading, because it implies that phase <em>shift</em> is responsible for the sound we are hearing. Phase shift would require one of the mics to be some number of degrees ahead or behind the other. This would require smaller and smaller amounts of delay for higher frequencies, as seen in figure 2. But that isn&#39;t what happens. If you put two mics on a guitar amp, one a foot farther away than the other, all the frequency components of the guitar sound arriving at the more distant mic will be delayed by the same amount. They will be &quot;out of phase,&quot; in a sense, but the culprit is delay. The delay time will be equal to the distance between the mics divided by the speed of sound:</p>
+<p>This isn’t really incorrect - they certainly arent <em>in</em> phase - but it is misleading, because it implies that phase <em>shift</em> is responsible for the sound we are hearing. Phase shift would require one of the mics to be some number of degrees ahead or behind the other. This would require smaller and smaller amounts of delay for higher frequencies, as seen in figure 2. But that isn’t what happens. If you put two mics on a guitar amp, one a foot farther away than the other, all the frequency components of the guitar sound arriving at the more distant mic will be delayed by the same amount. They will be “out of phase,” in a sense, but the culprit is delay. The delay time will be equal to the distance between the mics divided by the speed of sound:</p>
 
-<p><img src="/img/phase/equation.gif" alt=".888ms"></p>
+<p><img src="/img/phase/equation.gif" alt=".888ms" /></p>
 
-<p>Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don&#39;t simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:</p>
+<p>Because delay causes different amounts of phase shift at different frequencies, the signals from the two mics don’t simply add together. The .888ms delay causes a phase shift of 180 degrees at 563 Hz, and there will be cancellation of any components of the guitar sound at and around that frequency, as well as at odd multiples of it. The result is a comb filter:</p>
 
-<p><img src="/img/phase/combGraph.jpg" alt="combGraph.jpg"><sub>figure 3</sub></p>
+<p><img src="/img/phase/combGraph.jpg" alt="combGraph.jpg" /><sub>figure 3</sub></p>
 
-<p>No Comb Filter:<br>
-<audio controls><source src="/audio/drumsNoComb.mp3" type="audio/mp3">
+<p>No Comb Filter:</p>
+<audio controls=""><source src="/audio/drumsNoComb.mp3" type="audio/mp3" />
 Your browser does not support the audio tag.
-</audio><br/>  </p>
+</audio>
+<p><br /></p>
 
-<p>Comb Filter:<br>
-<audio controls><source src="/audio/drumsComb.mp3" type="audio/mp3">
+<p>Comb Filter:</p>
+<audio controls=""><source src="/audio/drumsComb.mp3" type="audio/mp3" />
 Your browser does not support the audio tag.
-</audio><br>
-<br/>
-The same kind of effect can be caused by DSP delays in a DAW, for example when doing parallel compression without delay compensation. </p>
+</audio>
+<p><br />
+The same kind of effect can be caused by DSP delays in a DAW, for example when doing parallel compression without delay compensation.</p>
+
 
   </article>
 <div class="share-page">
