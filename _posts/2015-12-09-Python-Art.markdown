@@ -11,8 +11,7 @@ comments: True
 <br/><br/><br/>
 The code for the first image is pretty simple:
 
-```
-python
+{% highlight python %}
 import turtle
 import random
 # Draws a burst of straight rays, uses a nested loop to make small
@@ -40,7 +39,7 @@ for i in range(400):
     alex.goto(s,t)
 turtle.update()
 wn.exitonclick()
-```
+{% endhighlight %}
 
 It looks like this:
 ![straightRayBurst](/img/pythonArt/straightRayBurst.png)
