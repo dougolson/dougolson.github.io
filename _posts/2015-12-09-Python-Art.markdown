@@ -6,13 +6,13 @@ description: Using code to generate images and learn programming
 thumbnail: /img/pythonArt/rainbowGalaxy.png 
 comments: True
 ---
-####A series of images made with Python Turtle Graphics
-<br/>
+
 <img class = "post-thumb" src="/img/pythonArt/rainbowGalaxy.png" height="120" width="120">I've been playing around with Python's turtle graphics - it's a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
 <br/><br/><br/>
 The code for the first image is pretty simple:
 
-```python
+```
+python
 import turtle
 import random
 # Draws a burst of straight rays, uses a nested loop to make small

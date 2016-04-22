@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Going to see the Dwarves with Paw
+title: Going to See the Dwarves with Paw
 date: 2015-10-14 22:17
 description: An evening of mayhem.
 comments: True

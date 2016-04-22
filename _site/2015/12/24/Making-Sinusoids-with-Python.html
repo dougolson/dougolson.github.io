@@ -93,20 +93,21 @@
 
 <p>Here is a plot of a 5 Hz sinusoid with a phase delay of pi/4 radians</p>
 
-<pre><code class="language-python">%matplotlib inline
-import numpy as np
-import matplotlib.pyplot as plt
-A = .8
-f = 5
-t = np.arange(0,1,.01)
-phi = np.pi/4
-x = A*np.cos(2*np.pi*f*t + phi)
-plt.plot(t,x)
-plt.axis([0,1,-1,1])
-plt.xlabel('time in seconds')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">8</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mo">01</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'time in seconds'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_1_0.png" alt="png" /></p>
 
@@ -120,37 +121,39 @@ plt.show()
 
 <p>\(x = Acos(2{\pi}fnT + {\phi})\) gives:</p>
 
-<pre><code class="language-python">A = .65
-fs = 100
-samples = 100
-f = 5
-phi = 0
-n = np.arange(samples)
-T = 1.0/fs # Remember to use 1.0 and not 1!
-y = A*np.cos(2*np.pi*f*n*T + phi)
-plt.plot(y)
-plt.axis([0,100,-1,1])
-plt.xlabel('sample index')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">65</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span> <span class="c"># Remember to use 1.0 and not 1!</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_5_0.png" alt="png" /></p>
 
 <p>\(x = Acos(2{\pi}fn/N + {\phi})\) is “independent” of time, in that frequency depends on the sample rate, or really on the time basis of the sample rate. So if your sample rate is 100 samples per day and f = 5, your frequency would 5 cycles per day.</p>
 
-<pre><code class="language-python">A = .8
-N = 100 # samples
-f = 5
-phi = 0
-n = np.arange(N)
-y = A*np.cos(2*np.pi*f*n/N + phi)
-plt.plot(y)
-plt.axis([0,100,-1,1])
-plt.xlabel('sample index')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="o">.</span><span class="mi">8</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c"># samples</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_7_0.png" alt="png" /></p>
 
@@ -158,75 +161,79 @@ plt.show()
 
 <p>\(e^{j(2{\pi}ft +{\phi})} = cos(2{\pi}ft) + jsin(2{\pi}ft)\) for continuous time and \(x = e^{j(2{\pi}fnT+{\phi})}\) for discrete. Leaving out the amplitude term, here is the continuous version, with the “imaginary” component shown in green</p>
 
-<pre><code class="language-python">f = 3
-t = np.arange(0,1,.01)
-phi = 0
-x = np.exp(1j*(2*np.pi*f*t + phi))
-xim = np.imag(x)
-plt.figure(1)
-plt.plot(t,np.real(x))
-plt.plot(t,xim)
-plt.axis([0,1,-1.1,1.1])
-plt.xlabel('time in seconds')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mo">01</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">))</span>
+<span class="n">xim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xim</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'time in seconds'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_9_0.png" alt="png" /></p>
 
 <p>The discrete version \( = e^{j(2{\pi}fnT+{\phi})}\)</p>
 
-<pre><code class="language-python">f = 3
-N = 100
-fs = 100
-n = np.arange(N)
-T = 1.0/fs
-t = N*T
-phi = 0
-x = np.exp(1j*(2*np.pi*f*n*T + phi))
-xim = np.imag(x)
-plt.figure(1)
-plt.plot(n*T,np.real(x))
-plt.plot(n*T,xim)
-plt.axis([0,t,-1.1,1.1])
-plt.xlabel('t(seconds)')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">T</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">T</span> <span class="o">+</span> <span class="n">phi</span><span class="p">))</span>
+<span class="n">xim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">T</span><span class="p">,</span><span class="n">xim</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'t(seconds)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_11_0.png" alt="png" /></p>
 
 <p>You can also do it based on \( = e^{j(2{\pi}fn/N +{\phi})}\).</p>
 
-<pre><code class="language-python">f = 3
-N = 64 
-n = np.arange(64)
-phi = 0
-x = np.exp(1j*(2*np.pi*f*n/N + phi))
-xim = np.imag(x)
-plt.figure(1)
-plt.plot(n,np.real(x))
-plt.plot(n,xim)
-plt.axis([0,samples,-1.1,1.1])
-plt.xlabel('sample index')
-plt.ylabel('amplitude')
-plt.show()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span> 
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span> <span class="o">+</span> <span class="n">phi</span><span class="p">))</span>
+<span class="n">xim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">xim</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">samples</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
+</div>
 
 <p><img src="/img/sinusoids/output_13_0.png" alt="png" /></p>
 
 <p>Finally, you can use Scipy to write the data to a .wav file - here is 1 second at 440 Hz</p>
 
-<pre><code class="language-python">N = 44100 # samples
-f = 440
-fs = 44100
-phi = 0
-n = np.arange(N)
-x = A*np.cos(2*np.pi*f*n/N + phi)
-#scipy.io.wavfile.write(filename, rate, data)[source]
-from scipy.io.wavfile import write
-write('sine440_1sec.wav', 44100, x)
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">44100</span> <span class="c"># samples</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">440</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">44100</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+<span class="c">#scipy.io.wavfile.write(filename, rate, data)[source]</span>
+<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">write</span>
+<span class="n">write</span><span class="p">(</span><span class="s">'sine440_1sec.wav'</span><span class="p">,</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </code></pre>
+</div>
 <audio controls=""><source src="/audio/sine1sec440.wav" type="audio/wav" preload="auto" />
 Your browser does not support the audio tag.
 </audio>
