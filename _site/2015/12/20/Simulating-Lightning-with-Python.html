@@ -94,15 +94,14 @@
 <img src="/img/lightning/lightning1.png" alt="lightningImage1" />
 I thought it would be nice to have the initial bolt start with a thick pen and become smaller as it approached the ground. I tried various approaches, and came up with the following:</p>
 
-<p>```python 
-def clamp(n, minn, maxn):
-    return max(min(maxn, n), minn) # thank you stack overflow</p>
+<pre><code class="language-python">def clamp(n, minn, maxn):
+    return max(min(maxn, n), minn) # thank you stack overflow
 
-<p>…</p>
+...
 
-<p>pen = 10 - clamp(2*math.floor(math.log(len(pos),2)),0,9)
-```
-<img src="/img/lightning/lightning2.png" alt="lightningImage1" />
+pen = 10 - clamp(2*math.floor(math.log(len(pos),2)),0,9)
+</code></pre>
+<p><img src="/img/lightning/lightning2.png" alt="lightningImage1" />
 I eventually realized that with a few extra lines of code, you can write vector-based .eps files, which seemed greatly preferable to taking screenshots of the Turtle Graphics window. For some reason, though, the canvas color is lost and replaced with white. So my white lightning on a black background resulted in a blank white image. No matter, Black lightning one a white background looks pretty cool as well:
 <br /><br />
 <img src="/img/lightning/lightning3.png" alt="lightningImage1" />
@@ -112,18 +111,17 @@ I eventually realized that with a few extra lines of code, you can write vector-
 
 <p>Code:</p>
 
-<p>```python</p>
-
-<p>import random
+<pre><code class="language-python">
+import random
 import turtle
-import math</p>
+import math
 
-<h1 id="a-lightning-generator">A Lightning generator</h1>
+# A Lightning generator
 
-<p>def clamp(n, minn, maxn):
-    return max(min(maxn, n), minn) # thank you stack overflow</p>
+def clamp(n, minn, maxn):
+    return max(min(maxn, n), minn) # thank you stack overflow
 
-<p>turtle.tracer(0, 0) #runs much faster this way; no image until the whole thing is done
+turtle.tracer(0, 0) #runs much faster this way; no image until the whole thing is done
 wn = turtle.Screen()
 ts = turtle.getscreen() # needed for writing to .eps file
 wn.colormode(1)
@@ -136,10 +134,10 @@ alex.up()
 alex.goto(-200, 340) # initial seed position
 alex.seth(random.uniform(255, 285)) # set heading
 h1 = alex.heading() # get heading
-alex.color(0,0,0)  # White</p>
+alex.color(0,0,0)  # White
 
-<h1 id="initial-bolt">Initial bolt</h1>
-<p>for i in range(50):
+# Initial bolt
+for i in range(50):
     alex.down()
     alex.forward(abs(round(random.gauss(2, 5), 0))) # abs limits motion to forward
     alex.seth(h1 + random.gauss(7, 30))
@@ -147,13 +145,13 @@ alex.color(0,0,0)  # White</p>
     y = alex.ycor()
 h2 = alex.heading()
 pos = [[x,y]] # list - new initial position
-head = [h2] # list - new initial position</p>
+head = [h2] # list - new initial position
 
-<p>recursions = 0</p>
+recursions = 0
 
-<p>def lightning(pos, head,spread):
-    “"”pos is a list [[x,y]] by default inherited from the end position of the initial bolt
-    head is a value from 0-360 degrees. Spread controls how wide the branches are”””
+def lightning(pos, head,spread):
+    """pos is a list [[x,y]] by default inherited from the end position of the initial bolt
+    head is a value from 0-360 degrees. Spread controls how wide the branches are"""
     global recursions
     recursions += 1
     for i in range(len(pos)):
@@ -190,15 +188,15 @@ head = [h2] # list - new initial position</p>
             h4 = alex.heading()
         pos.append([x2,y2])
         head.append(h4)
-    dist = [[math.sqrt(x<strong>2 + y</strong>2)] for [x,y] in pos]
+    dist = [[math.sqrt(x**2 + y**2)] for [x,y] in pos]
     if(recursions &lt; 11 and min([x for sublist in dist for x in sublist]) &lt; 460):
-        lightning(pos[(i+1):], head[(i+1):],spread)</p>
+        lightning(pos[(i+1):], head[(i+1):],spread)
 
-<p>lightning(pos,head,5)
-ts.getcanvas().postscript(file=’lightning10.eps’)
+lightning(pos,head,5)
+ts.getcanvas().postscript(file='lightning10.eps')
 turtle.update()
 wn.exitonclick()
-```</p>
+</code></pre>
 
   </article>
 <div class="share-page">

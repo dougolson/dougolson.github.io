@@ -13,8 +13,10 @@ github_username:  dougolson
 
 # Build settings
 markdown: kramdown
-
 highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
 
 # Pagination
 paginate: 15

@@ -17,7 +17,7 @@ I translate this into English by saying "the kth bin of the DFT is the sum of th
 
 Another way to think of it is that since \\[e^{-j\theta} =cos(\theta ) - jsin(\theta)\\] The DFT equation can be rewritten as \\[X[k] = {\sum_{n=0}^{N-1}}x[n]cos(\frac{2{\pi}kn}{N}) -  j{\sum_{n=0}^{N-1}}x[n]sin(\frac{2{\pi}kn}{N}) \quad k = 0, 1, 2, ..., N-1\\] 
 
-Which basically says that the number of DFT frequency bins or "Basis Frequencies" is related to the number of samples in the signal as \\[\frac{n}{N} \quad or \quad \frac{0}{N}, \frac{1}{N}, \frac{2}{N},...,\frac{N-1}{N},\\] and that the kth bin, X[k], has both real and imaginary components.  
+Which basically says, among other tings, that the number of DFT frequency bins or "Basis Frequencies" is related to the number of samples in the signal as \\[\frac{n}{N} \quad or \quad \frac{0}{N}, \frac{1}{N}, \frac{2}{N},...,\frac{N-1}{N},\\] and that the kth bin, X[k], has both real and imaginary components.  
 
 Looking at a few examples helps to show what's going on. Starting with k=0, the 0Hz component, we get a flat line - DC. 
 
@@ -260,7 +260,6 @@ k=0
 for k in n:
     Xk = sum(x*np.exp(-1j*2*np.pi*k*n/N))
     print "for k=",k," Xk =", np.around([Xk]) 
-
 ~~~
 
     for k= 0  Xk = [-0.-0.j]
@@ -268,7 +267,7 @@ for k in n:
     for k= 2  Xk = [ 0.+0.j]
     for k= 3  Xk = [-0.+0.j]
     for k= 4  Xk = [-0.-0.j]
-    **for k= 5  Xk = [ 32.+0.j]**
+    for k= 5  Xk = [ 32.+0.j]
     for k= 6  Xk = [-0.-0.j]
     for k= 7  Xk = [ 0.+0.j]
     for k= 8  Xk = [-0.+0.j]

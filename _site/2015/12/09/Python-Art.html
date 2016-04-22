@@ -87,14 +87,13 @@
   </header>
 
   <article class="post-content">
-    <h4 id="a-series-of-images-made-with-python-turtle-graphics">A series of images made with Python Turtle Graphics</h4>
-<p><br />
+    <p>####A series of images made with Python Turtle Graphics
+<br />
 <img class="post-thumb" src="/img/pythonArt/rainbowGalaxy.png" height="120" width="120" />I’ve been playing around with Python’s turtle graphics - it’s a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
 <br /><br /><br />
 The code for the first image is pretty simple:</p>
 
-<p><code>python
-import turtle
+<pre><code class="language-python">import turtle
 import random
 # Draws a burst of straight rays, uses a nested loop to make small
 # scribbles at the end of each ray
@@ -121,7 +120,7 @@ for i in range(400):
     alex.goto(s,t)
 turtle.update()
 wn.exitonclick()
-</code></p>
+</code></pre>
 
 <p>It looks like this:
 <img src="/img/pythonArt/straightRayBurst.png" alt="straightRayBurst" /></p>
@@ -133,8 +132,7 @@ wn.exitonclick()
 <p>I wanted to try something a little more challenging, so I made a couple of functions to get more control over the image. 
 The RGB color generator is still limited; later I make one with better control.</p>
 
-<p><code>python
-import random
+<pre><code class="language-python">import random
 import turtle
 # Draws three concentric sets of crooked rays, emerging from darkness
 def colorGen(sat = 1, val = 1):
@@ -199,7 +197,7 @@ alex.ht()
 timeTunnel(300)
 turtle.update()
 wn.exitonclick()
-</code></p>
+</code></pre>
 
 <p><img src="/img/pythonArt/concentricRays1.png" alt="concentricRays1" /></p>
 
@@ -211,8 +209,7 @@ wn.exitonclick()
 
 <p>This bit of code adds a better color generator - this time with control over hue, saturation and value:</p>
 
-<p><code>python
-import random
+<pre><code class="language-python">import random
 import turtle
 import math
 # Draws three sets of concentric rays with a sort of spiral galaxy effect.
@@ -306,7 +303,7 @@ alex.ht()
 timeTunnel(500,1, 1, .5)
 turtle.update()
 wn.exitonclick() 
-</code></p>
+</code></pre>
 
 <p><img src="/img/pythonArt/concentricRays3.png" alt="concentricRays3" /></p>
 
@@ -315,8 +312,7 @@ wn.exitonclick()
 
 <p>Lastly, this code makes a nice looking set of colored sine waves that curve around in an interesting way:</p>
 
-<p><code>python
-def waves(repeats = 1):
+<pre><code class="language-python">def waves(repeats = 1):
     """Draws nested colored sinusoids emerging from darkness"""
     for i in range(repeats):
         alex.up()
@@ -342,8 +338,8 @@ alex.ht()
 waves(700)
 turtle.update()
 wn.exitonclick()
-</code>
-<img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1" /></p>
+</code></pre>
+<p><img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1" /></p>
 
 <p>Setting both the value and saturation to .5 gives this:
 <img src="/img/pythonArt/sineWaves2.png" alt="sineWaves2" /></p>
