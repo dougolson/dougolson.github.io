@@ -20,7 +20,7 @@ Another, static way to view the same idea can be seen below. The circles are mov
 
 Code:
 
-```python
+{% highlight python %}
 import turtle
 import math
 # turtleSet function makes the code a bit more compact
@@ -70,4 +70,4 @@ for i in range(650):
     line.goto(-286, y)
     time.goto(i-325, 0)
 wn.exitonclick()
-```
+{% endhighlight %}

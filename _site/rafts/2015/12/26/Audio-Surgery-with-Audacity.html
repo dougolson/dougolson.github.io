@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Audio Surgery with Audacity</title>
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
+">
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68953136-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- mr.colson instead of blog -->
+        <a class="page-link" href="/">home</a>
+
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/artists/">artists</a>
+          
+        
+          
+          <a class="page-link" href="/resume/">resume</a>
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Audio Surgery with Audacity</h1>
+    <p class="post-meta">December 26, 2015 — 22:20</p>
+  </header>
+
+  <article class="post-content">
+    <p><img class="post-thumb" src="/img/AudacitySpectralEQ/3.png" height="120" width="120" />I recently spent some time playing around with the latest version of Audacity, and was quite surprised by how powerful some of its features are. One of the most impressive is spectral EQ. It is quite easy to use, and it is very precise. And Pro Tools doesn’t have it (let alone even a basic spectrogram!). Adobe Audition has some very nice spectral tools, but it’s not free.</p>
+
+<p>Anyway, here’s an example of how you can use spectral eq to almost completely separate two sounds that have been mixed together. Not all sounds can be separated this way, of course - if the harmonics overlap too much, the sounds will be altered a lot in the process. But many sounds can be separated, and less extreme applications of spectral eq can be found all over - a guitar arpeggio with one note that is too loud, for example. For this demonstration, I put together an admittedly odd sound - a water glass mixed with an oboe - using files obtained on <a href="http://www.freesound.org">freesound.org</a>. Probably not something you’re going to hear in a dubstep remix, but it works well for the present purpose. Here it is:</p>
+
+<audio controls=""><source src="/audio/WaterGlassOboeMix.mp3" type="audio/mp3" preload="auto" />
+Your browser does not support the audio tag.
+</audio>
+<p><br /></p>
+
+<p>We’re going to use Spectral Selection, which can be found in the Mix menu found at the top left of the track in question.</p>
+
+<p><img src="/img/AudacitySpectralEQ/1a.jpg" alt="waveform" /></p>
+
+<p>The track view will switch to a spectrogram. You can see where the Oboe comes in, and where it’s unique harmonics are.</p>
+
+<p><img src="/img/AudacitySpectralEQ/3.png" alt="spec1" /></p>
+
+<audio controls=""><source src="/audio/WaterGlassOboeMix.mp3" type="audio/mp3" preload="auto" />
+Your browser does not support the audio tag.
+</audio>
+<p><br /></p>
+
+<p>I changed a few settings in the preferences for the spectrogram. For better frequency resolution, I set the window size to the maximum, and went with a rectangular window. Otherwise, I left the default settings in place
+<img src="/img/AudacitySpectralEQ/3a.png" alt="specSettings" /></p>
+
+<p>Next, from the Effect menu, you need to select “Spectral edit parametric EQ”</p>
+
+<p><img src="/img/AudacitySpectralEQ/4a.jpg" alt="eqMenu" /></p>
+
+<p>There’s not much to adjust in the effect itself. I went with -24 Db, the maximum cut.</p>
+
+<p><img src="/img/AudacitySpectralEQ/5.png" alt="eqWindow" /></p>
+
+<p>Finally, you want to use the Selection tool:</p>
+
+<p><img src="/img/AudacitySpectralEQ/6.png" alt="tool" /></p>
+
+<p>At this point, it’s simply a matter of making a time selection, adjusting the height of the horizontal window that controls the filter, and then applying it to each harmonic you want to remove. There are a few things to remember and a few tricks you can use:</p>
+
+<ul>
+  <li>The height of the spectral selection controls the width of the filter</li>
+  <li>If you mouse over the frequency scale on the left, you’ll get a zoom tool, allowing you to really fine tune the selection</li>
+  <li>To zoom back out, right click with the zoom tool active</li>
+  <li>Sometimes it is necessary to apply the filter more than once</li>
+  <li>Use Command-R to repeat the filter effect and avoid a lot of mousing</li>
+</ul>
+
+<p><img src="/img/AudacitySpectralEQ/7.png" alt="surgery1" /></p>
+
+<p>Zoomed in:
+<img src="/img/AudacitySpectralEQ/8.png" alt="surgery2" /></p>
+
+<p>Here’s what a harmonic looks like before and after the application of Spectral EQ:</p>
+
+<p><img src="/img/AudacitySpectralEQ/beforeAfter.jpg" alt="beforeAfter" /></p>
+
+<p>In general, I made all my selections span the entire length of the clip, reasoning that it would be more sonically transparent / consistent to filter everything, rather than just filtering where the Oboe plays. There was one harmonic that seemed to be associated with the attack of the Oboe, and in that case, I selected it specifically:</p>
+
+<p><img src="/img/AudacitySpectralEQ/9.png" alt="surgery3" /></p>
+
+<p>After selecting and attenuating each Oboe harmonic - a somewhat tedious process - the final result looks like this:</p>
+
+<p><img src="/img/AudacitySpectralEQ/10.png" alt="final" /></p>
+
+<p>And sounds like this. The Oboe is almost completely inaudible, other than a bit of the initial transient and the noise component:</p>
+
+<audio controls=""><source src="/audio/WaterGlassOboePostEQ.mp3" type="audio/mp3" preload="auto" />
+Your browser does not support the audio tag.
+</audio>
+<p><br /></p>
+
+<p>I was really pleased to see such a powerful tool on a free, open source application. I’m looking forward to learning more about Audacity.</p>
+
+  </article>
+<div class="share-page">
+    Share this on 
+	
+	<a href="https://twitter.com/intent/tweet?text=Audio Surgery with Audacity&url=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html&via=&related=" 	
+	rel="nofollow" 
+	target="popup" 
+	title="Share on Twitter"
+	onclick="window.open('https://twitter.com/intent/tweet?text=Audio Surgery with Audacity&url=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html&via=&related=  ','','width=600,height=400')">
+	<i class="fa fa-twitter-square fa-lg"></i></a>
+    
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html" 
+	rel="nofollow" 
+	title="Share on Facebook"
+	target="popup" 
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html  ','','width=600,height=400')">
+	<i class="fa fa-facebook-square fa-lg"></i></a>
+	
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html" 
+	rel="nofollow"  
+	title="Share on Google+"
+	target="popup"
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/26/Audio-Surgery-with-Audacity.html  ','','width=600,height=400')">
+	<i class="fa fa-google-plus-square fa-lg"></i></a>
+	
+</div>
+</div>
+
+
+        </br></br>
+        
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mrcolson';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is based on the <a href "http://jekyllthemes.org/themes/folio/">*folio</a>  theme. It is hosted on <a href="https://github.com" target="_blank">Github</a>.  &#169;Doug Olson, 2015</p>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>

@@ -14,14 +14,14 @@ Here is the result:
 ![lightningImage1](/img/lightning/lightning1.png)
 I thought it would be nice to have the initial bolt start with a thick pen and become smaller as it approached the ground. I tried various approaches, and came up with the following:
 
-```python 
+{% highlight python %} 
 def clamp(n, minn, maxn):
     return max(min(maxn, n), minn) # thank you stack overflow
 
 ...
 
 pen = 10 - clamp(2*math.floor(math.log(len(pos),2)),0,9)
-```
+{% endhighlight %}
 ![lightningImage1](/img/lightning/lightning2.png)
 I eventually realized that with a few extra lines of code, you can write vector-based .eps files, which seemed greatly preferable to taking screenshots of the Turtle Graphics window. For some reason, though, the canvas color is lost and replaced with white. So my white lightning on a black background resulted in a blank white image. No matter, Black lightning one a white background looks pretty cool as well:
 <br/><br/>
@@ -32,7 +32,7 @@ I eventually realized that with a few extra lines of code, you can write vector-
 
 Code:
 
-```python
+{% highlight python %}
 
 import random
 import turtle
@@ -118,4 +118,4 @@ lightning(pos,head,5)
 ts.getcanvas().postscript(file='lightning10.eps')
 turtle.update()
 wn.exitonclick()
-```
+{% endhighlight %}

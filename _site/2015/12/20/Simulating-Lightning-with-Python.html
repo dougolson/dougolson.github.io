@@ -67,6 +67,8 @@
           <a class="page-link" href="/resume/">resume</a>
           
         
+          
+        
 
       </div>
     </nav>
@@ -94,14 +96,14 @@
 <img src="/img/lightning/lightning1.png" alt="lightningImage1" />
 I thought it would be nice to have the initial bolt start with a thick pen and become smaller as it approached the ground. I tried various approaches, and came up with the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minn</span><span class="p">,</span> <span class="n">maxn</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"> 
+<span class="k">def</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minn</span><span class="p">,</span> <span class="n">maxn</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">maxn</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">minn</span><span class="p">)</span> <span class="c"># thank you stack overflow</span>
 
 <span class="o">...</span>
 
-<span class="n">pen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span><span class="mi">2</span><span class="p">)),</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
-</code></pre>
-</div>
+<span class="n">pen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span><span class="mi">2</span><span class="p">)),</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span></code></pre></figure>
+
 <p><img src="/img/lightning/lightning2.png" alt="lightningImage1" />
 I eventually realized that with a few extra lines of code, you can write vector-based .eps files, which seemed greatly preferable to taking screenshots of the Turtle Graphics window. For some reason, though, the canvas color is lost and replaced with white. So my white lightning on a black background resulted in a blank white image. No matter, Black lightning one a white background looks pretty cool as well:
 <br /><br />
@@ -112,8 +114,7 @@ I eventually realized that with a few extra lines of code, you can write vector-
 
 <p>Code:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
-<span class="kn">import</span> <span class="nn">random</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">turtle</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
@@ -196,9 +197,8 @@ I eventually realized that with a few extra lines of code, you can write vector-
 <span class="n">lightning</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">head</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">getcanvas</span><span class="p">()</span><span class="o">.</span><span class="n">postscript</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">'lightning10.eps'</span><span class="p">)</span>
 <span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span></code></pre></figure>
+
 
   </article>
 <div class="share-page">

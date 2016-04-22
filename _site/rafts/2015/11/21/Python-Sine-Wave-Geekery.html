@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Python Sine Wave Geekery</title>
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
+">
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68953136-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- mr.colson instead of blog -->
+        <a class="page-link" href="/">home</a>
+
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/artists/">artists</a>
+          
+        
+          
+          <a class="page-link" href="/resume/">resume</a>
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Python Sine Wave Geekery</h1>
+    <p class="post-meta">November 21, 2015 — 11:47</p>
+  </header>
+
+  <article class="post-content">
+    <p><img class="post-thumb" src="/img/sineWaveGeekery/sineThumb.png" />I was messing around with the Python’s turtle graphics and wrote a simple program to illustrate the idea that a sine wave is essentially a rotating circle moving through time. The blue line/dot represents the circle viewed from the side, and the yellow arrow is time.</p>
+
+<p>It may help to imagine a horizontal line moving up and down along with the blue, green and black dots, and a vertical line moving to the right along with the black dot and the yellow arrowhead.</p>
+
+<iframe width="700" height="394" src="https://www.youtube.com/embed/APAAOGLpYzs" frameborder="0" allowfullscreen=""></iframe>
+
+<p><br />
+Another, static way to view the same idea can be seen below. The circles are moving through time, with each one spaced about .284 ms apart. The screenshot shows about 2.73 ms of time in total. As the circle spins, the height of the dot (y component) is the same as the amplitude of the sine wave.</p>
+
+<p><img src="/img/phase/rotatingCircleSine.jpg" alt="rotating circle sine wave" /></p>
+
+<p>Code:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="c"># turtleSet function makes the code a bit more compact</span>
+<span class="k">def</span> <span class="nf">turtleSet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pen</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">):</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">pen</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">setposition</span><span class="p">(</span><span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">)</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+    <span class="n">name</span><span class="o">.</span><span class="n">st</span><span class="p">()</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">background</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">background</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">background</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+<span class="n">background</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="mi">325</span><span class="p">,</span> <span class="mi">325</span><span class="p">)</span>
+<span class="n">background</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+<span class="n">background</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">background</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>
+<span class="n">background</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> <span class="c"># Draw a 650 x 650 square</span>
+    <span class="n">background</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">650</span><span class="p">)</span>
+    <span class="n">background</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">background</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">200</span> <span class="c">#amplitude</span>
+<span class="n">period</span> <span class="o">=</span> <span class="mi">25</span> <span class="c"># Period, but without any specific unit.</span>
+<span class="n">circle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">turtleSet</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span> <span class="s">'circle'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"green"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">sine</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">turtleSet</span><span class="p">(</span><span class="n">sine</span><span class="p">,</span> <span class="s">'circle'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"black"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">325</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sine</span><span class="o">.</span><span class="n">st</span><span class="p">()</span>
+<span class="n">sine</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">turtleSet</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">'circle'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"blue"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">286</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">line</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">turtleSet</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="s">'arrow'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"yellow"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">325</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">650</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">height</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="n">period</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">height</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="n">period</span><span class="p">)</span>
+    <span class="n">sine</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">325</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">circle</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">286</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">325</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span></code></pre></figure>
+
+  </article>
+<div class="share-page">
+    Share this on 
+	
+	<a href="https://twitter.com/intent/tweet?text=Python Sine Wave Geekery&url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html&via=&related=" 	
+	rel="nofollow" 
+	target="popup" 
+	title="Share on Twitter"
+	onclick="window.open('https://twitter.com/intent/tweet?text=Python Sine Wave Geekery&url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html&via=&related=  ','','width=600,height=400')">
+	<i class="fa fa-twitter-square fa-lg"></i></a>
+    
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html" 
+	rel="nofollow" 
+	title="Share on Facebook"
+	target="popup" 
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html  ','','width=600,height=400')">
+	<i class="fa fa-facebook-square fa-lg"></i></a>
+	
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html" 
+	rel="nofollow"  
+	title="Share on Google+"
+	target="popup"
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/11/21/Python-Sine-Wave-Geekery.html  ','','width=600,height=400')">
+	<i class="fa fa-google-plus-square fa-lg"></i></a>
+	
+</div>
+</div>
+
+
+        </br></br>
+        
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mrcolson';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is based on the <a href "http://jekyllthemes.org/themes/folio/">*folio</a>  theme. It is hosted on <a href="https://github.com" target="_blank">Github</a>.  &#169;Doug Olson, 2015</p>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>

@@ -7,8 +7,7 @@ thumbnail: /img/DFT/output_19_0.png
 comments: True
 ---
 
-```
-python
+{% highlight python %}
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,14 +17,13 @@ from IPython.display import Audio
 import warnings
 warnings.filterwarnings('ignore')
 %matplotlib inline
-```
+{% endhighlight %}
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 hello \\[sin(2\pi{}f_c + \beta sin(2\pi{}f_m))\\]
 
 
-```
-python
+{% highlight python %}
 class FMsynth(object):
     """
     Simple FM_Synth object for experimentation.
@@ -52,11 +50,10 @@ class FMsynth(object):
         self.wavData = wavData
         if waveFile:
             write('audio/%s.wav' % self.name, 44100.0, self.wavData)
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
     def FMplot(self):
         """Generates a plot of the waveform for the FMsynth tone being examined"""
         inc = self.increment
@@ -75,11 +72,10 @@ python
         plt.title('Source Waveform')
         plt.grid(True)
         plt.show()
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
     def FM_fft(self):
         rate = self.rate
         data = self.wavData
@@ -97,19 +93,17 @@ python
         plt.grid(True)
         plt.title('FFT of %s' % self.name)
         plt.show()
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
 foo = FMsynth()
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
 Audio(foo.wavData,rate=foo.rate)
-```
+{% endhighlight %}
 
 
 
@@ -124,36 +118,32 @@ Audio(foo.wavData,rate=foo.rate)
 
 
 
-```
-python
+{% highlight python %}
 FMplot(foo)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_8_0.png)
 
 
 
-```
-python
+{% highlight python %}
 FM_fft(foo)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_9_0.png)
 
 
 
-```
-python
+{% highlight python %}
 foo2 = FMsynth(220,220,10)
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
 Audio(foo2.wavData,rate=foo2.rate)
-```
+{% endhighlight %}
 
 
 
@@ -168,36 +158,32 @@ Audio(foo2.wavData,rate=foo2.rate)
 
 
 
-```
-python
+{% highlight python %}
 FMplot(foo2)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_12_0.png)
 
 
 
-```
-python
+{% highlight python %}
 FM_fft(foo2)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_13_0.png)
 
 
 
-```
-python
+{% highlight python %}
 foo3 = FMsynth(220,100*np.pi,5)
-```
+{% endhighlight %}
 
 
-```
-python
+{% highlight python %}
 Audio(foo3.wavData,rate=foo3.rate)
-```
+{% endhighlight %}
 
 
 
@@ -212,27 +198,24 @@ Audio(foo3.wavData,rate=foo3.rate)
 
 
 
-```
-python
+{% highlight python %}
 FMplot(foo3)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_16_0.png)
 
 
 
-```
-python
+{% highlight python %}
 FM_fft(foo3)
-```
+{% endhighlight %}
 
 
 ![png](/img/SimplePythonFMSynthesis/output_17_0.png)
 
 
 
-```
-python
+{% highlight python %}
 
-```
+{% endhighlight %}

@@ -14,7 +14,7 @@ comments: True
 Here is a plot of a 5 Hz sinusoid with a phase delay of pi/4 radians
 
 
-```python
+{% highlight python %}
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,7 +28,7 @@ plt.axis([0,1,-1,1])
 plt.xlabel('time in seconds')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_1_0.png)
@@ -44,7 +44,7 @@ To base it on samples explicitly you can use one of two expressions:
 
 \\(x = Acos(2{\pi}fnT + {\phi})\\) gives:
 
-```python
+{% highlight python %}
 A = .65
 fs = 100
 samples = 100
@@ -58,7 +58,7 @@ plt.axis([0,100,-1,1])
 plt.xlabel('sample index')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_5_0.png)
@@ -67,7 +67,7 @@ plt.show()
 \\(x = Acos(2{\pi}fn/N + {\phi})\\) is "independent" of time, in that frequency depends on the sample rate, or really on the time basis of the sample rate. So if your sample rate is 100 samples per day and f = 5, your frequency would 5 cycles per day. 
 
 
-```python
+{% highlight python %}
 A = .8
 N = 100 # samples
 f = 5
@@ -79,7 +79,7 @@ plt.axis([0,100,-1,1])
 plt.xlabel('sample index')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_7_0.png)
@@ -90,7 +90,7 @@ Complex sinusoids have the form:
 \\(e^{j(2{\pi}ft +{\phi})} = cos(2{\pi}ft) + jsin(2{\pi}ft)\\) for continuous time and \\(x = e^{j(2{\pi}fnT+{\phi})}\\) for discrete. Leaving out the amplitude term, here is the continuous version, with the "imaginary" component shown in green
 
 
-```python
+{% highlight python %}
 f = 3
 t = np.arange(0,1,.01)
 phi = 0
@@ -103,7 +103,7 @@ plt.axis([0,1,-1.1,1.1])
 plt.xlabel('time in seconds')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_9_0.png)
@@ -112,7 +112,7 @@ plt.show()
 The discrete version \\( = e^{j(2{\pi}fnT+{\phi})}\\)
 
 
-```python
+{% highlight python %}
 f = 3
 N = 100
 fs = 100
@@ -129,7 +129,7 @@ plt.axis([0,t,-1.1,1.1])
 plt.xlabel('t(seconds)')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_11_0.png)
@@ -138,7 +138,7 @@ plt.show()
 You can also do it based on \\( = e^{j(2{\pi}fn/N +{\phi})}\\).
 
 
-```python
+{% highlight python %}
 f = 3
 N = 64 
 n = np.arange(64)
@@ -152,7 +152,7 @@ plt.axis([0,samples,-1.1,1.1])
 plt.xlabel('sample index')
 plt.ylabel('amplitude')
 plt.show()
-```
+{% endhighlight %}
 
 
 ![png](/img/sinusoids/output_13_0.png)
@@ -161,7 +161,7 @@ plt.show()
 Finally, you can use Scipy to write the data to a .wav file - here is 1 second at 440 Hz
 
 
-```python
+{% highlight python %}
 N = 44100 # samples
 f = 440
 fs = 44100
@@ -171,7 +171,7 @@ x = A*np.cos(2*np.pi*f*n/N + phi)
 #scipy.io.wavfile.write(filename, rate, data)[source]
 from scipy.io.wavfile import write
 write('sine440_1sec.wav', 44100, x)
-```
+{% endhighlight %}
 <audio controls><source src="/audio/sine1sec440.wav" type="audio/wav" preload="auto">
 Your browser does not support the audio tag.
 </audio><br/> 

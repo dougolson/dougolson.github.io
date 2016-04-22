@@ -51,7 +51,7 @@ Increasing the randomness, you get this:
 I wanted to try something a little more challenging, so I made a couple of functions to get more control over the image. 
 The RGB color generator is still limited; later I make one with better control.
 
-```python
+{% highlight python %}
 import random
 import turtle
 # Draws three concentric sets of crooked rays, emerging from darkness
@@ -117,7 +117,7 @@ alex.ht()
 timeTunnel(300)
 turtle.update()
 wn.exitonclick()
-```
+{% endhighlight %}
 
 ![concentricRays1](/img/pythonArt/concentricRays1.png)
 
@@ -129,7 +129,7 @@ Here I added a little spiral and set the length of each increment to a couple of
 
 This bit of code adds a better color generator - this time with control over hue, saturation and value:
 
-```python
+{% highlight python %}
 import random
 import turtle
 import math
@@ -224,7 +224,7 @@ alex.ht()
 timeTunnel(500,1, 1, .5)
 turtle.update()
 wn.exitonclick() 
-```
+{% endhighlight %}
 
 ![concentricRays3](/img/pythonArt/concentricRays3.png)
 
@@ -233,7 +233,7 @@ By making the hue a function of direction using alex.heading(), you get a nice r
 
 Lastly, this code makes a nice looking set of colored sine waves that curve around in an interesting way:
 
-```python
+{% highlight python %}
 def waves(repeats = 1):
     """Draws nested colored sinusoids emerging from darkness"""
     for i in range(repeats):
@@ -260,7 +260,7 @@ alex.ht()
 waves(700)
 turtle.update()
 wn.exitonclick()
-```
+{% endhighlight %}
 ![sineWaves1](/img/pythonArt/sineWaves1.png)
 
 Setting both the value and saturation to .5 gives this:

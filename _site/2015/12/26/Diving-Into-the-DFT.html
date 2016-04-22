@@ -67,6 +67,8 @@
           <a class="page-link" href="/resume/">resume</a>
           
         
+          
+        
 
       </div>
     </nav>
@@ -101,7 +103,7 @@
 
 <p>Looking at a few examples helps to show what’s going on. Starting with k=0, the 0Hz component, we get a flat line - DC.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
@@ -115,20 +117,16 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k= 0 , n=1 through n=6 are 
-[ 1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j  1.+0.j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span> 
+<span class="p">[</span> <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_1_1.png" alt="png" /></p>
 
 <p>For k=1, we get a low frequency component</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -139,21 +137,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k =  1 , n=1 through n=6 = are 
-[ 1.00000000+0.j  0.98078528-0.19509032j  0.92387953-0.38268343j
-0.83146961-0.55557023j  0.70710678-0.70710678j  0.55557023-0.83146961j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="o">=</span>  <span class="mi">1</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="o">=</span> <span class="n">are</span> 
+<span class="p">[</span> <span class="mf">1.00000000</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">0.98078528</span><span class="o">-</span><span class="mf">0.19509032</span><span class="n">j</span>  <span class="mf">0.92387953</span><span class="o">-</span><span class="mf">0.38268343</span><span class="n">j</span>
+<span class="mf">0.83146961</span><span class="o">-</span><span class="mf">0.55557023</span><span class="n">j</span>  <span class="mf">0.70710678</span><span class="o">-</span><span class="mf">0.70710678</span><span class="n">j</span>  <span class="mf">0.55557023</span><span class="o">-</span><span class="mf">0.83146961</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_3_1.png" alt="png" /></p>
 
 <p>For k=5, we get a higher frequency component</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -164,21 +158,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k= 5 , n=1 through n=6 are 
-[ 1.00000000+0.j  0.55557023-0.83146961j -0.38268343-0.92387953j
--0.98078528-0.19509032j -0.70710678+0.70710678j  0.19509032+0.98078528j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">5</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span> 
+<span class="p">[</span> <span class="mf">1.00000000</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">0.55557023</span><span class="o">-</span><span class="mf">0.83146961</span><span class="n">j</span> <span class="o">-</span><span class="mf">0.38268343</span><span class="o">-</span><span class="mf">0.92387953</span><span class="n">j</span>
+<span class="o">-</span><span class="mf">0.98078528</span><span class="o">-</span><span class="mf">0.19509032</span><span class="n">j</span> <span class="o">-</span><span class="mf">0.70710678</span><span class="o">+</span><span class="mf">0.70710678</span><span class="n">j</span>  <span class="mf">0.19509032</span><span class="o">+</span><span class="mf">0.98078528</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/kEquals5.png" alt="png" /></p>
 
 <p>For k=15 the frequency component is higher still. The apparent modulation of the data is an artifact of plotting a small number of points.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -189,21 +179,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k =  15 , n=1 through n=6 are
-[ 1.00000000+0.j  -0.98078528-0.19509032j  0.92387953+0.38268343j
--0.83146961-0.55557023j  0.70710678+0.70710678j -0.55557023-0.83146961j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="o">=</span>  <span class="mi">15</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span>
+<span class="p">[</span> <span class="mf">1.00000000</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="o">-</span><span class="mf">0.98078528</span><span class="o">-</span><span class="mf">0.19509032</span><span class="n">j</span>  <span class="mf">0.92387953</span><span class="o">+</span><span class="mf">0.38268343</span><span class="n">j</span>
+<span class="o">-</span><span class="mf">0.83146961</span><span class="o">-</span><span class="mf">0.55557023</span><span class="n">j</span>  <span class="mf">0.70710678</span><span class="o">+</span><span class="mf">0.70710678</span><span class="n">j</span> <span class="o">-</span><span class="mf">0.55557023</span><span class="o">-</span><span class="mf">0.83146961</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_7_1.png" alt="png" /></p>
 
 <p>k = 16, or N/2, corresponds to the highest frequency component. Note that the imaginary component here is 0j</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -214,21 +200,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k =  16 , n=1 through n=6 are
-[ 1. +0.00000000e+00j -1. -1.22464680e-16j  1. +2.44929360e-16j
--1. -3.67394040e-16j  1. +4.89858720e-16j -1. -6.12323400e-16j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="o">=</span>  <span class="mi">16</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span>
+<span class="p">[</span> <span class="mf">1.</span> <span class="o">+</span><span class="mf">0.00000000e+00</span><span class="n">j</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">-</span><span class="mf">1.22464680e-16</span><span class="n">j</span>  <span class="mf">1.</span> <span class="o">+</span><span class="mf">2.44929360e-16</span><span class="n">j</span>
+<span class="o">-</span><span class="mf">1.</span> <span class="o">-</span><span class="mf">3.67394040e-16</span><span class="n">j</span>  <span class="mf">1.</span> <span class="o">+</span><span class="mf">4.89858720e-16</span><span class="n">j</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">-</span><span class="mf">6.12323400e-16</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_9_1.png" alt="png" /></p>
 
 <p>At k=17, the plot looks the same as k=15</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">17</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -239,21 +221,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k =  17 , n=1 through n=6 are
-[ 1.00000000+0.j  -0.98078528+0.19509032j  0.92387953-0.38268343j
--0.83146961+0.55557023j  0.70710678-0.70710678j -0.55557023+0.83146961j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">for</span> <span class="n">k</span> <span class="o">=</span>  <span class="mi">17</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span>
+    <span class="p">[</span> <span class="mf">1.00000000</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="o">-</span><span class="mf">0.98078528</span><span class="o">+</span><span class="mf">0.19509032</span><span class="n">j</span>  <span class="mf">0.92387953</span><span class="o">-</span><span class="mf">0.38268343</span><span class="n">j</span>
+    <span class="o">-</span><span class="mf">0.83146961</span><span class="o">+</span><span class="mf">0.55557023</span><span class="n">j</span>  <span class="mf">0.70710678</span><span class="o">-</span><span class="mf">0.70710678</span><span class="n">j</span> <span class="o">-</span><span class="mf">0.55557023</span><span class="o">+</span><span class="mf">0.83146961</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_11_1.png" alt="png" /></p>
 
 <p>k = N-1 looks very similar to k = 1, except that the phase of the sin component is inverted.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">basisFreq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
@@ -264,21 +242,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k =  31 , n=1 through n=6 are 
-[ 1.00000000+0.j  0.98078528+0.19509032j  0.92387953+0.38268343j
- 0.83146961+0.55557023j  0.70710678+0.70710678j  0.55557023+0.83146961j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span> <span class="o">=</span>  <span class="mi">31</span> <span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span> <span class="n">through</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span> <span class="n">are</span> 
+<span class="p">[</span> <span class="mf">1.00000000</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span>  <span class="mf">0.98078528</span><span class="o">+</span><span class="mf">0.19509032</span><span class="n">j</span>  <span class="mf">0.92387953</span><span class="o">+</span><span class="mf">0.38268343</span><span class="n">j</span>
+ <span class="mf">0.83146961</span><span class="o">+</span><span class="mf">0.55557023</span><span class="n">j</span>  <span class="mf">0.70710678</span><span class="o">+</span><span class="mf">0.70710678</span><span class="n">j</span>  <span class="mf">0.55557023</span><span class="o">+</span><span class="mf">0.83146961</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_5_1.png" alt="png" /></p>
 
 <p>Back to the DFT… I’m going to use a signal with frequency 5 cycles per time unit and sample rate 32 samples per time unit for x[n]. I say “per time unit” because although 1 second is what you see most often, any unit of time could be chosen. It looks a bit ragged, but that’s just because of the low number of samples per cycle:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -289,15 +263,13 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_13_0.png" alt="png" /></p>
 
 <p>The DFT Calculation looks like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> <span class="c"># create an empty array</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span> <span class="c"># create an empty array</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">n</span><span class="p">:</span> <span class="c"># loop over k from 0 to N-1 (here n is a numpy array from 0 - 31)</span>
     <span class="n">Xk</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">))</span> <span class="c"># the trasonformation kernel is calculated for each basis frequency k</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Xk</span><span class="p">))</span> <span class="c"># for each k, the dot product is calculated, summed, and appended to array X</span>
@@ -307,15 +279,13 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_15_0.png" alt="png" /></p>
 
 <p>Here’s another way of looking at it, showing the dot product of the signal x[n] with each basis frequency. As in the plot, the only basis frequency that is correlated with the signal is at k = 5.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -323,48 +293,44 @@
 <span class="n">k</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">n</span><span class="p">:</span>
     <span class="n">Xk</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">))</span>
-    <span class="k">print</span> <span class="s">"for k="</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="s">" Xk ="</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">([</span><span class="n">Xk</span><span class="p">])</span> 
-</code></pre>
-</div>
+    <span class="k">print</span> <span class="s">"for k="</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="s">" Xk ="</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">([</span><span class="n">Xk</span><span class="p">])</span> </code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>for k= 0  Xk = [-0.-0.j]
-for k= 1  Xk = [ 0.-0.j]
-for k= 2  Xk = [ 0.+0.j]
-for k= 3  Xk = [-0.+0.j]
-for k= 4  Xk = [-0.-0.j]
-for k= 5  Xk = [ 32.+0.j]
-for k= 6  Xk = [-0.-0.j]
-for k= 7  Xk = [ 0.+0.j]
-for k= 8  Xk = [-0.+0.j]
-for k= 9  Xk = [-0.+0.j]
-for k= 10  Xk = [-0.+0.j]
-for k= 11  Xk = [-0.-0.j]
-for k= 12  Xk = [-0.+0.j]
-for k= 13  Xk = [ 0.-0.j]
-for k= 14  Xk = [-0.+0.j]
-for k= 15  Xk = [ 0.-0.j]
-for k= 16  Xk = [ 0.-0.j]
-for k= 17  Xk = [-0.+0.j]
-for k= 18  Xk = [ 0.-0.j]
-for k= 19  Xk = [ 0.+0.j]
-for k= 20  Xk = [ 0.-0.j]
-for k= 21  Xk = [ 0.-0.j]
-for k= 22  Xk = [ 0.-0.j]
-for k= 23  Xk = [ 0.+0.j]
-for k= 24  Xk = [ 0.+0.j]
-for k= 25  Xk = [ 0.+0.j]
-for k= 26  Xk = [-0.+0.j]
-for k= 27  Xk = [ 0.-0.j]
-for k= 28  Xk = [ 0.+0.j]
-for k= 29  Xk = [-0.+0.j]
-for k= 30  Xk = [-0.+0.j]
-for k= 31  Xk = [-0.-0.j]
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">0</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">1</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">2</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">3</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">4</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">5</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">32.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">6</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">7</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">8</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">9</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">10</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">11</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">12</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">13</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">14</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">15</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">16</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">17</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">18</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">19</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">20</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">21</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">22</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">23</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">24</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">25</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">26</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">27</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">28</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">29</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">30</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span> <span class="mi">31</span>  <span class="n">Xk</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.</span><span class="o">-</span><span class="mf">0.</span><span class="n">j</span><span class="p">]</span></code></pre></figure>
 
 <p>That worked nicely for an integer signal frequency. If you use a float, like f = 5.4, the DFT spreads out and doesn’t give such a precise result (the blue trace in the plot). It also doesn’t make much sense that frequencies on either side of 5 would be correlated and then anticorellated with the basis sinusoid at 5. Things make a lot more sense if you look at the magnitude by taking the absolute value of each X[k]  (green trace).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">5.4</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -380,15 +346,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"DFT"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_19_0.png" alt="png" /></p>
 
 <p>Using a real input signal generates two peaks, each only half as high</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -403,15 +367,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_21_0.png" alt="png" /></p>
 
 <p>Recall that the transformation kernel generates frequencies in the pattern low - high - low, with the high being at k = N/2 or 16 in this case. The peak at 27 can be thought of as having a frequency of -5 relative to k=N-1   Shifting the indices around centers the plot around 0 and shows the peaks as frequency components at +/- 5. The idea of negative frequency is pretty weird. About the best explanation I have found is that it is like a spinning wheel in that you can think of it spinning clockwise at x rpm or counterclockwise at -x rpm, which is . There is also the explanation that \(e^{-j{\omega}} = cos({\omega}) - jsin({\omega})\), and that the imaginary component is orthogonal to the real component and cancels out in the dot product when the signal is complex, but not when it is real.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -427,15 +389,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_23_0.png" alt="png" /></p>
 
 <p>The same plot as above, with a non-integer frequency of 5.5</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">5.5</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
@@ -451,15 +411,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_25_0.png" alt="png" /></p>
 
 <p>Being an infinite series of odd harmonics in decreasing proportion (1, 1/3, 1/5, 1/7 etc.), a square wave is a little more interesting than a sine, as the DFT shows. The function below generates one for a given frequency and number of harmonics.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Generate a square wave additively</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># Generate a square wave additively</span>
 <span class="k">def</span> <span class="nf">squareGen</span><span class="p">(</span><span class="n">fo</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">length</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
     <span class="n">fmax</span> <span class="o">=</span> <span class="n">length</span><span class="o">/</span><span class="mi">2</span>
     <span class="n">nmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">fmax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">fo</span><span class="p">))</span>
@@ -477,13 +435,11 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sq1</span><span class="p">),</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_30_1.png" alt="png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sq1</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sq1</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">n2</span><span class="p">:</span>
@@ -497,28 +453,24 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_31_0.png" alt="png" /></p>
 
 <p>A cleaner square wave can be generated with a number sequence [1,1,1,…-1,-1,-1]. The DFT for the first ten harmonics is identical.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sq2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">sq2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">sq2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sq2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
 <span class="n">sq2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">sq2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sq2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'sample index'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_33_0.png" alt="png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sq2</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sq2</span><span class="p">)</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">n2</span><span class="p">:</span>
@@ -533,16 +485,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_34_1.png" alt="png" /></p>
 
 <p>A sawtooth wave has both even and odd harmonics in descending proportion of (1, 1/2, 1/3, 1/4, etc.)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sawGen</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">sawGen</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">f</span>
     <span class="n">A</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Sr</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
@@ -554,14 +503,11 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">saw</span> <span class="o">=</span> <span class="n">sawGen</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">saw</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_36_0.png" alt="png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">saw</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">saw</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -577,15 +523,13 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_37_0.png" alt="png" /></p>
 
 <p>A triangle wave:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">triGen</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">triGen</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Sr</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">f</span>
     <span class="c">#    A = f(A)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="n">Sr</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
@@ -597,13 +541,11 @@ for k= 31  Xk = [-0.-0.j]
 
 <span class="n">tri</span> <span class="o">=</span> <span class="n">triGen</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tri</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_39_0.png" alt="png" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tri</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tri</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -619,22 +561,18 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_40_0.png" alt="png" /></p>
 
 <p>Finally, an actual audio file. I used a 1 second snippet taken from freesound.org, and the DFT took over five minutes to calculate, which is no doubt why the FFT is used. I used a 5000 sample slice to speed things up.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">"waterGlass.wav"</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">20000</span><span class="p">:</span><span class="mi">25000</span><span class="p">]</span>
-</code></pre>
-</div>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">20000</span><span class="p">:</span><span class="mi">25000</span><span class="p">]</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="n">n2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -649,9 +587,7 @@ for k= 31  Xk = [-0.-0.j]
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'amplitude'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
 
 <p><img src="/img/DFT/output_44_0.png" alt="png" /></p>
 

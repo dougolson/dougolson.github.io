@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Python Art</title>
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
+">
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://www.mrcolson.com/2015/12/09/Python-Art.html">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68953136-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- mr.colson instead of blog -->
+        <a class="page-link" href="/">home</a>
+
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/artists/">artists</a>
+          
+        
+          
+          <a class="page-link" href="/resume/">resume</a>
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Python Art</h1>
+    <p class="post-meta">December 9, 2015 — 14:33</p>
+  </header>
+
+  <article class="post-content">
+    <p><img class="post-thumb" src="/img/pythonArt/rainbowGalaxy.png" height="120" width="120" />I’ve been playing around with Python’s turtle graphics - it’s a fun way to learn, and with a little experimentation and thought you can come up with all sorts of interesting images.
+<br /><br /><br />
+The code for the first image is pretty simple:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="c"># Draws a burst of straight rays, uses a nested loop to make small</span>
+<span class="c"># scribbles at the end of each ray</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">tracer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">colormode</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="s">"black"</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="mi">0</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span></code></pre></figure>
+
+<p>It looks like this:
+<img src="/img/pythonArt/straightRayBurst.png" alt="straightRayBurst" /></p>
+
+<p>Increasing the randomness, you get this:</p>
+
+<p><img src="/img/pythonArt/wobblyRayBurst.png" alt="wobblyRayBurst" /></p>
+
+<p>I wanted to try something a little more challenging, so I made a couple of functions to get more control over the image. 
+The RGB color generator is still limited; later I make one with better control.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+<span class="c"># Draws three concentric sets of crooked rays, emerging from darkness</span>
+<span class="k">def</span> <span class="nf">colorGen</span><span class="p">(</span><span class="n">sat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="s">"""Generates random RGB values. sat range 0-1, val range = 0-1"""</span>
+    <span class="n">rand1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">rand2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">sat2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rand1</span> <span class="o">&gt;=</span> <span class="n">rand2</span><span class="p">:</span>
+        <span class="n">rand1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rand2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="p">[[</span><span class="n">sat2</span><span class="p">,</span> <span class="n">rand1</span><span class="p">,</span> <span class="n">rand2</span><span class="p">],</span> <span class="p">[</span><span class="n">rand1</span><span class="p">,</span> <span class="n">sat2</span><span class="p">,</span> <span class="n">rand2</span><span class="p">],</span> <span class="p">[</span><span class="n">sat2</span><span class="p">,</span> <span class="n">rand2</span><span class="p">,</span> <span class="n">rand1</span><span class="p">],</span>
+             <span class="p">[</span><span class="n">rand1</span><span class="p">,</span> <span class="n">rand2</span><span class="p">,</span> <span class="n">sat2</span><span class="p">],</span> <span class="p">[</span><span class="n">rand2</span><span class="p">,</span> <span class="n">sat2</span><span class="p">,</span> <span class="n">rand1</span><span class="p">],</span> <span class="p">[</span><span class="n">rand2</span><span class="p">,</span> <span class="n">rand1</span><span class="p">,</span> <span class="n">sat2</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">timeTunnel</span><span class="p">(</span><span class="n">repeats</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">zigzag</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">stepVar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeats</span><span class="p">):</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">))</span> <span class="c"># set heading</span>
+        <span class="n">h1</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span> <span class="c"># get heading</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">colorGen</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">stepVar</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span> <span class="c"># abs limits motion to forward</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h1</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">zigzag</span><span class="p">))</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">colorGen</span><span class="p">(</span><span class="n">val</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h2</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">zigzag</span><span class="p">))</span>
+            <span class="n">h3</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">k2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">colorGen</span><span class="p">(</span><span class="n">val</span> <span class="o">=</span> <span class="n">k2</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h3</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">zigzag</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">stepVar</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+            <span class="n">h4</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">colorGen</span><span class="p">())</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">h4</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">zigzag</span><span class="p">)))</span>
+                <span class="n">h5</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">l2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">colorGen</span><span class="p">(</span><span class="n">val</span> <span class="o">=</span> <span class="n">l2</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h5</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">zigzag</span><span class="p">))</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">stepVar</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">tracer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">colormode</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="s">"black"</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
+<span class="n">timeTunnel</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span></code></pre></figure>
+
+<p><img src="/img/pythonArt/concentricRays1.png" alt="concentricRays1" /></p>
+
+<p>By setting the variation parameters to 0, you get a straighter version:
+<img src="/img/pythonArt/concentricRays1_NoVar.png" alt="concentricRays1_NoVar" /></p>
+
+<p>Here I added a little spiral and set the length of each increment to a couple of pixels. Using all these nested loops is probably a very inefficient way to do this, but it works, and it looks pretty cool:
+<img src="/img/pythonArt/concentricRays2.png" alt="concentricRays2" /></p>
+
+<p>This bit of code adds a better color generator - this time with control over hue, saturation and value:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="c"># Draws three sets of concentric rays with a sort of spiral galaxy effect.</span>
+<span class="c"># Small step size and multiple nested loops runs quite slowly. Probably not the most efficient code.</span>
+<span class="k">def</span> <span class="nf">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">val</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sat</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="s">"""Generates a 360 degree range of hues
+    sat of 1 is full saturation, 0 is B &amp; W.
+    val of 1 is full color, 0 is black"""</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">59</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">hue</span><span class="o">-</span><span class="mi">60</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">119</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">))</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">120</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">((</span><span class="n">hue</span><span class="o">-</span><span class="mi">120</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">179</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">240</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">hue</span><span class="o">-</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">239</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">240</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">((</span><span class="n">hue</span><span class="o">-</span><span class="mi">240</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">299</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">360</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sat</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">hue</span><span class="o">-</span><span class="mi">300</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">359</span><span class="o">-</span><span class="n">hue</span><span class="p">)</span><span class="o">/</span><span class="mi">59</span><span class="p">)</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">g</span><span class="o">*</span><span class="n">val</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">hue</span> <span class="o">&gt;=</span> <span class="mi">360</span><span class="p">:</span>
+        <span class="n">hueOut</span> <span class="o">=</span> <span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">%</span> <span class="mi">360</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">sat</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hueOut</span>
+<span class="k">def</span> <span class="nf">timeTunnel</span><span class="p">(</span><span class="n">repeats</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">zigzag</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">stepVar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curve</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="s">"Draws fuzzy concentric circles. zigzag is sd of randomgauss, stepVar is sd of length, curve is a multiplier that gives a spiral effect"</span>
+    <span class="n">foo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeats</span><span class="p">):</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">))</span> <span class="c"># set heading</span>
+        <span class="n">h1</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span> <span class="c"># get heading</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="n">i</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stepVar</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span> <span class="c"># abs limits motion to forward</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h1</span> <span class="o">+</span> <span class="n">curve</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">zigzag</span><span class="p">))</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="mi">50</span><span class="p">))</span> <span class="c"># 1 - 51</span>
+            <span class="n">h2</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">k2</span><span class="o">/</span><span class="mi">50</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h2</span> <span class="o">+</span> <span class="n">curve</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">zigzag</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">stepVar</span><span class="p">),</span> <span class="mi">0</span><span class="p">)))</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+            <span class="n">h3</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+            <span class="c"># h4 = alex.heading()</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="mi">9</span><span class="o">*</span><span class="n">l</span><span class="p">))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h3</span><span class="p">)</span>
+                <span class="c"># h5 = alex.heading()</span>
+                <span class="k">for</span> <span class="n">l2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">hue</span> <span class="o">=</span> <span class="n">l</span><span class="o">*</span><span class="n">l2</span><span class="o">*</span><span class="mf">2.449</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">l2</span><span class="o">/</span><span class="mi">50</span><span class="p">))</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="n">h3</span> <span class="o">+</span> <span class="n">curve</span><span class="o">*</span><span class="n">l2</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">zigzag</span><span class="p">))</span>
+                    <span class="n">alex</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">stepVar</span><span class="p">),</span><span class="mi">0</span><span class="p">)))</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+                <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">tracer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">colormode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="s">"black"</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
+<span class="n">timeTunnel</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span> </code></pre></figure>
+
+<p><img src="/img/pythonArt/concentricRays3.png" alt="concentricRays3" /></p>
+
+<p>By making the hue a function of direction using alex.heading(), you get a nice rainbow effect:
+<img src="/img/pythonArt/rainbowGalaxy.png" alt="rainbowGalaxy" /></p>
+
+<p>Lastly, this code makes a nice looking set of colored sine waves that curve around in an interesting way:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">waves</span><span class="p">(</span><span class="n">repeats</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="s">"""Draws nested colored sinusoids emerging from darkness"""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeats</span><span class="p">):</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">hueGen</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="o">*</span><span class="n">i</span><span class="o">/</span><span class="n">repeats</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">))</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">315</span><span class="p">,</span><span class="mi">315</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">alex</span><span class="o">.</span><span class="n">seth</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="c"># set heading</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">630</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">25</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">j</span><span class="o">/</span><span class="n">f</span> <span class="o">+</span> <span class="n">i</span><span class="o">/</span><span class="mi">25</span><span class="p">))</span> <span class="c"># plot sines</span>
+            <span class="n">alex</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">alex</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">tracer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wn</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">colormode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">bgcolor</span><span class="p">(</span><span class="s">"black"</span><span class="p">)</span>
+<span class="n">alex</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alex</span><span class="o">.</span><span class="n">ht</span><span class="p">()</span>
+<span class="n">waves</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">wn</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span></code></pre></figure>
+
+<p><img src="/img/pythonArt/sineWaves1.png" alt="sineWaves1" /></p>
+
+<p>Setting both the value and saturation to .5 gives this:
+<img src="/img/pythonArt/sineWaves2.png" alt="sineWaves2" /></p>
+
+<p>setting the saturation to 0 gives a grayscale image:
+<img src="/img/pythonArt/sineWaves3.png" alt="sineWaves3" /></p>
+
+
+  </article>
+<div class="share-page">
+    Share this on 
+	
+	<a href="https://twitter.com/intent/tweet?text=Python Art&url=http://www.mrcolson.com/2015/12/09/Python-Art.html&via=&related=" 	
+	rel="nofollow" 
+	target="popup" 
+	title="Share on Twitter"
+	onclick="window.open('https://twitter.com/intent/tweet?text=Python Art&url=http://www.mrcolson.com/2015/12/09/Python-Art.html&via=&related=  ','','width=600,height=400')">
+	<i class="fa fa-twitter-square fa-lg"></i></a>
+    
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/09/Python-Art.html" 
+	rel="nofollow" 
+	title="Share on Facebook"
+	target="popup" 
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2015/12/09/Python-Art.html  ','','width=600,height=400')">
+	<i class="fa fa-facebook-square fa-lg"></i></a>
+	
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/09/Python-Art.html" 
+	rel="nofollow"  
+	title="Share on Google+"
+	target="popup"
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2015/12/09/Python-Art.html  ','','width=600,height=400')">
+	<i class="fa fa-google-plus-square fa-lg"></i></a>
+	
+</div>
+</div>
+
+
+        </br></br>
+        
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mrcolson';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is based on the <a href "http://jekyllthemes.org/themes/folio/">*folio</a>  theme. It is hosted on <a href="https://github.com" target="_blank">Github</a>.  &#169;Doug Olson, 2015</p>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>
