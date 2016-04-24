@@ -238,11 +238,7 @@ def FM_fft2(self):
         xfft = np.linspace(0.0, 1.0/(2.0*T), N/2) # x axis
         yfft = np.fft.rfft(data) # perform fft
         yfft = 2./N*np.abs(yfft[0:N/2])#/pkfft # scale and filter out negative frequency component
-        plt.plot(xfft,yfft)
-        plt.xlim(0,2500)
-        plt.grid(True)
-        plt.title('FFT of %s' % self.name)
-        plt.show()
+		return xfft, yfft
 {% endhighlight %}
 
 
@@ -283,6 +279,8 @@ FM_fft2(FM_5)
 
 
 ![png](/img/SimplePythonFMSynthesis/output_22_5.png)
+
+
 
 
 A little movement can be added to the sound by ramping the modulation from one value to another and using a modulation frequency that is a few hertz from an integer multiple of the carrier frequency.

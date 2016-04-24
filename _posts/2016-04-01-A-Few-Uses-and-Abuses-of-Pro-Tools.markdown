@@ -1,12 +1,12 @@
 --- 
 layout: post 
 title: A Few Uses and Abuses of Pro Tools 
-date: 2016-4-1 8:40 
+date: 2016-4-11 8:40 
 description: Presentation to UW Madison Sound Design Classes 
 thumbnail: /img/proToolsImages/ptIcon.png 
 comments: True
 ---
-These are notes for two guest lectures I gave to Professor Joseph Koykkar's sound design classes at UW Madison on March 14, 2016. Various ways of generating sound from simple building blocks like sine waves and pink noise are explored: beating sine waves, filtered noise, extreme pitch shifting and time stretching, and the application of delay, reverb and modulation. Along the way, a variety of useful Pro Tools routing and automation techniques are applied, and a number of standard plugins are put to use. Various helpful key commands are demonstrated as well. I have included a number of audio examples.
+These are notes for two guest lectures I gave to Professor Joseph Koykkar's sound design classes at UW Madison on April 4, 2016. Various ways of generating sound from simple building blocks like sine waves and pink noise are explored: beating sine waves, filtered noise, extreme pitch shifting and time stretching, and the application of delay, reverb and modulation. Along the way, a variety of useful Pro Tools routing and automation techniques are applied, and a number of standard plugins are put to use. Various helpful key commands are demonstrated as well. I have included a number of audio examples.
 
 The material is broken into six sections:
 

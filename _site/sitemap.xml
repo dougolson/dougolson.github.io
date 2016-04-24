@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://www.mrcolson.com/2016/04/23/testDraftPost.html</loc>
-<lastmod>2016-04-23T02:10:27-05:00</lastmod>
-</url>
-<url>
 <loc>http://www.mrcolson.com/2016/04/21/Simple-Python-FM-Synthesis.html</loc>
 <lastmod>2016-04-21T10:27:00-05:00</lastmod>
 </url>
 <url>
-<loc>http://www.mrcolson.com/2016/04/21/Simple-Python-FM-Synthesis.html</loc>
-<lastmod>2016-04-21T10:27:00-05:00</lastmod>
-</url>
-<url>
-<loc>http://www.mrcolson.com/2016/04/01/A-Few-Uses-and-Abuses-of-Pro-Tools.html</loc>
-<lastmod>2016-04-01T08:40:00-05:00</lastmod>
+<loc>http://www.mrcolson.com/2016/04/11/A-Few-Uses-and-Abuses-of-Pro-Tools.html</loc>
+<lastmod>2016-04-11T08:40:00-05:00</lastmod>
 </url>
 <url>
 <loc>http://www.mrcolson.com/2016/01/14/Vari-Mu-Compressor-Restoration.html</loc>
@@ -57,10 +49,6 @@
 <lastmod>2015-11-04T07:55:00-06:00</lastmod>
 </url>
 <url>
-<loc>http://www.mrcolson.com/2015/11/04/Messing-Around-with-Pure-Data.html</loc>
-<lastmod>2015-11-04T07:55:00-06:00</lastmod>
-</url>
-<url>
 <loc>http://www.mrcolson.com/2015/11/02/Walt-Mink.html</loc>
 <lastmod>2015-11-02T22:48:00-06:00</lastmod>
 </url>
@@ -96,6 +84,9 @@
 </url>
 <url>
 <loc>http://www.mrcolson.com/resume/</loc>
+</url>
+<url>
+<loc>http://www.mrcolson.com/blog/page2/</loc>
 </url>
 <url>
 <loc>http://www.mrcolson.com/discography/01paw/</loc>
