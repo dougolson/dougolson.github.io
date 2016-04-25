@@ -89,7 +89,9 @@
   </header>
 
   <article class="post-content">
-    <p>My friend Reid called me up the other day and asked if I wanted to help him clear out his audio junk drawer. I rarely pass up such opportunities, and he had all sorts of oddball cables, tubes and old crystal mics for me, but I wasn’t expecting him to give me this:</p>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>My friend Reid called me up the other day and asked if I wanted to help him clear out his audio junk drawer. I rarely pass up such opportunities, and he had all sorts of oddball cables, tubes and old crystal mics for me, but I wasn’t expecting him to give me this:</p>
 
 <p><img src="/img/webster/webster1.jpg" alt="webster1" /></p>
 
@@ -109,7 +111,7 @@
 
 <p><img src="/img/webster/tubecurve.jpg" alt="eqWindow" /></p>
 
-<p>The schematic gives a power supply voltage of around 200 volts, and a plate voltage of around 58 volts, which corresponds with an operating current of about 3 mA, given the DC load of 51k on each section of the 6BZ7 (blue load line). This puts the operating point somewhere near the red dot. The AC load is closer to 23k, represented by the green line. At this point, the tube should have a gain of around 30. But as the output signal increases, the control voltage moves the 6BZ7’s grid into increasingly negative territory. At a grid voltage of -4 volts, the tube looks to have a gain of around 12, which would correspond to gain reduction of around -8 dB. There’s more going on, though, as the plate resistance of the 6BZ7 rises rapidly at low currents, further reducing its gain. The tube curves are so scrunched together at this point, they’re probably not the most reliable way to make these sorts of estimates. The documentation states that the maximum gain reduction is 30 dB. I would imagine there is a lot of signal asymmetry, and hence distortion, at high levels of gain reduction, which probably explains the balance control - if the two legs of the balanced circuit have identical gain, many of the distortion components (even order harmonics, if I’m not mistaken) will cancel out. Anyway, that’s my brief take on the theory of operation.</p>
+<p>The schematic gives a power supply voltage of around 200 volts, and a plate voltage of around 58 volts, which corresponds with an operating current of about 3 mA, given the DC load of 51k on each section of the 6BZ7 (blue load line). This puts the operating point somewhere near the red dot. The AC load is closer to 23k, represented by the green line. At this point, the tube should have a gain of around 30. But as the output signal increases, the control voltage moves the 6BZ7’s grid into increasingly negative territory. At a grid voltage of -4 volts, the tube looks to have a gain of around 12, which would correspond to gain reduction of around \(20*\log_{10}(12/30)\) or -8 dB. There’s more going on, though, as the plate resistance of the 6BZ7 rises rapidly at low currents, further reducing its gain. The tube curves are so scrunched together at this point, they’re probably not the most reliable way to make these sorts of estimates. The documentation states that the maximum gain reduction is 30 dB. I would imagine there is a lot of signal asymmetry, and hence distortion, at high levels of gain reduction, which probably explains the balance control - if the two legs of the balanced circuit have identical gain, many of the even order harmonic distortion components will cancel out. Anyway, that’s my brief take on the theory of operation.</p>
 
 <p>There are quite a few very old electrolytic capacitors in this beast, and it’s likely they will all need to be replaced. It isn’t visible in any of the pictures, but some of them are blistering a bit, which is always a bad sign. I also wouldn’t be surprised if the GR meter no longer works. Other than that, it looks pretty nice - good old point to point wiring.</p>
 
