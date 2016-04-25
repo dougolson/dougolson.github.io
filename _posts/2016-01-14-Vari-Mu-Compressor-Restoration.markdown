@@ -6,7 +6,7 @@ description: My friend Reid gave me a tube compressor...
 thumbnail: /img/webster/websterThumb.jpg
 comments: True
 ---
-
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 My friend Reid called me up the other day and asked if I wanted to help him clear out his audio junk drawer. I rarely pass up such opportunities, and he had all sorts of oddball cables, tubes and old crystal mics for me, but I wasn't expecting him to give me this:
 
 ![webster1](/img/webster/webster1.jpg)
