@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Simple Python FM Synthesis</title>
+    <meta name="description" content="I'm Doug Olson, professionally known as mr. colson. I am a music producer, mixer, audio engineer and audio editor. I have worked as a freelancer and at Smart Studios in Madison, Wisconsin,  where I worked with Butch Vig, Steve Marker, Mark Haines, Doug Ericson and many others from 1987 through 2004. I am also an instructor and program chair for recording  and music technology at the Madison Media Institute, where I teach Pro Tools, studio recording, recording techniques, audio engineering, audio editing, audio mixing techniques and electronics.  I'm also interested in programming (especially R and Python), and I enjoy playing piano, guitar and mandolin.'  
+">
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://www.mrcolson.com/2016/04/21/Disq-Record.html">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68953136-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- mr.colson instead of blog -->
+        <a class="page-link" href="/">home</a>
+
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/artists/">artists</a>
+          
+        
+          
+          <a class="page-link" href="/resume/">resume</a>
+          
+        
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Simple Python FM Synthesis</h1>
+    <p class="post-meta">April 21, 2016 — 10:27</p>
+  </header>
+
+  <article class="post-content">
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>A student of mine showed me the Native Instruments FM8 Virtual Instrument the other day - it’s an amazing piece of software. I have to admit two things, though. First, I’ve never been all that wild about the FM synth sound, which I associate with chimey ’80s keyboards like the Yamaha DX7. Second, probably as a result of my general lack of enthusiasm for the FM sound, I’ve never taken the time to learn how FM synthesis actually works. The FM8 sounded really cool though, and it piqued my curiosity. So I printed out a copy of the 1973 article “The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,” by John Chowning, and read up. It gets into some pretty heady math, but at the bottom of it all is a simple formula that is easy to implement in software: 
+\[sin(2\pi{}f_c + \beta sin(2\pi{}f_m))\]</p>
+
+<p>In essence, a carrier frequency \(f_c\), a modulation frequency \(f_m\) and a modulation index \(\beta\) interact to generate a wide variety of harmonic and inharmonic sounds. Looking at the equation, it’s clear that if \(\beta = 0,\) the result is simply the carrier frequency. As \(\beta\) increases, the modulator “steals” energy from the carrier and spreads it around to side bands. The FM8 takes the above and adds multiple layers, so that one FM sound can be the carrier for another, and that sound can in turn be the carrier for yet another sound, and so on, up to eight layers deep. In addition, at each layer, filters, LFOs and envelope generators can be applied, making it incredibly flexible. I may have to buy one.</p>
+
+<p>In the meantime, I’ll have to settle for my very humble Python version, which can only generate single notes in not-real time, but which is still fun to play around with.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io.wavfile</span> <span class="kn">import</span> <span class="n">read</span><span class="p">,</span> <span class="n">write</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">argrelextrema</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">'ignore'</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">FMsynth</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="s">"""
+    Simple FM_Synth object for experimentation.
+    Defaults: f_carrier = 220, f_mod =220, Ind_mod = 1, length = 5, sampleRate = 44100
+    if f_carrier/f_mod = N1/N2 and N1, N2 are integers, harmonic spectra will result
+    if N1/N2 is irrational, i.e. sqrt(2) or pi, inharmonic spectra will result 
+    f_0, the fundamental = f_carrier/N1 = f_mod/N2
+    # k_th harmonic = N1 + n*N2 for n = 0,1,2,3,4,...
+    # so for f_carrier = 100 and f_mod = 300, harmonics are [100, 400, 700, 1000, 1300, 1600, 1900, 2200, 2500, 2800] etc
+    """</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_carrier</span> <span class="o">=</span> <span class="mi">220</span><span class="p">,</span> <span class="n">f_mod</span> <span class="o">=</span><span class="mi">220</span><span class="p">,</span> <span class="n">Ind_mod</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">waveFile</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increment</span> <span class="o">=</span> <span class="o">.</span><span class="mo">01</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span> <span class="o">=</span> <span class="n">f_carrier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span> <span class="o">=</span> <span class="n">f_mod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span> <span class="o">=</span> <span class="n">Ind_mod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">sampleRate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ident</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'</span><span class="si">%</span><span class="s">dHz_carrier-</span><span class="si">%</span><span class="s">dHz_mod-</span><span class="si">%</span><span class="s">s_Index_</span><span class="si">%</span><span class="s">d.wav'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">ident</span><span class="p">)</span>
+        <span class="n">sampleInc</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">length</span><span class="p">,</span> <span class="n">sampleInc</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">mx</span> <span class="o">=</span> <span class="mf">1.059</span><span class="o">*</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c"># scale to max pk of -.5 dB</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">mx</span>
+        <span class="n">wavData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">32000</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span> <span class="o">=</span> <span class="n">wavData</span>
+        <span class="k">if</span> <span class="n">waveFile</span><span class="p">:</span>
+            <span class="n">write</span><span class="p">(</span><span class="s">'audio/</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="mf">44100.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">FMplot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Generates a plot of the waveform for the FMsynth tone being examined"""</span>
+        <span class="n">inc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">increment</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="o">*</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">T</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">mx</span> <span class="o">=</span> <span class="mf">1.059</span><span class="o">*</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c"># scale to max pk of -.5 dB</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">mx</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">])</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="o">*</span><span class="mf">1.01</span><span class="p">,</span><span class="n">T</span><span class="o">/</span><span class="mf">10.0</span><span class="p">)]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">)],</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fancybox</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">leg</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Milliseconds'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Source Waveform'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">FM_fft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""performs an fft and plots the result"""</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">rate</span> <span class="c"># sample period</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c"># N samples</span>
+        <span class="n">xfft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">T</span><span class="p">),</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c"># x axis</span>
+        <span class="n">yfft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c"># perform fft</span>
+        <span class="n">yfft</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">yfft</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span><span class="c">#/pkfft # scale and filter out negative frequency component</span>
+        <span class="n">yfftPk</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">yfft</span><span class="p">)</span> <span class="c"># magnitude of strongest partial</span>
+        <span class="n">yfft</span> <span class="o">=</span> <span class="n">yfft</span> <span class="o">/</span> <span class="n">yfftPk</span>
+        <span class="n">yfftLog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">yfft</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">yfft</span><span class="p">)),</span> <span class="o">-</span><span class="mi">101</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfft</span><span class="p">,</span><span class="n">yfftLog</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'FFT of </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
+
+<p>A simple example: 220 Hz carrier, 220 Hz modulation frequency, modulation index of 1</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM1</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">()</span> </code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FMplot</span><span class="p">(</span><span class="n">FM1</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_7_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM_fft</span><span class="p">(</span><span class="n">FM1</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_8_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Audio</span><span class="p">(</span><span class="n">FM1</span><span class="o">.</span><span class="n">wavData</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="n">FM1</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span></code></pre></figure>
+
+<audio controls="controls">
+    <source src="/audio/fmsynth/220Hz_carrier-220Hz_mod-1_Index_4586280080.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+</audio>
+
+<p>Increasing the modulation index to 10 results in a much more complex waveform and harmonic spectrum.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM2</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FMplot</span><span class="p">(</span><span class="n">FM2</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_12_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM_fft</span><span class="p">(</span><span class="n">FM2</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_13_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Audio</span><span class="p">(</span><span class="n">FM2</span><span class="o">.</span><span class="n">wavData</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="n">FM2</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span></code></pre></figure>
+
+<audio controls="controls">
+    <source src="/audio/fmsynth/220Hz_carrier-220Hz_mod-10_Index_4634749776.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+</audio>
+
+<p>Using an irrational modulation frequency ()100*\pi)) results in a non-harmonic spectrum and a very metallic tone:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM3</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mf">314.159</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FMplot</span><span class="p">(</span><span class="n">FM3</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_17_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM_fft</span><span class="p">(</span><span class="n">FM3</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_18_0.png" alt="png" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Audio</span><span class="p">(</span><span class="n">FM3</span><span class="o">.</span><span class="n">wavData</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="n">FM3</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span></code></pre></figure>
+
+<audio controls="controls">
+    <source src="/audio/fmsynth/220Hz_carrier-314Hz_mod-5_Index_4652390736.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+</audio>
+
+<p>Plotting the same carrier and modulation frequencies with increasing modulation indeces shows how the harmonic complexity changes with the modulation index. In this example the plots have not been normalized along the Y axis. This makes it easier to see the relative energies of the carrier frequency and the side bands.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">FM_fft2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">rate</span> <span class="c"># sample period</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c"># N samples</span>
+        <span class="n">xfft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">T</span><span class="p">),</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c"># x axis</span>
+        <span class="n">yfft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c"># perform fft</span>
+        <span class="n">yfft</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">yfft</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span><span class="c">#/pkfft # scale and filter out negative frequency component</span>
+		<span class="k">return</span> <span class="n">xfft</span><span class="p">,</span> <span class="n">yfft</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM_0</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_1</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_2</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_3</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_4</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_5</span> <span class="o">=</span> <span class="n">FMsynth</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">waveFile</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_0</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_1</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_2</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_3</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_4</span><span class="p">)</span>
+<span class="n">FM_fft2</span><span class="p">(</span><span class="n">FM_5</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_0.png" alt="png" /></p>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_1.png" alt="png" /></p>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_2.png" alt="png" /></p>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_3.png" alt="png" /></p>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_4.png" alt="png" /></p>
+
+<p><img src="/img/SimplePythonFMSynthesis/output_22_5.png" alt="png" /></p>
+
+<p>A little movement can be added to the sound by ramping the modulation from one value to another and using a modulation frequency that is a few hertz from an integer multiple of the carrier frequency.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">FMsynth2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="s">"""Same as FMsynth except a ramp is applied to the modulation index to add some movement to the sound
+    """</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_carrier</span> <span class="o">=</span> <span class="mi">220</span><span class="p">,</span> <span class="n">f_mod</span> <span class="o">=</span><span class="mi">220</span><span class="p">,</span> <span class="n">Ind_mod</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">waveFile</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increment</span> <span class="o">=</span> <span class="o">.</span><span class="mo">01</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span> <span class="o">=</span> <span class="n">f_carrier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span> <span class="o">=</span> <span class="n">f_mod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span> <span class="o">=</span> <span class="n">Ind_mod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">sampleRate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ident</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'</span><span class="si">%</span><span class="s">dHz_carrier-</span><span class="si">%</span><span class="s">dHz_mod-</span><span class="si">%</span><span class="s">s_Index_</span><span class="si">%</span><span class="s">d.wav'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Ind_mod</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">ident</span><span class="p">)</span>
+        <span class="n">sampleInc</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">length</span><span class="p">,</span> <span class="n">sampleInc</span><span class="p">)</span>
+        <span class="n">ramp</span> <span class="o">=</span> <span class="p">[</span><span class="n">rmp</span><span class="o">/</span><span class="n">length</span> <span class="k">for</span> <span class="n">rmp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+        <span class="n">ramp</span> <span class="o">=</span> <span class="n">ramp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_carrier</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">ramp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f_mod</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">mx</span> <span class="o">=</span> <span class="mf">1.059</span><span class="o">*</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c"># scale to max pk of -.5 dB</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="n">mx</span>
+        <span class="n">wavData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">32000</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span> <span class="o">=</span> <span class="n">wavData</span>
+        <span class="k">if</span> <span class="n">waveFile</span><span class="p">:</span>
+            <span class="n">write</span><span class="p">(</span><span class="s">'audio/</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="mf">44100.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wavData</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">FM6</span> <span class="o">=</span> <span class="n">FMsynth2</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span><span class="mi">443</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Audio</span><span class="p">(</span><span class="n">FM6</span><span class="o">.</span><span class="n">wavData</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="n">FM6</span><span class="o">.</span><span class="n">rate</span><span class="p">)</span></code></pre></figure>
+
+<audio controls="controls">
+    <source src="/audio/fmsynth/220Hz_carrier-443Hz_mod-100_Index_4651566288.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+</audio>
+
+
+  </article>
+<div class="share-page">
+    Share this on 
+	
+	<a href="https://twitter.com/intent/tweet?text=Simple Python FM Synthesis&url=http://www.mrcolson.com/2016/04/21/Disq-Record.html&via=&related=" 	
+	rel="nofollow" 
+	target="popup" 
+	title="Share on Twitter"
+	onclick="window.open('https://twitter.com/intent/tweet?text=Simple Python FM Synthesis&url=http://www.mrcolson.com/2016/04/21/Disq-Record.html&via=&related=  ','','width=600,height=400')">
+	<i class="fa fa-twitter-square fa-lg"></i></a>
+    
+	<a href="https://facebook.com/sharer.php?u=http://www.mrcolson.com/2016/04/21/Disq-Record.html" 
+	rel="nofollow" 
+	title="Share on Facebook"
+	target="popup" 
+	onclick="window.open('https://facebook.com/sharer.php?u=http://www.mrcolson.com/2016/04/21/Disq-Record.html  ','','width=600,height=400')">
+	<i class="fa fa-facebook-square fa-lg"></i></a>
+	
+    <a href="https://plus.google.com/share?url=http://www.mrcolson.com/2016/04/21/Disq-Record.html" 
+	rel="nofollow"  
+	title="Share on Google+"
+	target="popup"
+	onclick="window.open('https://plus.google.com/share?url=http://www.mrcolson.com/2016/04/21/Disq-Record.html  ','','width=600,height=400')">
+	<i class="fa fa-google-plus-square fa-lg"></i></a>
+	
+</div>
+</div>
+
+
+        </br></br>
+        
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mrcolson';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is based on the <a href "http://jekyllthemes.org/themes/folio/">*folio</a>  theme. It is hosted on <a href="https://github.com" target="_blank">Github</a>.  &#169;Doug Olson, 2015</p>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>
