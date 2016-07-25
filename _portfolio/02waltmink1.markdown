@@ -7,6 +7,6 @@ comments: True
 ---
 [Walt Mink - Miss Happiness](http://www.youtube.com/playlist?list=PLBc1-5rIaB5diDcTMz0laeavC4h0OjcXd)
 
-Recorded March 1992, I Produced, Engineered and Mixed
+Recorded March 1992, I Produced, Engineered and Mixed. One of my favorites. Incredibly talented and cool people.
 
 Read a bit more about [recording Miss Happiness]({% post_url 2015-10-20-Walt-Mink %})

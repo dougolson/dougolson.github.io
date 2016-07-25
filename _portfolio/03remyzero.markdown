@@ -5,6 +5,8 @@ description: The Golden Hum
 img: /img/remyzero.jpg
 ---
 
+Check out [Save Me](https://www.youtube.com/watch?v=LYdCzs5uPrI) 
+
 Jack Joseph Puig Produced "The Golden Hum" in 2001, and working for him was quite an experience. He's an intense guy, and I learned a lot from him. We worked really hard - long hours, day after day, and I got to see some real magic happen in the studio, and to see a guy at the top of the profession, working in his element. It wasn't always pleasant, but almost all of that is on me. I didn't come up through the ranks in L.A., and I had plenty to learn. Not to paint too dark a picture, though. It was also a lot of fun. A ton of fun, to be exact. So many crazy parties, so much sushi, so much red wine...
 
 Since Jack was a very in-demand mix engineer, the recording went back and forth between Oceanway, where I mostly ran the Pro Tools rig, and, when Jack had a mix gig, Cole Stages, where it was just me and the band. So there are some songs on the record, like "I'm not afraid" and "The Golden Hum," that I recorded almost in their entirety, and some I just did a few overdubs on.
