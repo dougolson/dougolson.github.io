@@ -5,7 +5,7 @@ description: Blunt Instrument EP
 img: /img/bluntinstrument.jpg
 comments: True
 ---
-This is the first recording I ever did that sounded really "pro" to me. The band had a lot to do with it - they always do. The songs and performances are strong, the arrangements are clean and uncluttered, and the players - Charlie Cronk on drums, Reid Johnston on guitar and vocals, Joe Sweeny on bass, and the late Mark Beckley Roberts on guitar and vocals - were all solid. So they made it pretty easy to get a good sound. It was a milestone for me, nevertheless. After this I knew I could raise the bar a lot higher, and I had a better idea of how to do it. 
+This is the first recording I ever did that sounded really "pro" to me. The band had a lot to do with it - they always do. The songs and performances are strong, the arrangements are clean and uncluttered, and the players - Charlie Cronk on drums, Reid Johnston on guitar and vocals, Joe Sweeney on bass, and the late Mark Beckley Roberts on guitar and vocals - were all solid. So they made it pretty easy to get a good sound. It was a milestone for me, nevertheless. After this I knew I could raise the bar a lot higher, and I had a better idea of how to do it. 
 
 Here's the whole EP:
 <br>
