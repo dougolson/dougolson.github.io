@@ -23,7 +23,7 @@ kramdown:
 paginate: 15
 paginate_path: "/blog/page:num/"
 
-gems:
+plugins:
   - jekyll-sitemap
   
 collections:
